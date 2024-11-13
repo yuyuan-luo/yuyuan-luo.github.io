@@ -4,7 +4,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 60%;
 }
 .centertext {
     text-align: center;
@@ -39,10 +39,10 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
     <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> I first motivate spectra as a fundamental object of study. Then, I demonstrate how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
-    <p class="centertext"> I assume very little.  </p>
+    <p class="centertext"> This talk is aimed at those familiar with algebraic topology but not homotopy theory. I assume as little as possible and go at a relatively leisurely pace.  </p>
 
     <h2>I. Spectra</h2>
-    <p>Take \(X\) to be a pointed path-connected space. </p>
+    <p>Take \(X\) to be a pointed path-connected space with the structure of a CW-complex. </p>
     <p><b>Vague question.</b> What are the dimension-independent properties of \(X\)?</p>
     <p>To make sense of this question, we need a generalization of \(X\) that provides some space in "each dimension" which preserve the relevant structure of \(X\). In particular, we need to decide what "relavant structure" means.</p>
     <h3> preserving homology: suspension & stability</h3>
@@ -61,19 +61,32 @@ a, u {
         But homotopy groups <i>are</i> invariant under certain connectedness conditions:
     </p>
     <p>
-        <b>Freudenthal suspension theorem. </b> Suppose \(X\) is \(n\)-connected. The map $$X \rightarrow \Omega \Sigma X$$ induces the map
+        <b>Freudenthal suspension theorem. </b> Suppose \(X\) is \(n\)-connected. The map $$X \rightarrow \Omega \Sigma X$$
+        <img src="img/brownrep1.png" class="center" alt="demonstration of the map X -> loops of suspension of X"> 
+        induces the map
         $$f_k: \pi_k(X) \rightarrow \pi_k(\Omega \Sigma X) \simeq \pi_{k+1}(\Sigma X)$$
-        where the last isomorphism is given by the loop-suspension adjunction. Then \(f_k\) is an isomorphism for \(k \leq 2n\) and an epimorphism for \(k = 2n+1\).
+        where the last isomorphism is given by the suspension-loop adjunction. Then \(f_k\) is an isomorphism for \(k \leq 2n\) and an epimorphism for \(k = 2n+1\).
     </p>
-    <p>(<a style = "background-color: #80800080; color:black" href="https://bpb-us-w2.wpmucdn.com/web.sas.upenn.edu/dist/0/713/files/2020/08/FSTnotes.pdf"><i>Here</i></a> is an elementary reference for this theorem.)</p>
-    <p><i>Proof.</i> Take \(\Sigma X = (CX)^+ \cup (CX)^-\), the decomposition of the suspension into cones that intersect at \(X\). Apply homotopy excision to 
-    \( ((CX)_{+},X)\subset (\Sigma X,(CX)_{-})\), use the homotopy long exact sequence, and remember that cones are contractible. </p>
+    <p>This theorem is a direct consequence of <a href="https://math.colorado.edu/~agbe5088/math6280/classnotes/Daniel_Martin.pdf" style="color:black; background-color:#80800080"><i>homotopy excision</i></a>.</p>
+    <div class="proof">Take \(\Sigma X = (CX)^+ \cup (CX)^-\), the decomposition of the suspension into reduced cones that intersect at \(X\). We will apply homotopy excision to 
+        $$ ((CX)_{+},X)\subset (\Sigma X,(CX)_{-}).$$ 
+        <img src="img/brownrep2.png" class="center" alt="homotopy excision cones">
+        Notice that since \(X\) is \(n\)-connected, by the long exact sequence in relative homotopy, \(((CX)_{+},X)\) and \(((CX)_{-},X)\)
+        are \((n+1)\)-connected as cones are contractible. Then homotopy excision says that 
+        $$g_k: \pi_k((CX)_{+},X) \rightarrow \pi_k(\Sigma X,(CX)_{-})$$
+        is an isomorphism for \(k < 2n+2\) and a surjection for \(k = 2n+2.\)</p>
+        <p>Also, by the long exact sequence in relative homotopy, we have isomorphisms
+            $$\pi_k((CX)_{+},X) \xrightarrow{\sim} \pi_{k-1}(X)$$
+            and since cones are contractible, \(\pi_k(\Sigma X,(CX)_{-}) = \pi_k(\Sigma X).\) Substituting back into \(g_k\) we have the desired isomorphisms/surjection.
+        </p>
+        <p>(You can work through the homotopy excision and the suspension-loop adjunction explicitly to see \(g_k\) is the same map as \(f_k\).) </p></div>
 
     <p>Unfortunately, if \(X\) doesn't start out very well-connected, this theorem doesn't say much. But recall that taking suspensions raises the connectivity: the first nonzero homotopy group is also 
         the first nonzero homology group, and taking suspension shifts the indices of the homology groups by one, so if \(X\) is \(n\)-connected, then \(\Sigma X\) must be \((n+1)\)-connected, and \(\Sigma^k X\) is \((n+k)\)-connected.
         As we keep on taking higher and higher suspensions, more and more homotopy groups stay the same, and we can make the following definition.
     </p>
     <p><b>Definition.</b> The \(i\)-th stable homotopy group of \(X\) is $$\pi_i^s(X) = \lim_n \pi_{n+i}(\Sigma^i X).$$</p>
+    <p>(Note: this is a colimit in the category of abelian groups.)</p>
 
     <h3>preserving homotopy: \(\Omega\)-spectra</h3>
     <p> What if, instead, we took the "relevant structure" to mean directly that the homotopy groups are preserved? In other words, we wonder whether there is a sequence of spaces \(\{X_i\}_{i\in \mathbb{Z}}\) such that
@@ -88,17 +101,33 @@ a, u {
         $$X_i \rightarrow \Omega X_{i+1}.$$
         </p>
     <p>It is a priori unclear that given \(X\), there is a \(\Omega\)-spectrum where \(X_0=X\). But actually there is, by the construction in <a style="color:#C04000" href="#specfromcoh"><b>section IV</b>.</a>  </p>
-    <h3>general notions of spectra: a philosophical digression</h3>
+    <h3>general notions of spectra: first steps</h3>
     <p></p>
 
     
 
     <h2>II. Cohomology Theories</h2>
+    <p>Let \(\mathcal{C}\) be the category of CW-pairs, and \(\mathbf{Ab}\) the category of abelian groups. Recall the Eilenberg-Steenrod axioms:</p>
+    <p><b>Definition.</b> A <i>cohomology theory</i> consists of functors \(H^q:\mathcal{C}^{op} \rightarrow \mathbf{Ab}\) for \(q \in \mathbb{Z}\) with a collection of natural isomorphisms \(\partial: H^q(A) \rightarrow H^{q+1}(X,A)\) satisfying
+        <ul>
+            <li>(<i>homotopy</i>) if \(f,g:(X,A) \rightarrow (Y,B)\) are homotopic, then \(H^q(f) = H^q(g).\)</li>
+            <li>(<i>exactness</i>) for inclusions \(i: (X,\varnothing) \hookrightarrow (X,A)\) and \(j:A \hookrightarrow X\) the following sequence is exact:
+            $$\cdots \rightarrow H^{q-1}(A) \xrightarrow{\partial} H^q(X,A) \xrightarrow{H^q(i)} H^q(X) \xrightarrow{H^q(j)} H^q(A) \rightarrow \cdots$$</li>
+            <li>(<i>excision</i>) for pairs \((X_1, X_1\cap X_2)\) and \((X_2, X_1\cap X_2)\) we have isomorphism
+                $$H^q(X_1\cup X_2, X_1) \xrightarrow{\sim} H^q(X_1, X_1 \cap X_2)$$ induced by the inclusion.</li>
+            <li>(<i>additivity</i>) if \(U\) is a space with discrete topology and \(i: \{p\} \hookrightarrow U\), we have
+            $$\prod_{p \in U}H^q(i):H^q(U) \xrightarrow{\sim} \prod_{p \in U} H^q(p).$$
+            For sequence of subcomplexes \(X_1 \subseteq X_2 \subseteq X_3 \subseteq \cdots\) where \(X = \bigcup_{n}X_n,\) the inclusions induce epimorphism
+            $$H^q(X) \rightarrow \varprojlim H^q(X^n).$$
+        </li>
+        </ul>
+    </p>
 
     <h2>III. Cohomology Theories from Spectra</h2>
 
     <h2 id="specfromcoh">IV. Spectra from Cohomology Theories</h2>
 
-
+    <h2>V. Categorical Reformulation</h2>
+    <p>At this point, we want to say the sentence "cohomology theories are representable functors."</p>
 
 </body></html>
