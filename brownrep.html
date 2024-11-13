@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.centertext {
+    text-align: center;
+}
+:root {
+    --olive: #ff0000; 
+}
+body {
+    font-family: 'Spectral' !important;
+}
+a, u {
+  text-decoration: none;
+}
+
+</style>
+
+
+    <title>Brown representability, from the ground up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+<meta name="google-site-verification" content="ZQ3T9byeXwrpmoRI93u8jHhLWr8mKufRe06xLfDOsIM" />
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <h1>brown representability, from the ground up</h1>
+    <h2 class="centertext" style="color: #C04000"> ACTIVELY UNDER CONSTRUCTION, PLEASE CHECK BACK IN ONE WEEK</h2>
+ 
+    <br>
+    <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
+    <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
+    <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> I first motivate spectra as a fundamental object of study. Then, I demonstrate how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
+    <p class="centertext"> I assume very little.  </p>
+
+    <h2>I. Spectra</h2>
+    <p>Take \(X\) to be a pointed path-connected space. </p>
+    <p><b>Vague question.</b> What are the dimension-independent properties of \(X\)?</p>
+    <p>To make sense of this question, we need a generalization of \(X\) that provides some space in "each dimension" which preserve the relevant structure of \(X\). In particular, we need to decide what "relavant structure" means.</p>
+    <h3> preserving homology: suspension & stability</h3>
+    <p>
+        A candidate for the "relavant structure" is homology, which is preserved under taking suspensions: we have isomorphisms
+        $$\tilde{H}_{k+1}(\Sigma X) \xrightarrow{\sim} \tilde{H}_{k}(X)$$
+        in reduced homology, coming from Mayer-Vietoris by viewing suspension as gluing together two cones (recall cones are contractible.) Taking the \(k\)-suspension of \(X\) simply shifts the indices of the homology groups by \(k\),
+        so homology is essentially invariant under suspension.
+    </p>
+    <p><b>Definition.</b> A <i>suspension spectrum</i> is a sequence of spaces \(\{X_i\}_{i \in \mathbb{Z}}\) with <i>structure maps</i>
+    $$\Sigma X_i \xrightarrow{\sim} X_{i+1}$$
+    which are isomorphisms.
+    </p>
+    <p>
+        How much structure does this invariance of homology groups force? The natural next thing to wonder is whether homotopy groups are also invariant under suspension. Clearly this isn't true on the nose: \(S^k = \Sigma^{k-1}S^1\), and homotopy groups of spheres are not so simple.
+        But homotopy groups <i>are</i> invariant under certain connectedness conditions:
+    </p>
+    <p>
+        <b>Freudenthal suspension theorem. </b> Suppose \(X\) is \(n\)-connected. The map $$X \rightarrow \Omega \Sigma X$$ induces the map
+        $$f_k: \pi_k(X) \rightarrow \pi_k(\Omega \Sigma X) \simeq \pi_{k+1}(\Sigma X)$$
+        where the last isomorphism is given by the loop-suspension adjunction. Then \(f_k\) is an isomorphism for \(k \leq 2n\) and an epimorphism for \(k = 2n+1\).
+    </p>
+    <p>(<a style = "background-color: #80800080; color:black" href="https://bpb-us-w2.wpmucdn.com/web.sas.upenn.edu/dist/0/713/files/2020/08/FSTnotes.pdf"><i>Here</i></a> is an elementary reference for this theorem.)</p>
+    <p><i>Proof.</i> Take \(\Sigma X = (CX)^+ \cup (CX)^-\), the decomposition of the suspension into cones that intersect at \(X\). Apply homotopy excision to 
+    \( ((CX)_{+},X)\subset (\Sigma X,(CX)_{-})\), use the homotopy long exact sequence, and remember that cones are contractible. </p>
+
+    <p>Unfortunately, if \(X\) doesn't start out very well-connected, this theorem doesn't say much. But recall that taking suspensions raises the connectivity: the first nonzero homotopy group is also 
+        the first nonzero homology group, and taking suspension shifts the indices of the homology groups by one, so if \(X\) is \(n\)-connected, then \(\Sigma X\) must be \((n+1)\)-connected, and \(\Sigma^k X\) is \((n+k)\)-connected.
+        As we keep on taking higher and higher suspensions, more and more homotopy groups stay the same, and we can make the following definition.
+    </p>
+    <p><b>Definition.</b> The \(i\)-th stable homotopy group of \(X\) is $$\pi_i^s(X) = \lim_n \pi_{n+i}(\Sigma^i X).$$</p>
+
+    <h3>preserving homotopy: \(\Omega\)-spectra</h3>
+    <p> What if, instead, we took the "relevant structure" to mean directly that the homotopy groups are preserved? In other words, we wonder whether there is a sequence of spaces \(\{X_i\}_{i\in \mathbb{Z}}\) such that
+        \(X_0=X\) and $$ \pi_k(X_i) = \pi_{k+1}(X_{i+1}).$$
+        
+        We may rewrite this condition on homotopy groups by using the suspension-loop adjunction, as
+        $$[S^k,X_n] = [S^{k+1}, X_{n+1}] \simeq [S^k, \Omega X_{n+1}].$$
+        At this point, we may be tempted to try to find \(X_{n+1}\) iteratively so that \(X_n = \Omega X_{n+1}\). Unfortunately, not all spaces can be de-looped; see May's treatise on operads, <a style="color:black; background-color: #80800080;" href="https://www.math.uchicago.edu/~may/BOOKS/gils.pdf"><i>The Geometry of Iterated Loop Spaces.</i></a>
+        Instead we settle for just requiring weak equivalences:
+    </p>
+    <p><b>Definition.</b> An \(\Omega\)<i>-spectrum</i> is a sequence of spaces \(\{X_i\}_{i \in \mathbb{Z}}\) with weak equivalences
+        $$X_i \rightarrow \Omega X_{i+1}.$$
+        </p>
+    <p>It is a priori unclear that given \(X\), there is a \(\Omega\)-spectrum where \(X_0=X\). But actually there is, by the construction in <a style="color:#C04000" href="#specfromcoh"><b>section IV</b>.</a>  </p>
+    <h3>general notions of spectra: a philosophical digression</h3>
+    <p></p>
+
+    
+
+    <h2>II. Cohomology Theories</h2>
+
+    <h2>III. Cohomology Theories from Spectra</h2>
+
+    <h2 id="specfromcoh">IV. Spectra from Cohomology Theories</h2>
+
+
+
+</body></html>
