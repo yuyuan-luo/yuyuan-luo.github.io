@@ -6,6 +6,14 @@
     margin-right: auto;
     width: 60%;
 }
+.centerpad {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
 .centertext {
     text-align: center;
 }
@@ -52,7 +60,7 @@ a, u {
         in reduced homology, coming from Mayer-Vietoris by viewing suspension as gluing together two cones (recall cones are contractible.) Taking the \(k\)-suspension of \(X\) simply shifts the indices of the homology groups by \(k\),
         so homology is essentially invariant under suspension.
     </p>
-    <p><b>Definition.</b> A <i>suspension spectrum</i> is a sequence of spaces \(\{X_i\}_{i \in \mathbb{Z}}\) with <i>structure maps</i>
+    <p id="susspecdef"><b>Definition.</b> A <i >suspension spectrum</i> is a sequence of spaces \(\{X_i\}_{i \in \mathbb{Z}}\) with <i>structure maps</i>
     $$\Sigma X_i \xrightarrow{\sim} X_{i+1}$$
     which are isomorphisms.
     </p>
@@ -60,7 +68,7 @@ a, u {
         How much structure does this invariance of homology groups force? The natural next thing to wonder is whether homotopy groups are also invariant under suspension. Clearly this isn't true on the nose: \(S^k = \Sigma^{k-1}S^1\), and homotopy groups of spheres are not so simple.
         But homotopy groups <i>are</i> invariant under certain connectedness conditions:
     </p>
-    <p>
+    <p id="freudenthal">
         <b>Freudenthal suspension theorem. </b> Suppose \(X\) is \(n\)-connected. The map $$X \rightarrow \Omega \Sigma X$$
         <img src="img/brownrep1.png" class="center" alt="demonstration of the map X -> loops of suspension of X"> 
         induces the map
@@ -93,7 +101,7 @@ a, u {
         \(X_0=X\) and $$ \pi_k(X_i) = \pi_{k+1}(X_{i+1}).$$
         
         We may rewrite this condition on homotopy groups by using the suspension-loop adjunction, as
-        $$[S^k,X_n] = [S^{k+1}, X_{n+1}] \simeq [S^k, \Omega X_{n+1}].$$
+        $$\pi_k(X_i)=[S^k,X_i] = [S^{k+1}, X_{i+1}] \simeq [S^k, \Omega X_{i+1}] = \pi_k(\Omega X_{i+1}).$$
         At this point, we may be tempted to try to find \(X_{n+1}\) iteratively so that \(X_n = \Omega X_{n+1}\). Unfortunately, not all spaces can be de-looped; see May's treatise on operads, <a style="color:black; background-color: #80800080;" href="https://www.math.uchicago.edu/~may/BOOKS/gils.pdf"><i>The Geometry of Iterated Loop Spaces.</i></a>
         Instead we settle for just requiring weak equivalences:
     </p>
@@ -101,14 +109,41 @@ a, u {
         $$X_i \rightarrow \Omega X_{i+1}.$$
         </p>
     <p>It is a priori unclear that given \(X\), there is a \(\Omega\)-spectrum where \(X_0=X\). But actually there is, by the construction in <a style="color:#C04000" href="#specfromcoh"><b>section IV</b>.</a>  </p>
+    <p><b>Example.</b> Our favorite example of spaces with simple homotopy groups are Eilenberg-Maclane spaces \(K(G,n)\), whose only nontrivial homotopy group
+    is \(\pi_n(K(G,n)) = G\). Then fixing \(G\), \(K(G,-)\) gives an \(\Omega\)-spectrum.</p>
+
     <h3>general notions of spectra: first steps</h3>
-    <p></p>
+    Somehow, we want <a style="color:#c04000" href="#susspecdef"><b>suspension spectra</b></a> and \(\Omega\)-spectra to be instances of the same object, a generalization of spaces. They're clearly not instances of one another (think about \(K(\mathbb{Z},1) = S^1\)) but they do share some 
+    similarities:
+    <ul>
+        <li>both have spaces \(\{X_i\}_{i \in \mathbb{Z}}\) in their data;</li>
+        <li>both have structure maps that are based on suspension: for suspension spectra, the structure maps are isomorphisms
+            $$\Sigma X_i \xrightarrow{\sim} X_{i+1}$$ whereas for \(\Omega\)-spectra, the suspension-loop adjunction give maps
+            $$\Sigma X_i \rightarrow X_{i+1}$$ adjoint to weak equivalences;
+        </li>
+        <li>
+            both have a notion of stable homotopy groups: by <a href="#freudenthal" style="color:#C04000"><b>Freudenthal suspension</b></a> they stabilize for suspension spectra,
+            and by definition homotopy groups are invariant for \(\Omega\)-spectra.
+        </li>
+    </ul>
+    </p>
+
+    <p>Motivated by this, we make the following preliminary definitions.</p>
+    <p><b>Definition.</b> A <i>(CW-)spectrum</i> consists of a sequence \(\{X_i\}_{i \in \mathbb{Z}}\) of pointed CW-complexes with structure maps 
+    \(\Sigma X_i \rightarrow X_{i+1}\).</p>
+    <p><b>Definition.</b> The <i>homotopy groups</i> of a spectrum \(X=\{X_i\}_{i \in \mathbb{Z}}\) is the colimit
+    $$\pi_n(X) = \lim_n \pi_{n+i}(X_i)$$
+    in the category of abelian groups, where the maps \(\pi_k(X_i) \rightarrow \pi_{k+1}(X_{i+1})\) are defined by factoring through:
+    <img src="img/brownrep3.png" class="centerpad" alt="commutative diagram of factoring">
+    </p>
+
+    <p>We will revisit the general notion of spectra in <a href="#catref" style="color:#C04000"><b>section V</b></a>. For now, it suffices to focus on \(\Omega\)-spectra.</p>
 
     
 
     <h2>II. Cohomology Theories</h2>
     <p>Let \(\mathcal{C}\) be the category of CW-pairs, and \(\mathbf{Ab}\) the category of abelian groups. Recall the Eilenberg-Steenrod axioms:</p>
-    <p><b>Definition.</b> A <i>cohomology theory</i> consists of functors \(H^q:\mathcal{C}^{op} \rightarrow \mathbf{Ab}\) for \(q \in \mathbb{Z}\) with a collection of natural isomorphisms \(\partial: H^q(A) \rightarrow H^{q+1}(X,A)\) satisfying
+    <p><b>Definition.</b> A <i>generalized cohomology theory</i> consists of functors \(H^q:\mathcal{C}^{op} \rightarrow \mathbf{Ab}\) for \(q \in \mathbb{Z}\) with a collection of natural isomorphisms \(\partial: H^q(A) \rightarrow H^{q+1}(X,A)\) satisfying
         <ul>
             <li>(<i>homotopy</i>) if \(f,g:(X,A) \rightarrow (Y,B)\) are homotopic, then \(H^q(f) = H^q(g).\)</li>
             <li>(<i>exactness</i>) for inclusions \(i: (X,\varnothing) \hookrightarrow (X,A)\) and \(j:A \hookrightarrow X\) the following sequence is exact:
@@ -121,13 +156,17 @@ a, u {
             $$H^q(X) \rightarrow \varprojlim H^q(X^n).$$
         </li>
         </ul>
+
+        <p><b>Examples.</b> Beyond the ordinary cohomology theories, topological \(K\)-theory </p>
+
+        <p>We are finally ready to state the main theorem.</p>
     </p>
 
     <h2>III. Cohomology Theories from Spectra</h2>
 
     <h2 id="specfromcoh">IV. Spectra from Cohomology Theories</h2>
 
-    <h2>V. Categorical Reformulation</h2>
+    <h2 id="catref">V. Categorical Reformulation</h2>
     <p>At this point, we want to say the sentence "cohomology theories are representable functors."</p>
 
 </body></html>
