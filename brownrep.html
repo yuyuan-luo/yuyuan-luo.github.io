@@ -11,7 +11,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 60%;
-    padding-top:10px;
+    padding-top:25px;
     padding-bottom: 10px;
 }
 .centertext {
@@ -105,7 +105,7 @@ a, u {
         At this point, we may be tempted to try to find \(X_{n+1}\) iteratively so that \(X_n = \Omega X_{n+1}\). Unfortunately, not all spaces can be de-looped; see May's treatise on operads, <a style="color:black; background-color: #80800080;" href="https://www.math.uchicago.edu/~may/BOOKS/gils.pdf"><i>The Geometry of Iterated Loop Spaces.</i></a>
         Instead we settle for just requiring weak equivalences:
     </p>
-    <p><b>Definition.</b> An \(\Omega\)<i>-spectrum</i> is a sequence of spaces \(\{X_i\}_{i \in \mathbb{Z}}\) with weak equivalences
+    <p id="omegspecdef"><b>Definition.</b> An \(\Omega\)<i>-spectrum</i> is a sequence of spaces \(\{X_i\}_{i \in \mathbb{Z}}\) with weak equivalences
         $$X_i \rightarrow \Omega X_{i+1}.$$
         </p>
     <p>It is a priori unclear that given \(X\), there is a \(\Omega\)-spectrum where \(X_0=X\). But actually there is, by the construction in <a style="color:#C04000" href="#specfromcoh"><b>section IV</b>.</a>  </p>
@@ -113,7 +113,7 @@ a, u {
     is \(\pi_n(K(G,n)) = G\). Then fixing \(G\), \(K(G,-)\) gives an \(\Omega\)-spectrum.</p>
 
     <h3>general notions of spectra: first steps</h3>
-    Somehow, we want <a style="color:#c04000" href="#susspecdef"><b>suspension spectra</b></a> and \(\Omega\)-spectra to be instances of the same object, a generalization of spaces. They're clearly not instances of one another (think about \(K(\mathbb{Z},1) = S^1\)) but they do share some 
+    Somehow, we want <a style="color:#c04000" href="#susspecdef"><b>suspension spectra</b></a> and <a style="color:#c04000" href="#omegspecdef"><b>\(\Omega\)-spectra</b></a> to be instances of the same object, a generalization of spaces. They're clearly not instances of one another (think about \(K(\mathbb{Z},1) = S^1\)) but they do share some 
     similarities:
     <ul>
         <li>both have spaces \(\{X_i\}_{i \in \mathbb{Z}}\) in their data;</li>
