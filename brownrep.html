@@ -52,7 +52,8 @@ a, u {
     <br>
     <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
-    <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> I first motivate spectra as a fundamental object of study. Then, I demonstrate how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
+    <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> You can also read about this theorem in 
+        <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E. I first motivate spectra as a fundamental object of study. Then, I demonstrate how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
     <p class="centertext"> This talk is aimed at those familiar with algebraic topology but not homotopy theory. I assume as little as possible and go at a relatively leisurely pace.  </p>
 
     <h2>I. Spectra</h2>
@@ -168,24 +169,26 @@ a, u {
     <p>The motivating example for the main theorem is the fact that for ordinary cohomology, \(H^q(X, G) \simeq [X, K(G,n)]\). If you're
         unfamiliar with this fact, I quite like the first chapter of <a href="https://www.maths.ed.ac.uk/~v1ranick/papers/moshtang.pdf" style="color:black;background-color: #80800080;"><i>Cohomology Operations and Applications in Homotopy Theory</i></a> by Mosher and Tangora.
     </p>
-
+    <p>
+        We are almost ready to state the main theorem. Given a pair \((X,A)\), we now define something that makes the \(A\) part contractible. Let \(Z(X,A)\) be \(X\) with an unreduced cone over \(A\), with basepoint \(p\) at the tip of the cone:
+        <img src="img/brownrep4.png" class="center" style="width:40%">
+    </p>
     <p><b>Brown Representability Theorem.</b> If \(\{H^q, \partial\}\) is a cohomology theory, there is an \(\Omega\)-spectrum \(Y=\{Y_q\}\) such that 
-    there is a natural isomorphism $$T^q:[-,Y_q] \xrightarrow{\sim} H^q$$ such that \(\partial T^q = T^{q+1} \partial.\)</p>
+    there is a natural isomorphism $$T^q:[Z(-),Y_q] \xrightarrow{\sim} H^q$$ such that \(\partial T^q = T^{q+1} \partial.\)</p>
     
 
     <h2>III. Cohomology Theories from Spectra</h2>
-    <p>Given an \(\Omega\)-spectrum \(Y = \{Y_q\}\), we show \([-,Y_q]\) specifies a cohomology theory. The boundary \(\partial\) is defined as follows: take 
-        $$f: \Sigma (X,A) \rightarrow (A,x_0)$$
-        <img src="img/brownrep4.jpeg" class="center2" alt="contract X\A to basepoint and project \Sigma A to A">
-        which induces a map (WAIT LOWKEY THIS IS WRONG)
-        $$[A,Y_q] \xrightarrow{f_*} [\Sigma (X,A), Y_q]$$
+    <p>Given an \(\Omega\)-spectrum \(Y = \{Y_q\}\), we want to show \([Z(-),Y_q]\) specifies a cohomology theory. The boundary \(\partial\) is defined as follows: take 
+        $$f: \Sigma Z(X,A) \rightarrow (A,x_0)$$
+        
+        $$[A,Y_q] \xrightarrow{f_*} [\Sigma Z(X,A), Y_q]$$
         which, by the suspension-loop adjunction, gives
         $$\partial: [A,Y_q] \rightarrow [(X,A), Y_{q+1}].$$
     </p>
-    <p>Now we show \(\{[-,Y_q], \partial\}\) is a cohomology theory by checking the axioms:</p>
+    <p>Now we show \(\{[Z(-),Y_q], \partial\}\) is a cohomology theory by checking the axioms:</p>
     <ul>
         <li><i>(homotopy)</i> this is clear since we're looking at homotopy classes of maps;</li>
-        <li><i>(exactness)</i> notice that \([(A,B),(Y_q,\{y_q\})]\) consists of maps which collapse \(B\) to a point, so it is equivalent to \([A/B, Y_q]\).</li> 
+        <li><i>(exactness)</i> notice that \([Z(A,B),(Y_q,\{y_q\})]\) consists of maps which collapse \(B\) to a point, so it is equivalent to \([A/B, Y_q]\).</li> 
         <li><i>(excision)</i> the isomorphism follows from the equivalent of spaces
         $$(X_1 \cup X_2)/X_2 \simeq X_1 / (X_1 \cap X_2).$$</li>
     </ul>
