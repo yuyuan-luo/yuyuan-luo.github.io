@@ -6,6 +6,12 @@
     margin-right: auto;
     width: 60%;
 }
+.center2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
 .centerpad {
     display: block;
     margin-left: auto;
@@ -146,10 +152,10 @@ a, u {
     <p><b>Definition.</b> A <i>generalized cohomology theory</i> consists of functors \(H^q:\mathcal{C}^{op} \rightarrow \mathbf{Ab}\) for \(q \in \mathbb{Z}\) with a collection of natural isomorphisms \(\partial: H^q(A) \rightarrow H^{q+1}(X,A)\) satisfying
         <ul>
             <li>(<i>homotopy</i>) if \(f,g:(X,A) \rightarrow (Y,B)\) are homotopic, then \(H^q(f) = H^q(g).\)</li>
-            <li>(<i>exactness</i>) for inclusions \(i: (X,\varnothing) \hookrightarrow (X,A)\) and \(j:A \hookrightarrow X\) the following sequence is exact:
+            <li>(<i>exactness</i>) for inclusions \(i: (X,\{x_0\}) \hookrightarrow (X,A)\) and \(j:A \hookrightarrow X\) the following sequence is exact:
             $$\cdots \rightarrow H^{q-1}(A) \xrightarrow{\partial} H^q(X,A) \xrightarrow{H^q(i)} H^q(X) \xrightarrow{H^q(j)} H^q(A) \rightarrow \cdots$$</li>
             <li>(<i>excision</i>) for pairs \((X_1, X_1\cap X_2)\) and \((X_2, X_1\cap X_2)\) we have isomorphism
-                $$H^q(X_1\cup X_2, X_1) \xrightarrow{\sim} H^q(X_1, X_1 \cap X_2)$$ induced by the inclusion.</li>
+                $$H^q(X_1\cup X_2, X_2) \xrightarrow{\sim} H^q(X_1, X_1 \cap X_2)$$ induced by the inclusion.</li>
             <li>(<i>additivity</i>) if \(U\) is a space with discrete topology and \(i: \{p\} \hookrightarrow U\), we have
             $$\prod_{p \in U}H^q(i):H^q(U) \xrightarrow{\sim} \prod_{p \in U} H^q(p).$$
             For sequence of subcomplexes \(X_1 \subseteq X_2 \subseteq X_3 \subseteq \cdots\) where \(X = \bigcup_{n}X_n,\) the inclusions induce epimorphism
@@ -164,10 +170,25 @@ a, u {
     </p>
 
     <p><b>Brown Representability Theorem.</b> If \(\{H^q, \partial\}\) is a cohomology theory, there is an \(\Omega\)-spectrum \(Y=\{Y_q\}\) such that 
-    there is a natural isomorphism $$T^q:[-,Y_q] \rightarrow H^q$$ such that \(\partial T^q = T^{q+1} \partial.\)</p>
+    there is a natural isomorphism $$T^q:[-,Y_q] \xrightarrow{\sim} H^q$$ such that \(\partial T^q = T^{q+1} \partial.\)</p>
     
 
     <h2>III. Cohomology Theories from Spectra</h2>
+    <p>Given an \(\Omega\)-spectrum \(Y = \{Y_q\}\), we show \([-,Y_q]\) specifies a cohomology theory. The boundary \(\partial\) is defined as follows: take 
+        $$f: \Sigma (X,A) \rightarrow (A,x_0)$$
+        <img src="img/brownrep4.jpeg" class="center2" alt="contract X\A to basepoint and project \Sigma A to A">
+        which induces a map 
+        $$[A,Y_q] \xrightarrow{f_*} [\Sigma (X,A), Y_q]$$
+        which, by the suspension-loop adjunction, gives
+        $$\partial: [A,Y_q] \rightarrow [(X,A), Y_{q+1}].$$
+    </p>
+    <p>Now we show \(\{[-,Y_q]\}, \partial\) is a cohomology theory by checking the axioms:</p>
+    <ul>
+        <li><i>(homotopy)</i> this is clear since we're looking at homotopy classes of maps;</li>
+        <li><i>(exactness)</i> notice that \([(A,B),(Y_q,\{y_q\})]\) consists of maps which collapse \(B\) to a point, so it is equivalent to \([A/B, Y_q]\).</li> 
+        <li><i>(excision)</i> the isomorphism follows from the equivalent of spaces
+        $$(X_1 \cup X_2)/X_2 \simeq X_1 / (X_1 \cap X_2).$$</li>
+    </ul>
 
     <h2 id="specfromcoh">IV. Spectra from Cohomology Theories</h2>
 
