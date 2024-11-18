@@ -53,7 +53,7 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
     <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> You can also read about this theorem in 
-        <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E. I first motivate spectra as a fundamental object of study. Then, I demonstrate how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
+        <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E. In this talk, I first demonstrate how spectra arise naturally. Then, I show how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
     <p class="centertext"> This talk is aimed at those familiar with basic algebraic topology but not homotopy theory. I assume as little as possible and try to include all the details. </p>
 
     <h2>I. Spectra</h2>
@@ -123,7 +123,7 @@ a, u {
     Somehow, we want <a style="color:#c04000" href="#susspecdef"><b>suspension spectra</b></a> and <a style="color:#c04000" href="#omegspecdef"><b>\(\Omega\)-spectra</b></a> to be instances of the same object, a generalization of spaces. They're clearly not instances of one another (think about \(K(\mathbb{Z},1) = S^1\)) but they do share some 
     similarities:
     <ul>
-        <li>both have spaces \(\{X_i\}_{i \in \mathbb{Z}}\) in their data;</li>
+        <li>both have sequences of spaces \(\{X_i\}_{i \in \mathbb{Z}}\) in their data;</li>
         <li>both have structure maps that are based on suspension: for suspension spectra, the structure maps are isomorphisms
             $$\Sigma X_i \xrightarrow{\sim} X_{i+1}$$ whereas for \(\Omega\)-spectra, the suspension-loop adjunction give maps
             $$\Sigma X_i \rightarrow X_{i+1}$$ adjoint to weak equivalences;
@@ -135,7 +135,7 @@ a, u {
     </ul>
     </p>
 
-    <p>Motivated by this, we make the following preliminary definitions.</p>
+    <p>Motivated by this, we make the following definitions.</p>
     <p><b>Definition.</b> A <i>(CW-)spectrum</i> consists of a sequence \(\{X_i\}_{i \in \mathbb{Z}}\) of pointed CW-complexes with structure maps 
     \(\Sigma X_i \rightarrow X_{i+1}\).</p>
     <p><b>Definition.</b> The <i>homotopy groups</i> of a spectrum \(X=\{X_i\}_{i \in \mathbb{Z}}\) is the colimit
@@ -160,7 +160,7 @@ a, u {
             <li>(<i>additivity</i>) if \(U\) is a space with discrete topology and \(i: \{p\} \hookrightarrow U\), we have
             $$\prod_{p \in U}H^q(i):H^q(U) \xrightarrow{\sim} \prod_{p \in U} H^q(p).$$
             For sequence of subcomplexes \(X_1 \subseteq X_2 \subseteq X_3 \subseteq \cdots\) where \(X = \bigcup_{n}X_n,\) the inclusions induce epimorphism
-            $$H^q(X) \rightarrow \varprojlim H^q(X^n).$$
+            $$H^q(X) \rightarrow \varprojlim H^q(X_n).$$
         </li>
         </ul>
     </p>
@@ -170,7 +170,7 @@ a, u {
         unfamiliar with this fact, I quite like the first chapter of <a href="https://www.maths.ed.ac.uk/~v1ranick/papers/moshtang.pdf" style="color:black;background-color: #80800080;"><i>Cohomology Operations and Applications in Homotopy Theory</i></a> by Mosher and Tangora.
     </p>
     <p>
-        We are almost ready to state the main theorem. Given a pair \((X,A)\), we now define something that makes the \(A\) part contractible. Let \(Z(X,A)\) be \(X\) with an unreduced cone over \(A\), with basepoint \(p\) at the tip of the cone:
+        We are almost ready to state the main theorem. Given a pair \((X,A)\), we now define a new space that makes the \(A\) part contractible. Let \(Z(X,A)\) be \(X\) with an unreduced cone over \(A\), with basepoint \(p\) at the tip of the cone:
         <img src="img/brownrep4.png" class="center" style="width:40%">
         Notice that \(Z(X,\varnothing) = X \sqcup \{p\}.\)
     </p>
@@ -188,19 +188,40 @@ a, u {
         which, by the suspension-loop adjunction, gives
         $$\partial: [Z(A),Y_q] \rightarrow [Z(X,A), Y_{q+1}].$$
     </p>
-    <p>Now we show \(\{[Z(-),Y_q], \partial\}\) is a cohomology theory. First, \([Z(-),Y_q]\) actually lands in \(\mathbf{Ab}\)  simply checking the axioms:</p>
+    <p>Now we show \(\{[Z(-),Y_q], \partial\}\) is a cohomology theory. First, \([Z(-),Y_q]\) actually lands in \(\mathbf{Ab}\):  </p>
+    <ul>
+        <li>\([Z(X), Y_q]\) forms a group, and the group action is defined by treating \(Y_q\) as a loop space and composing loops: suppose \(f,g \in [Z(X),Y_q],\) let \(\Delta\) denote the diagonal map, and let \(\phi: Y_q \xrightarrow{\sim} \Omega Y_{q+1}\) be the structure map. Then
+            $$Z(X) \xrightarrow{\Delta} Z(X) \times Z(X) \xrightarrow{(f,g)} Y_q \times Y_q \xrightarrow{(\phi,\phi)} \Omega Y_{q+1} \times \Omega Y_{q+1} \rightarrow \Omega Y_{q+1}$$
+            (where the last map is composition of loops) gives an element in \([Z(X),\Omega Y_{q+1}] \simeq [Z(X), Y_{q}]\), and the inverse is traversing the loop backwards. Composition of loops is homotopy-associative by rescaling time.
+        </li>
+        <li>it is abelian: note that
+            $$[Z(X), Y_q] \simeq [Z(X),\Omega^2 Y_{q+2}]$$
+            and by the suspension-loop adjunction and the smash product-mapping spaces (analogous to tensor-hom) adjunction, we have
+            $$[Z(X),\Omega^2 Y_{q+2}] \simeq [\Sigma^2 Z(X),Y_{q+2}] \simeq [S^2 \wedge Z(X),Y_{q+2}] $$
+            $$\simeq [S^2,\text{Map}(Z(X),Y_{q+2})] \simeq \pi_2 (\text{Map}(Z(X),Y_{q+2}))$$
+            which is abelian.
+        </li>
+    </ul>
+    <p> Now all that's left to show \(\{[Z(-),Y_q], \partial\}\) is a cohomology theory is to simply check the Eilenberg-Steenrod axioms: </p>
     <ul>
         <li><i>(homotopy)</i> this is clear since we're looking at homotopy classes of maps;</li>
         <li><i>(exactness)</i> check exactness at each map:
         <img src="img/brownrep6.jpeg" class="center2" style="padding-top:10px; padding-bottom: 15px;"></li> 
-        <li><i>(excision)</i> notice that \([Z(A,B),Y_q]\) consists of maps which collapse \(C(B)\) to a point, so it is equivalent to \([A/B, Y_q]\). Then the excision isomorphism follows from the equivalent of spaces
+        <li><i>(excision)</i> notice that \([Z(A,B),Y_q]\) consists of maps which collapse \(C(B)\) to a point, so it is equivalent to \([A/B, Y_q]\). Then the excision isomorphism follows from the equivalence of spaces
         $$(X_1 \cup X_2)/X_2 \simeq X_1 / (X_1 \cap X_2);$$</li>
-        <li><i>(additivity)</i> this is clear since mapping points one by one into </li>
+        <li><i>(additivity)</i> for \(U\) with discrete topology, clearly
+            $$ [U,Y_q] \simeq \prod_{p \in U}[\{p\},Y_q]$$ since mapping points one by one into \(Y_q\) gives the same information as mapping all of them at once, and given a sequence of subcomplexes \(X_1 \subseteq X_2 \subseteq X_3 \subseteq \cdots\) where \(X = \bigcup_{n}X_n,\),
+            the induced map
+            $$ [X, Y_q] \rightarrow \varprojlim [X_i, Y_q]$$
+            is clearly surjective: any class of \(\varprojlim [X_i, Y_q]\) gives a compatible (in terms of subcomplexes of \(X\)) class of \([X_i, Y_q]\) for each \(i\), so we can build a class in \([X, Y_q].\)</li>
     </ul>
 
     <h2 id="specfromcoh">IV. Spectra from Cohomology Theories</h2>
 
     <h2 id="catref">V. Categorical Reformulation</h2>
     <p>At this point, we want to say the sentence "cohomology theories are representable functors."</p>
+
+    <h4><i>acknowledgement</i></h4>
+    Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos</b></a> for chatting with me about this and providing perspectives!
 
 </body></html>
