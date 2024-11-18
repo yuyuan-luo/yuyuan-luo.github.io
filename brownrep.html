@@ -54,7 +54,7 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
     <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> You can also read about this theorem in 
         <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E. I first motivate spectra as a fundamental object of study. Then, I demonstrate how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
-    <p class="centertext"> This talk is aimed at those familiar with algebraic topology but not homotopy theory. I assume as little as possible and go at a relatively leisurely pace.  </p>
+    <p class="centertext"> This talk is aimed at those familiar with basic algebraic topology but not homotopy theory. I assume as little as possible and try to include all the details. </p>
 
     <h2>I. Spectra</h2>
     <p>Take \(X\) to be a pointed path-connected space with the structure of a CW-complex. </p>
@@ -109,13 +109,13 @@ a, u {
         
         We may rewrite this condition on homotopy groups by using the suspension-loop adjunction, as
         $$\pi_k(X_i)=[S^k,X_i] = [S^{k+1}, X_{i+1}] \simeq [S^k, \Omega X_{i+1}] = \pi_k(\Omega X_{i+1}).$$
-        At this point, we may be tempted to try to find \(X_{n+1}\) iteratively so that \(X_n = \Omega X_{n+1}\). Unfortunately, not all spaces can be de-looped; see May's treatise on operads, <a style="color:black; background-color: #80800080;" href="https://www.math.uchicago.edu/~may/BOOKS/gils.pdf"><i>The Geometry of Iterated Loop Spaces.</i></a>
-        Instead we settle for just requiring weak equivalences:
+        This is essentially requiring weak equivalences.
     </p>
-    <p id="omegspecdef"><b>Definition.</b> An \(\Omega\)<i>-spectrum</i> is a sequence of spaces \(\{X_i\}_{i \in \mathbb{Z}}\) with weak equivalences
+    <p id="omegspecdef"><b>Definition.</b> An \(\Omega\)<i>-spectrum</i> is a sequence of CW-complexes \(\{X_i\}_{i \in \mathbb{Z}}\) with weak equivalences
         $$X_i \rightarrow \Omega X_{i+1}.$$
         </p>
-    <p>It is a priori unclear that given \(X\), there is a \(\Omega\)-spectrum where \(X_0=X\). But actually there is, by the construction in <a style="color:#C04000" href="#specfromcoh"><b>section IV</b>.</a>  </p>
+    <p>Notice by Whitehead's theorem, the weak equivalences are in fact homotopy equivalences. This, then, also means that \(X_i\) are infinite loop spaces.
+    </p>
     <p><b>Example.</b> Our favorite example of spaces with simple homotopy groups are Eilenberg-Maclane spaces \(K(G,n)\), whose only nontrivial homotopy group
     is \(\pi_n(K(G,n)) = G\). Then fixing \(G\), \(K(G,-)\) gives an \(\Omega\)-spectrum.</p>
 
@@ -179,7 +179,8 @@ a, u {
     
 
     <h2>III. Cohomology Theories from Spectra</h2>
-    <p>Given an \(\Omega\)-spectrum \(Y = \{Y_q\}\), we show \([Z(-),Y_q]\) specifies a cohomology theory. The boundary \(\partial\) is defined as follows: take 
+    <p>Given an \(\Omega\)-spectrum \(Y = \{Y_q\}\), we want to show \([Z(-),Y_q]\) specify cohomology groups. 
+        The boundary map \(\partial\) of the associated cohomology theory is defined as follows: take 
         $$f: \Sigma Z(X,A) \rightarrow Z(A,\varnothing)$$
         <img src="img/brownrep5.jpeg" class="center" alt="sending everything to a point">
         to be the map sending everything to the base point, which induces
@@ -187,11 +188,11 @@ a, u {
         which, by the suspension-loop adjunction, gives
         $$\partial: [Z(A),Y_q] \rightarrow [Z(X,A), Y_{q+1}].$$
     </p>
-    <p>Now we show \(\{[Z(-),Y_q], \partial\}\) is a cohomology theory by simply checking the axioms:</p>
+    <p>Now we show \(\{[Z(-),Y_q], \partial\}\) is a cohomology theory. First, \([Z(-),Y_q]\) actually lands in \(\mathbf{Ab}\)  simply checking the axioms:</p>
     <ul>
         <li><i>(homotopy)</i> this is clear since we're looking at homotopy classes of maps;</li>
         <li><i>(exactness)</i> check exactness at each map:
-        <img src="img/brownrep6.jpeg" class="center2"></li> 
+        <img src="img/brownrep6.jpeg" class="center2" style="padding-top:10px; padding-bottom: 15px;"></li> 
         <li><i>(excision)</i> notice that \([Z(A,B),Y_q]\) consists of maps which collapse \(C(B)\) to a point, so it is equivalent to \([A/B, Y_q]\). Then the excision isomorphism follows from the equivalent of spaces
         $$(X_1 \cup X_2)/X_2 \simeq X_1 / (X_1 \cap X_2);$$</li>
         <li><i>(additivity)</i> this is clear since mapping points one by one into </li>
