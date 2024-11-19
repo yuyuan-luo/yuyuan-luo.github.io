@@ -225,7 +225,7 @@ a, u {
     \((X, \varnothing)\), and we can use the long exact sequence and five lemma again for the pair \((X,A)\) for any subcomplex \(A.\) This also takes care of the compatibility with \(\partial.\)
  </p>
     <p>We want to construct \(Y_q\) such that for \((S^n,\varnothing),\) \(H^q(S^n) \simeq [Z(S^n,\varnothing),Y_q].\) We do so inductively, essentially adding spheres for generators and gluing cells to kill relations. 
-        To do this, we first recall the natural transformation specified by Yoneda.
+        To do this, we first recall the Yoneda natural transformation.
     </p>
     <p><b>Lemma.</b> Given \(W\) a CW-complex and \(u \in H^q(W)\), the map defined by pulling back the cohomology class
     $$[X,W] \rightarrow H^q(X)$$
@@ -257,10 +257,14 @@ a, u {
         is exact. Then notice \(H^q(f)(u_{n-1})=0\), so there must be some \(u_n \in H^q(W_n)\) such that \(H^q(\iota)(u_n) = u_{n-1}.\)
      </p>
     <p>The inclusion also induces \(\iota_*:[S^m,W_{n-1}] \rightarrow [S^m,W_n]\). Notice \(T(u_{n-1}) = T(u_n) \circ \iota_*.\)
-        Then since \(T(u_{n-1})\) is surjective for all \(m\), so is \(T(u_{n})\) 
+        Then since \(T(u_{n-1})\) is surjective for all \(m\), so is \(T(u_{n})\). \(W_n\) was formed by adding \(n+1\)-cells to \(W_{n-1}\) so \(\iota\) is surjective for \(m < n.\)
+        Then since \(T(u_{n-1})\) is injective for \(m< n\), so is \(T(u_{n})\). In the case \(m=n\), the kernel of \(T(u_{n-1})\) is contained in the kernel of \(\iota_*\), and so \(T(u_n)\) is injective.
+
     </p>
-    <p>Now, let \(Y_q = \bigcup W_n.\) By additivity, there is a \(u \in H^q(Y_q)\) which restructs to \(u_n\) for each \(n\), which gives the desired natural isomorphism. The fact that it forms an \(\Omega\)-spectrum
-        comes from the isomorphism \(H^q(X,x_0) \xrightarrow{\sim} H^{q+1}(\Sigma X,x_0)\) which, combined with the suspension-loop adjunction
+    <p>Now, let \(Y_q = \bigcup W_n.\) By additivity, there is a \(u \in H^q(Y_q)\) which restructs to \(u_n\) for each \(n\), which gives the desired natural isomorphism. Uniqueness comes from Whitehead's theorem. The fact that it forms an \(\Omega\)-spectrum
+        comes from the isomorphism \(H^q(X,x_0) \xrightarrow{\sim} H^{q+1}(\Sigma X,x_0)\) which, combined with the suspension-loop adjunction, gives
+        $$[X,Y_q] \simeq [\Sigma X, Y_{q+1}] \simeq [X, \Omega Y_{q+1}]$$
+        and since we're working with CW-complexes, this gives the homotopy equivalence \(Y_q \simeq \Omega Y_{q+1}.\)
     </p>
     <h2 id="catref">Encore: Categorical Reformulation</h2>
     <p>At this point, we want to say the sentence "cohomology theories are representable functors." However, this doesn't quite make sense, since each cohomology theory is 
