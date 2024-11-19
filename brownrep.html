@@ -249,12 +249,18 @@ a, u {
     <h3>natural equivalence</h3>
     <h3>compatibility with \(\partial\)</h3>
     <h3>\(\{Y_q\}\) forms an \(\Omega\)-spectrum</h3>
-    <h2 id="catref">V. Categorical Reformulation</h2>
-    <p>At this point, we want to say the sentence "cohomology theories are representable functors."</p>
-    <p>define cohomology groups of spectra, how it agrees with spaces</p>
-    <p>define morphisms of spectra, which makes the sentence make sense</p>
-    <p>For the category-minded individuals, the homotopy category of spectra is the <i>stable homotopy category.</i> Spectra form the natural home for stable homotopy theory; if you want to read about this, <a href="https://people.math.binghamton.edu/malkiewich/stable.pdf" style="color:black; background-color: #80800080;"><i>this note</i></a> by 
-    Cary Malkiewich is a great place to start.</p>
+    <h2 id="catref">Encore: Categorical Reformulation</h2>
+    <p>At this point, we want to say the sentence "cohomology theories are representable functors." However, this doesn't quite make sense, since each cohomology theory is 
+        a bunch of functors packaged together, and the representing objects seem to be spectra. This isn't super clean and makes us want to define cohomology theories for some category of spectra so that we can actually
+        say that sentence.
+    </p>
+    <p>To get a category of spectra, we need a way of defining morphisms of spectra. Our first instinct is maybe level-wise maps of spaces (perhaps with a shift) which is compatible with structure maps.
+        Unfortunately, this definition is too rigid to be useful; it turns out a good definition involves cofinal subspectra, and you can then define homotopy classes of maps using the <i>cylinder spectrum.</i>
+        You can read about this whole story <a href="https://iwoat.github.io/2019/notes/Lecture-3.pdf" style="color: black; background-color: #80800080;"><i>here</i></a>. From there,
+        you can define the cohomology theory represented by the spectrum \(E\) as \(E^n(X) = [X, \Sigma^n E].\)
+    </p>
+    <p>The homotopy category of spectra is the <i>stable homotopy category.</i> Spectra form the natural home for stable homotopy theory; if you want to read about this, <a href="https://people.math.binghamton.edu/malkiewich/stable.pdf" style="color:black; background-color: #80800080;"><i>this note</i></a> by 
+    Cary Malkiewich is a really great place to start. It would also be remiss to not point out the classical reference, <a href="https://people.math.rochester.edu/faculty/doug/otherpapers/Adams-SHGH.pdf" style="color:black; background-color: #80800080;"><i>Stable Homotopy and Generalized Homology</i></a> by Adams.</p>
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos</b></a> for chatting with me about this and providing perspectives!
 
