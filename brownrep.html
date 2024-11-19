@@ -47,8 +47,7 @@ a, u {
 
 <body>
     <h1>brown representability, from the ground up</h1>
-    <h2 class="centertext" style="color: #C04000"> ACTIVELY UNDER CONSTRUCTION, PLEASE CHECK BACK IN ONE WEEK</h2>
- 
+    <h5 style="color:#C04000; text-align: center;">(WHERE I CONSTANTLY CITE THE SUSPENSION-LOOP ADJUNCTION)</h5>
     <br>
     <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
@@ -223,11 +222,10 @@ a, u {
     <p><b>Reduction to \(S^n\).</b> Since \(Z(X,A)\) is a pointed CW-complex, it suffices to construct \(\{Y_q\}\) with the specified properties for pairs \((S^n, \varnothing).\)
     (The construction for \((D^n, \varnothing)\) is trivial since cells are contractible.) This is because if we construct \(X\) cell-by-cell with the intermediate steps \(X_1 \subset X_2 \subset \cdots\), inductively excision gives
     that \(\{Y_q\}\) satisfy the relevant properties for \((X_i, S^r)\) if \(X_i\) is formed from \(X_{i-1}\) by gluing an \(r\)-cell. Then the long exact sequence with the five lemma gives that \(\{Y_q\}\) satisfy the relevant properties for
-    \((X, \varnothing)\), and we can use the long exact sequence and five lemma again for the pair \((X,A)\) for any subcomplex \(A.\)
+    \((X, \varnothing)\), and we can use the long exact sequence and five lemma again for the pair \((X,A)\) for any subcomplex \(A.\) This also takes care of the compatibility with \(\partial.\)
  </p>
-    <h3>constructing the spaces \(Y_q\)</h3>
     <p>We want to construct \(Y_q\) such that for \((S^n,\varnothing),\) \(H^q(S^n) \simeq [Z(S^n,\varnothing),Y_q].\) We do so inductively, essentially adding spheres for generators and gluing cells to kill relations. 
-        To do this, we first create a method of getting a natural transformation from a cohomology class.
+        To do this, we first recall the natural transformation specified by Yoneda.
     </p>
     <p><b>Lemma.</b> Given \(W\) a CW-complex and \(u \in H^q(W)\), the map defined by pulling back the cohomology class
     $$[X,W] \rightarrow H^q(X)$$
@@ -254,9 +252,16 @@ a, u {
         $$T(u_{n-1}):[S^n,W_{n-1}] \rightarrow H^q(S^n)$$
         then let \(A = \bigvee_{\beta}S^n_{\beta}\) be a wedge of \(n\)-spheres, \(f=\bigvee f_{\beta}\), and \(Z_f\) the mapping cone of \(f.\) Then let \(W_n = Z_f.\)
     </p>
-
-    <h3>compatibility with \(\partial\)</h3>
-    <h3>\(\{Y_q\}\) forms an \(\Omega\)-spectrum</h3>
+    <p>Another consequence of the Eilenberg-Steenrod axioms is that the sequence 
+        $$H^q(Z_f) \xrightarrow{H^q(\iota)} H^q(W_{n-1}) \xrightarrow{H^q(f)} H^q(A)$$
+        is exact. Then notice \(H^q(f)(u_{n-1})=0\), so there must be some \(u_n \in H^q(W_n)\) such that \(H^q(\iota)(u_n) = u_{n-1}.\)
+     </p>
+    <p>The inclusion also induces \(\iota_*:[S^m,W_{n-1}] \rightarrow [S^m,W_n]\). Notice \(T(u_{n-1}) = T(u_n) \circ \iota_*.\)
+        Then since \(T(u_{n-1})\) is surjective for all \(m\), so is \(T(u_{n})\) 
+    </p>
+    <p>Now, let \(Y_q = \bigcup W_n.\) By additivity, there is a \(u \in H^q(Y_q)\) which restructs to \(u_n\) for each \(n\), which gives the desired natural isomorphism. The fact that it forms an \(\Omega\)-spectrum
+        comes from the isomorphism \(H^q(X,x_0) \xrightarrow{\sim} H^{q+1}(\Sigma X,x_0)\) which, combined with the suspension-loop adjunction
+    </p>
     <h2 id="catref">Encore: Categorical Reformulation</h2>
     <p>At this point, we want to say the sentence "cohomology theories are representable functors." However, this doesn't quite make sense, since each cohomology theory is 
         a bunch of functors packaged together, and the representing objects seem to be spectra. This isn't super clean and makes us want to define cohomology theories for some category of spectra so that we can actually
