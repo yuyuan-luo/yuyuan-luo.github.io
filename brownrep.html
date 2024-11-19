@@ -246,11 +246,15 @@ a, u {
         </ul>
     </p>
     
-    <p>Choose generators \(g_{\alpha}^1\) for \(H^q(S^1)\), and let \(W_0 = \bigvee_{\alpha} S^1_{\alpha}\). Let \(h_{\alpha}^1:S^1 \rightarrow W_0\) be the inclusion map onto the circle indexed by \(\alpha\). Then, one consequence
-        of the Eilenberg-Steenrod axioms is \(H^q(W_0) = \prod_{\alpha} H^q(S^1_{\alpha})\), which means there is some element \(u_0 \in H(W_0)\) that pulls back along each \(h_{\alpha}^1\) to \(g_{\alpha}^1\).
+    <p>Choose generators \(g_{\alpha}^n\) for \(H^q(S^n)\), and let \(W_0 = \bigvee_{\alpha,n} S^n_{\alpha}\). Let \(h_{\alpha}^n:S^n \rightarrow W_0\) be the inclusion map onto the sphere indexed by \(\alpha\). Then, one consequence
+        of the Eilenberg-Steenrod axioms is \(H^q(W_0) = \prod_{\alpha,n} H^q(S^n_{\alpha})\), which means there is some element \(u_0 \in H(W_0)\) that pulls back along each \(h_{\alpha}^n\) to \(g_{\alpha}^n\). Since
+        \(\{g_{\alpha}^n\}\) generate \(H^q(S^n)\) for any \(n\), clearly \(T(u_0)\) is surjective.
     </p>
-        
-    <h3>natural equivalence</h3>
+    <p>Now the inductive step: suppose we have \(W_{n-1}\) and \(u_{n-1}\) with the desired properties. Suppose \([f_{\beta}]\) generates the kernel of
+        $$T(u_{n-1}):[S^n,W_{n-1}] \rightarrow H^q(S^n)$$
+        then let \(A = \bigvee_{\beta}S^n_{\beta}\) be a wedge of \(n\)-spheres, \(f=\bigvee f_{\beta}\), and \(Z_f\) the mapping cone of \(f.\) Then let \(W_n = Z_f.\)
+    </p>
+
     <h3>compatibility with \(\partial\)</h3>
     <h3>\(\{Y_q\}\) forms an \(\Omega\)-spectrum</h3>
     <h2 id="catref">Encore: Categorical Reformulation</h2>
