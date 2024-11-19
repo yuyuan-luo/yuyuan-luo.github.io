@@ -53,7 +53,7 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
     <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> You can also read about this theorem in 
-        <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E.</p><p> In this talk, I first demonstrate how spectra arise naturally. Then, I show how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
+        <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E.</p><p> In this talk, I first demonstrate how spectra arise naturally. Then, I show how to get a cohomology theory given a spectrum. Finally, I construct a spectrum given a cohomology theory.</p>
     <p class="centertext"> This talk is accessible to those familiar with basic algebraic topology but not homotopy theory. I assume as little as possible and try to include all the details. </p>
 
     <h2>I. Spectra</h2>
@@ -217,20 +217,44 @@ a, u {
     </ul>
 
     <h2 id="specfromcoh">IV. Spectra from Cohomology Theories</h2>
+    <p>This section is mostly following <a href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf" style="color:black; background-color: #80800080;"><i>Brown</i></a>. (Notice Brown's theorem is actually a bit more general as it classifies all the representable functors, so here we modify the argument, specializing to cohomology theories.)</p> 
     <p>Suppose we are now given a cohomology theory \(\{H^q(-),\partial\}\), we will now construct an \(\Omega\)-spectrum \(\{Y_q\}\) such that \(H^q(-) \simeq [Z(-),Y_q]\) and that this equivalence is compatible with \(\partial\).</p>
     <p><b>Reduction to \(S^n\).</b> Since \(Z(X,A)\) is a pointed CW-complex, it suffices to construct \(\{Y_q\}\) with the specified properties for pairs \((S^n, \varnothing).\)
     (The construction for \((D^n, \varnothing)\) is trivial since cells are contractible.) This is because if we construct \(X\) cell-by-cell with the intermediate steps \(X_1 \subset X_2 \subset \cdots\), inductively excision gives
-    that \(\{Y_q\}\) satisfy the relevant properties for \((X_i, S^r)\) if \(X_i\) is formed from \(X_{i-1}\) by gluing an \(r\)-cell. Then the long exact sequence gives that \(\{Y_q\}\) satisfy the relevant properties for
-    \((X, \varnothing)\), and we can use the long exact sequence again for the pair \((X,A)\) for any subcomplex \(A.\)
+    that \(\{Y_q\}\) satisfy the relevant properties for \((X_i, S^r)\) if \(X_i\) is formed from \(X_{i-1}\) by gluing an \(r\)-cell. Then the long exact sequence with the five lemma gives that \(\{Y_q\}\) satisfy the relevant properties for
+    \((X, \varnothing)\), and we can use the long exact sequence and five lemma again for the pair \((X,A)\) for any subcomplex \(A.\)
  </p>
     <h3>constructing the spaces \(Y_q\)</h3>
-    <p>We want to construct \(Y_q\) such that for any CW-pair \((X,A),\) \(H^q(X,A) \simeq [Z(X,A),Y_q].\)</p>
+    <p>We want to construct \(Y_q\) such that for \((S^n,\varnothing),\) \(H^q(S^n) \simeq [Z(S^n,\varnothing),Y_q].\) We do so inductively, essentially adding spheres for generators and gluing cells to kill relations. 
+        To do this, we first create a method of getting a natural transformation from a cohomology class.
+    </p>
+    <p><b>Lemma.</b> Given \(W\) a CW-complex and \(u \in H^q(W)\), the map defined by pulling back the cohomology class
+    $$[X,W] \rightarrow H^q(X)$$
+    $$[g] \mapsto H^q(g)(u)$$
+    gives rise to a natural transformation \(T(u): [-,W] \rightarrow H^q(-).\)</p>
+    <div class="proof">
+        First, the map is well-defined: it doesn't matter which representative \(g\) we choose, by the homotopy axiom of cohomology theories.
+    </div>
+    <p>In particular,
+        we construct a sequence of spaces \(W_i\) and classes \(u_i \in H^q(W_i)\) with the following properties:
+        <ul>
+            <li>\(W_{i-1} \subseteq W_{i}\)</li>
+            <li>the map \(H(\iota): H^q(W_i) \rightarrow H^q(W_{i-1})\) induced by inclusion \(W_{i-1} \xrightarrow{\iota} W_{i}\) sends </li>
+        </ul>
+    </p>
+    <ul>
+        <li>Choose generators \(g_{\alpha}^1\) for \(H^q(S^1)\), and let \(W_0 = \bigvee_{\alpha} S^1_{\alpha}\).</li>
+        <li></li>
+    </ul>
     <h3>natural equivalence</h3>
     <h3>compatibility with \(\partial\)</h3>
     <h3>\(\{Y_q\}\) forms an \(\Omega\)-spectrum</h3>
     <h2 id="catref">V. Categorical Reformulation</h2>
     <p>At this point, we want to say the sentence "cohomology theories are representable functors."</p>
-
+    <p>define cohomology groups of spectra, how it agrees with spaces</p>
+    <p>define morphisms of spectra, which makes the sentence make sense</p>
+    <p>For the category-minded individuals, the homotopy category of spectra is the <i>stable homotopy category.</i> Spectra form the natural home for stable homotopy theory; if you want to read about this, <a href="https://people.math.binghamton.edu/malkiewich/stable.pdf" style="color:black; background-color: #80800080;"><i>this note</i></a> by 
+    Cary Malkiewich is a great place to start.</p>
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos</b></a> for chatting with me about this and providing perspectives!
 
