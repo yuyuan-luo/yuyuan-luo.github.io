@@ -53,8 +53,8 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
     <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> You can also read about this theorem in 
-        <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E. In this talk, I first demonstrate how spectra arise naturally. Then, I show how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
-    <p class="centertext"> This talk is aimed at those familiar with basic algebraic topology but not homotopy theory. I assume as little as possible and try to include all the details. </p>
+        <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E.</p><p> In this talk, I first demonstrate how spectra arise naturally. Then, I show how to get a cohomology theory given a spectrum. Finally, and this is where we spend most of our efforts, I construct a spectrum given a cohomology theory.</p>
+    <p class="centertext"> This talk is accessible to those familiar with basic algebraic topology but not homotopy theory. I assume as little as possible and try to include all the details. </p>
 
     <h2>I. Spectra</h2>
     <p>Take \(X\) to be a pointed path-connected space with the structure of a CW-complex. </p>
@@ -210,14 +210,24 @@ a, u {
         <li><i>(excision)</i> notice that \([Z(A,B),Y_q]\) consists of maps which collapse \(C(B)\) to a point, so it is equivalent to \([A/B, Y_q]\). Then the excision isomorphism follows from the equivalence of spaces
         $$(X_1 \cup X_2)/X_2 \simeq X_1 / (X_1 \cap X_2);$$</li>
         <li><i>(additivity)</i> for \(U\) with discrete topology, clearly
-            $$ [U,Y_q] \simeq \prod_{p \in U}[\{p\},Y_q]$$ since mapping points one by one into \(Y_q\) gives the same information as mapping all of them at once, and given a sequence of subcomplexes \(X_1 \subseteq X_2 \subseteq X_3 \subseteq \cdots\) where \(X = \bigcup_{n}X_n,\),
+            $$ [U,Y_q] \simeq \prod_{p \in U}[\{p\},Y_q]$$ since mapping points one by one into \(Y_q\) gives the same information as mapping all of them at once, and given a sequence of subcomplexes \(X_1 \subseteq X_2 \subseteq X_3 \subseteq \cdots\) where \(X = \bigcup_{n}X_n\),
             the induced map
             $$ [X, Y_q] \rightarrow \varprojlim [X_i, Y_q]$$
             is clearly surjective: any class of \(\varprojlim [X_i, Y_q]\) gives a compatible (in terms of subcomplexes of \(X\)) class of \([X_i, Y_q]\) for each \(i\), so we can build a class in \([X, Y_q].\)</li>
     </ul>
 
     <h2 id="specfromcoh">IV. Spectra from Cohomology Theories</h2>
-
+    <p>Suppose we are now given a cohomology theory \(\{H^q(-),\partial\}\), we will now construct an \(\Omega\)-spectrum \(\{Y_q\}\) such that \(H^q(-) \simeq [Z(-),Y_q]\) and that this equivalence is compatible with \(\partial\).</p>
+    <p><b>Reduction to \(S^n\).</b> Since \(Z(X,A)\) is a pointed CW-complex, it suffices to construct \(\{Y_q\}\) with the specified properties for pairs \((S^n, \varnothing).\)
+    (The construction for \((D^n, \varnothing)\) is trivial since cells are contractible.) This is because if we construct \(X\) cell-by-cell with the intermediate steps \(X_1 \subset X_2 \subset \cdots\), inductively excision gives
+    that \(\{Y_q\}\) satisfy the relevant properties for \((X_i, S^r)\) if \(X_i\) is formed from \(X_{i-1}\) by gluing an \(r\)-cell. Then the long exact sequence gives that \(\{Y_q\}\) satisfy the relevant properties for
+    \((X, \varnothing)\), and we can use the long exact sequence again for the pair \((X,A)\) for any subcomplex \(A.\)
+ </p>
+    <h3>constructing the spaces \(Y_q\)</h3>
+    <p>We want to construct \(Y_q\) such that for any CW-pair \((X,A),\) \(H^q(X,A) \simeq [Z(X,A),Y_q].\)</p>
+    <h3>natural equivalence</h3>
+    <h3>compatibility with \(\partial\)</h3>
+    <h3>\(\{Y_q\}\) forms an \(\Omega\)-spectrum</h3>
     <h2 id="catref">V. Categorical Reformulation</h2>
     <p>At this point, we want to say the sentence "cohomology theories are representable functors."</p>
 
