@@ -53,7 +53,8 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
     <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> You can also read about this theorem in 
-        <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E.</p><p> In this talk, I first demonstrate how spectra arise naturally. Then, I show how to get a cohomology theory given a spectrum. Finally, I construct a spectrum given a cohomology theory.</p>
+        <a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf" style="color:black; background-color:#80800080"><i>Hatcher</i></a>, in section 4.E.</p>
+    <p class="centertext"> In this talk, I first demonstrate how spectra arise naturally. Then, I show how to get a cohomology theory given a spectrum. Finally, I construct a spectrum given a cohomology theory.</p>
     <p class="centertext"> This talk is accessible to those familiar with basic algebraic topology but not homotopy theory. I assume as little as possible and try to include all the details. </p>
 
     <h2>I. Spectra</h2>
@@ -174,7 +175,7 @@ a, u {
         <img src="img/brownrep4.png" class="center" style="width:40%">
         Notice that \(Z(X,\varnothing) = X \sqcup \{p\}.\)
     </p>
-    <p><b>Brown Representability Theorem.</b> If \(\{H^q, \partial\}\) is a cohomology theory, there is an \(\Omega\)-spectrum \(Y=\{Y_q\}\) such that 
+    <p><b>Brown Representability Theorem.</b> If \(\{H^q, \partial\}\) is a cohomology theory, there is an \(\Omega\)-spectrum \(Y=\{Y_q\}\), unique up to homotopy, such that 
     there is a natural isomorphism $$T^q:[Z(-),Y_q] \xrightarrow{\sim} H^q(-)$$ such that \(\partial T^q = T^{q+1} \partial.\)</p>
     
 
@@ -232,20 +233,23 @@ a, u {
     $$[X,W] \rightarrow H^q(X)$$
     $$[g] \mapsto H^q(g)(u)$$
     gives rise to a natural transformation \(T(u): [-,W] \rightarrow H^q(-).\)</p>
-    <div class="proof">
-        First, the map is well-defined: it doesn't matter which representative \(g\) we choose, by the homotopy axiom of cohomology theories.
+    <div class="proof"> First, the map is well-defined: it doesn't matter which representative \(g\) we choose, by the homotopy axiom of cohomology theories. Now, to check naturality, suppose we have map of spaces \(f:X' \rightarrow X.\)
+        Then, 
+        $$H^q(f) \circ T(u) ([g]) = H^q(f) \circ H^q(g) (u) = H^q(f \circ g)(u) = T(u)(f^*[g]).$$
+
     </div>
-    <p>In particular,
-        we construct a sequence of spaces \(W_i\) and classes \(u_i \in H^q(W_i)\) with the following properties:
+    <p>Now, we inductively construct a sequence of spaces \(W_i\) and classes \(u_i \in H^q(W_i)\) with the following properties:
         <ul>
             <li>\(W_{i-1} \subseteq W_{i}\)</li>
-            <li>the map \(H(\iota): H^q(W_i) \rightarrow H^q(W_{i-1})\) induced by inclusion \(W_{i-1} \xrightarrow{\iota} W_{i}\) sends </li>
+            <li>the map \(H(\iota): H^q(W_i) \rightarrow H^q(W_{i-1})\) induced by inclusion \(W_{i-1} \xrightarrow{\iota} W_{i}\) sends \(u_{i}\) to \(u_{i-1}\)</li>
+            <li>\(T(u_n):[S^m,W_n] \rightarrow H(S^m)\) is surjective for all \(m>0\) and injective for \(m \leq n.\)</li>
         </ul>
     </p>
-    <ul>
-        <li>Choose generators \(g_{\alpha}^1\) for \(H^q(S^1)\), and let \(W_0 = \bigvee_{\alpha} S^1_{\alpha}\).</li>
-        <li></li>
-    </ul>
+    
+    <p>Choose generators \(g_{\alpha}^1\) for \(H^q(S^1)\), and let \(W_0 = \bigvee_{\alpha} S^1_{\alpha}\). Let \(h_{\alpha}^1:S^1 \rightarrow W_0\) be the inclusion map onto the circle indexed by \(\alpha\). Then, one consequence
+        of the Eilenberg-Steenrod axioms is \(H^q(W_0) = \prod_{\alpha} H^q(S^1_{\alpha})\), which means there is some element \(u_0 \in H(W_0)\) that pulls back along each \(h_{\alpha}^1\) to \(g_{\alpha}^1\).
+    </p>
+        
     <h3>natural equivalence</h3>
     <h3>compatibility with \(\partial\)</h3>
     <h3>\(\{Y_q\}\) forms an \(\Omega\)-spectrum</h3>
@@ -255,8 +259,8 @@ a, u {
         say that sentence.
     </p>
     <p>To get a category of spectra, we need a way of defining morphisms of spectra. Our first instinct is maybe level-wise maps of spaces (perhaps with a shift) which is compatible with structure maps.
-        Unfortunately, this definition is too rigid to be useful; it turns out a good definition involves cofinal subspectra, and you can then define homotopy classes of maps using the <i>cylinder spectrum.</i>
-        You can read about this whole story <a href="https://iwoat.github.io/2019/notes/Lecture-3.pdf" style="color: black; background-color: #80800080;"><i>here</i></a>. From there,
+        Unfortunately, this definition is too rigid to be useful; it turns out one possible definition involves cofinal subspectra, and you can then define homotopy classes of maps using the <i>cylinder spectrum.</i>
+        You can read about this whole story <a href="https://iwoat.github.io/2019/notes/Lecture-3.pdf" style="color: black; background-color: #80800080;"><i>here</i></a>. (There are also other categories of spectra, each with its own advantages.) From there,
         you can define the cohomology theory represented by the spectrum \(E\) as \(E^n(X) = [X, \Sigma^n E].\)
     </p>
     <p>The homotopy category of spectra is the <i>stable homotopy category.</i> Spectra form the natural home for stable homotopy theory; if you want to read about this, <a href="https://people.math.binghamton.edu/malkiewich/stable.pdf" style="color:black; background-color: #80800080;"><i>this note</i></a> by 
