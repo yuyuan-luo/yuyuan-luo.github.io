@@ -182,10 +182,10 @@ a, u {
     <h2>III. Cohomology Theories from Spectra</h2>
     <p>Given an \(\Omega\)-spectrum \(Y = \{Y_q\}\), we want to show \([Z(-),Y_q]\) specify cohomology groups. 
         The boundary map \(\partial\) of the associated cohomology theory is defined as follows: take 
-        $$f: Z(X,A) \rightarrow \Sigma Z(A,\varnothing)$$
+        $$d: Z(X,A) \rightarrow \Sigma Z(A,\varnothing)$$
         <img src="img/brownrep5.jpg" class="center" alt="sending everything to a point">
         to be the map collapsing \(X\) to the basepoint, which induces
-        $$[\Sigma Z(A),Y_q] \xrightarrow{f_*} [Z(X,A), Y_q]$$
+        $$[\Sigma Z(A),Y_q] \xrightarrow{d_*} [Z(X,A), Y_q]$$
         which, by the suspension-loop adjunction, gives
         $$\partial: [Z(A),Y_{q+1}] \rightarrow [Z(X,A), Y_{q}].$$
     </p>
@@ -207,7 +207,17 @@ a, u {
     <ul>
         <li><i>(homotopy)</i> this is clear since we're looking at homotopy classes of maps;</li>
         <li><i>(exactness)</i> check exactness at each map:
-        <img src="img/brownrep6.jpeg" class="center2" style="padding-top:10px; padding-bottom: 15px;"></li> 
+        <img src="img/brownrep6.jpg" class="center2" style="padding-top:10px; padding-bottom: 15px;">
+            To show that \(\ker \partial = \text{im } H^q(j)\), first note that by suspension-loop we can rewrite 
+            $$H^q(j): [\Sigma Z(X), Y_{q+1}] \rightarrow [\Sigma Z(A), Y_{q+1}]$$ then
+            showing \(\text{im } H^q(j) \subset \ker \partial\) amounts to showing
+            $$- \circ j \circ d: [\Sigma Z(X), Y_{q+1}] \rightarrow [Z(X,A), Y_{q+1}]$$
+            is zero. But notice that the map \(j \circ d: Z(X,A) \rightarrow \Sigma Z(X)\) factors through the unreduced cone \(C(X)\)
+            <img src="img/brownrep7.jpg" class="center2" style="padding-top:10px; padding-bottom: 15px;">
+            which is contractible, it follows that the image in \(Y_{q+1}\) must be contractible also, so the map \(- \circ j \circ d\) is indeed zero.
+            To show that \(\ker \partial \subset \text{im } H^q(j)\), we must extend a map \(f\) from \(Z(X,A)\) to \(Y_{q+1}\) contractible on \(X\)
+            to a map from \(\Sigma Z(X)\) to \(Y_{q+1}\).
+            </li> 
         <li><i>(excision)</i> notice that \([Z(A,B),Y_q]\) consists of maps which collapse \(C(B)\) to a point, so it is equivalent to \([A/B, Y_q]\). Then the excision isomorphism follows from the equivalence of spaces
         $$(X_1 \cup X_2)/X_2 \simeq X_1 / (X_1 \cap X_2);$$</li>
         <li><i>(additivity)</i> for \(U\) with discrete topology, clearly
