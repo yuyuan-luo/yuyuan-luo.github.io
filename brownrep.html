@@ -182,12 +182,12 @@ a, u {
     <h2>III. Cohomology Theories from Spectra</h2>
     <p>Given an \(\Omega\)-spectrum \(Y = \{Y_q\}\), we want to show \([Z(-),Y_q]\) specify cohomology groups. 
         The boundary map \(\partial\) of the associated cohomology theory is defined as follows: take 
-        $$f: \Sigma Z(X,A) \rightarrow Z(A,\varnothing)$$
-        <img src="img/brownrep5.jpeg" class="center" alt="sending everything to a point">
-        to be the map sending everything to the base point, which induces
-        $$[Z(A),Y_q] \xrightarrow{f_*} [\Sigma Z(X,A), Y_q]$$
+        $$f: Z(X,A) \rightarrow \Sigma Z(A,\varnothing)$$
+        <img src="img/brownrep5.jpg" class="center" alt="sending everything to a point">
+        to be the map collapsing \(X\) to the basepoint, which induces
+        $$[\Sigma Z(A),Y_q] \xrightarrow{f_*} [Z(X,A), Y_q]$$
         which, by the suspension-loop adjunction, gives
-        $$\partial: [Z(A),Y_q] \rightarrow [Z(X,A), Y_{q+1}].$$
+        $$\partial: [Z(A),Y_{q+1}] \rightarrow [Z(X,A), Y_{q}].$$
     </p>
     <p>Now we show \(\{[Z(-),Y_q], \partial\}\) is a cohomology theory. First, \([Z(-),Y_q]\) actually lands in \(\mathbf{Ab}\):  </p>
     <ul>
