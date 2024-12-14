@@ -47,8 +47,7 @@ a, u {
 
 <body>
     <h1>brown representability, from the ground up</h1>
-    <h5 style="color:#C04000; text-align: center;">(WHERE I CONSTANTLY CITE THE SUSPENSION-LOOP ADJUNCTION)</h5>
-    <h5 style="color:#C04000; text-align: center;">THERE ARE SOME ERRORS IN THIS; TO BE CORRECTED BY END OF DAY 12/13.</h5>
+    <h3 style="color:#C04000; text-align: center;">(WHERE I CONSTANTLY CITE THE SUSPENSION-LOOP ADJUNCTION)</h3>
     <br>
     <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
@@ -215,8 +214,11 @@ a, u {
             is zero. But notice that the map \(j \circ d: Z(X,A) \rightarrow \Sigma Z(X)\) factors through the unreduced cone \(C(X)\)
             <img src="img/brownrep7.jpg" class="center2" style="padding-top:10px; padding-bottom: 15px;">
             which is contractible, it follows that the image in \(Y_{q+1}\) must be contractible also, so the map \(- \circ j \circ d\) is indeed zero.
-            To show that \(\ker \partial \subset \text{im } H^q(j)\), we must extend a map \(f\) from \(Z(X,A)\) to \(Y_{q+1}\) contractible on \(X\)
-            to a map from \(\Sigma Z(X)\) to \(Y_{q+1}\).
+            Showing that \(\ker \partial \subset \text{im } H^q(j)\) amounts to showing that a map \(f \in [\Sigma Z(A), Y_{q+1}]\) which pulls back to 
+            \(f \circ d \simeq \text{id} \in [\Sigma Z(X,A), Y_{q+1}]\) can be extended to a map in \([Z(X), Y_{q+1}]\) which restricts to \(f\) on \(Z(A).\)
+            Pick the homotopy representative of \(g_d \in [f\circ d]\) which is trivial; this gives a homotopy representative of \(g \in [f]\) such that \(g' = g \circ d.\)
+            Then we can extend \(g_d\) to a map from \(C(X)\) to \(Y_{q+1}\) by taking each horizontal slice of the cone, which is a copy of \(X\), to where \(g_d\) sends \(X \subset Z(X,A).\)
+            Postcomposing with the collapse + glue map gives an extension to a map from \(\Sigma Z(X).\)
             </li> 
         <li><i>(excision)</i> notice that \([Z(A,B),Y_q]\) consists of maps which collapse \(C(B)\) to a point, so it is equivalent to \([A/B, Y_q]\). Then the excision isomorphism follows from the equivalence of spaces
         $$(X_1 \cup X_2)/X_2 \simeq X_1 / (X_1 \cap X_2);$$</li>
@@ -251,7 +253,7 @@ a, u {
         <ul>
             <li>\(W_{i-1} \subseteq W_{i}\)</li>
             <li>the map \(H(\iota): H^q(W_i) \rightarrow H^q(W_{i-1})\) induced by inclusion \(W_{i-1} \xrightarrow{\iota} W_{i}\) sends \(u_{i}\) to \(u_{i-1}\)</li>
-            <li>\(T(u_n):[S^m,W_n] \rightarrow H(S^m)\) is surjective for all \(m>0\) and injective for \(m \leq n.\)</li>
+            <li>\(T(u_n):[S^m,W_i] \rightarrow H(S^m)\) is surjective for all \(m>0\) and injective for \(m \leq i.\)</li>
         </ul>
     </p>
     
@@ -259,20 +261,20 @@ a, u {
         of the Eilenberg-Steenrod axioms is \(H^q(W_0) = \prod_{\alpha,n} H^q(S^n_{\alpha})\), which means there is some element \(u_0 \in H(W_0)\) that pulls back along each \(h_{\alpha}^n\) to \(g_{\alpha}^n\). Since
         \(\{g_{\alpha}^n\}\) generate \(H^q(S^n)\) for any \(n\), clearly \(T(u_0)\) is surjective.
     </p>
-    <p>Now the inductive step: suppose we have \(W_{n-1}\) and \(u_{n-1}\) with the desired properties. Suppose \([f_{\beta}]\) generates the kernel of
-        $$T(u_{n-1}):[S^n,W_{n-1}] \rightarrow H^q(S^n)$$
-        then let \(A = \bigvee_{\beta}S^n_{\beta}\) be a wedge of \(n\)-spheres, \(f=\bigvee f_{\beta}\), and \(Z_f\) the mapping cone of \(f.\) Then let \(W_n = Z_f.\)
+    <p>Now the inductive step: suppose we have \(W_{i-1}\) and \(u_{i-1}\) with the desired properties. Suppose \([f_{\beta}]\) generates the kernel of
+        $$T(u_{i-1}):[S^n,W_{i-1}] \rightarrow H^q(S^i)$$
+        then let \(A = \bigvee_{\beta}S^i_{\beta}\) be a wedge of \(i\)-spheres, \(f=\bigvee f_{\beta}\), and \(Z_f\) the mapping cone of \(f.\) Then let \(W_i = Z_f.\)
     </p>
     <p>Another consequence of the Eilenberg-Steenrod axioms is that the sequence 
-        $$H^q(Z_f) \xrightarrow{H^q(\iota)} H^q(W_{n-1}) \xrightarrow{H^q(f)} H^q(A)$$
-        is exact. Then notice \(H^q(f)(u_{n-1})=0\), so there must be some \(u_n \in H^q(W_n)\) such that \(H^q(\iota)(u_n) = u_{n-1}.\)
+        $$H^q(Z_f) \xrightarrow{H^q(\iota)} H^q(W_{i-1}) \xrightarrow{H^q(f)} H^q(A)$$
+        is exact. Then notice \(H^q(f)(u_{i-1})=0\), so there must be some \(u_i \in H^q(W_i)\) such that \(H^q(\iota)(u_i) = u_{i-1}.\)
      </p>
-    <p>The inclusion also induces \(\iota_*:[S^m,W_{n-1}] \rightarrow [S^m,W_n]\). Notice \(T(u_{n-1}) = T(u_n) \circ \iota_*.\)
-        Then since \(T(u_{n-1})\) is surjective for all \(m\), so is \(T(u_{n})\). \(W_n\) was formed by adding \(n+1\)-cells to \(W_{n-1}\) so \(\iota\) is surjective for \(m < n.\)
-        Then since \(T(u_{n-1})\) is injective for \(m< n\), so is \(T(u_{n})\). In the case \(m=n\), the kernel of \(T(u_{n-1})\) is contained in the kernel of \(\iota_*\), and so \(T(u_n)\) is injective.
+    <p>The inclusion also induces \(\iota_*:[S^m,W_{i-1}] \rightarrow [S^m,W_i]\). Notice \(T(u_{i-1}) = T(u_i) \circ \iota_*.\)
+        Then since \(T(u_{i-1})\) is surjective for all \(m\), so is \(T(u_{i})\). \(W_i\) was formed by adding \(i+1\)-cells to \(W_{i-1}\) so \(\iota\) is surjective for \(m < i.\)
+        Then since \(T(u_{i-1})\) is injective for \(m< i\), so is \(T(u_{i})\). In the case \(m=i\), the kernel of \(T(u_{i-1})\) is contained in the kernel of \(\iota_*\), and so \(T(u_i)\) is injective.
 
     </p>
-    <p>Now, let \(Y_q = \bigcup W_n.\) By additivity, there is a \(u \in H^q(Y_q)\) which restructs to \(u_n\) for each \(n\), which gives the desired natural isomorphism. Uniqueness comes from Whitehead's theorem. The fact that it forms an \(\Omega\)-spectrum
+    <p>Now, let \(Y_q = \bigcup W_i.\) By additivity, there is a \(u \in H^q(Y_q)\) which restructs to \(u_i\) for each \(i\), which gives the desired natural isomorphism. Uniqueness comes from Whitehead's theorem. The fact that it forms an \(\Omega\)-spectrum
         comes from the isomorphism \(H^q(X,x_0) \xrightarrow{\sim} H^{q+1}(\Sigma X,x_0)\) which, combined with the suspension-loop adjunction, gives
         $$[X,Y_q] \simeq [\Sigma X, Y_{q+1}] \simeq [X, \Omega Y_{q+1}]$$
         and since we're working with CW-complexes, Whitehead gives the homotopy equivalence \(Y_q \simeq \Omega Y_{q+1}.\)
@@ -291,5 +293,9 @@ a, u {
     Cary Malkiewich is a really great place to start. It would also be remiss to not point out the classical reference, <a href="https://people.math.rochester.edu/faculty/doug/otherpapers/Adams-SHGH.pdf" style="color:black; background-color: #80800080;"><i>Stable Homotopy and Generalized Homology</i></a> by Adams.</p>
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos</b></a> for chatting with me about this and providing perspectives!
+    <br><br>
+    <div class="footnotes">
+        <p class="centertext" style="font-family:'Courier New'"><b>Last revised on 12.14.2024.</b></p>
+    </div>
 
 </body></html>
