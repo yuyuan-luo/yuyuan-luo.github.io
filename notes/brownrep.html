@@ -46,9 +46,9 @@ a, u {
 </head>
 
 <body>
-    <h1>brown representability, from the ground up</h1>
-    <h3 style="color:#C04000; text-align: center;">(WHERE I CONSTANTLY CITE THE SUSPENSION-LOOP ADJUNCTION)</h3>
-    <br>
+    <div title="base point" style="display: block; margin-left: auto; margin-right: auto;width:5%"><a  href="../index.html" ><img src="../img/homeicon.png" style="display: block; margin-left: auto; margin-right: auto;"></a></div><br>
+    <h1 class="centertext">brown representability, from the ground up</h1>
+    
     <p class="centertext" style="font-family:'Courier New'"><b>date: 11.19.2024</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
     <p class="centertext"> Much of this talk is based on Brown's original 1961 paper, <a style = "background-color: #80800080; color:black" href="https://www.maths.ed.ac.uk/~v1ranick/papers/brown3.pdf"><i>Cohomology Theories.</i></a> You can also read about this theorem in 
@@ -77,7 +77,7 @@ a, u {
     </p>
     <p id="freudenthal">
         <b>Freudenthal suspension theorem. </b> Suppose \(X\) is \(n\)-connected. The map $$X \rightarrow \Omega \Sigma X$$
-        <img src="img/brownrep1.png" class="center" alt="demonstration of the map X -> loops of suspension of X"> 
+        <img src="../img/brownrep/brownrep1.png" class="center" alt="demonstration of the map X -> loops of suspension of X"> 
         induces the map
         $$f_k: \pi_k(X) \rightarrow \pi_k(\Omega \Sigma X) \simeq \pi_{k+1}(\Sigma X)$$
         where the last isomorphism is given by the suspension-loop adjunction. Then \(f_k\) is an isomorphism for \(k \leq 2n\) and an epimorphism for \(k = 2n+1\).
@@ -85,7 +85,7 @@ a, u {
     <p>This theorem is a direct consequence of <a href="https://math.colorado.edu/~agbe5088/math6280/classnotes/Daniel_Martin.pdf" style="color:black; background-color:#80800080"><i>homotopy excision</i></a>.</p>
     <div class="proof">Take \(\Sigma X = (CX)^+ \cup (CX)^-\), the decomposition of the suspension into reduced cones that intersect at \(X\). We will apply homotopy excision to 
         $$ ((CX)_{+},X)\subset (\Sigma X,(CX)_{-}).$$ 
-        <img src="img/brownrep2.png" class="center" alt="homotopy excision cones">
+        <img src="../img/brownrep/brownrep2.png" class="center" alt="homotopy excision cones">
         Notice that since \(X\) is \(n\)-connected, by the long exact sequence in relative homotopy, \(((CX)_{+},X)\) and \(((CX)_{-},X)\)
         are \((n+1)\)-connected as cones are contractible. Then homotopy excision says that 
         $$g_k: \pi_k((CX)_{+},X) \rightarrow \pi_k(\Sigma X,(CX)_{-})$$
@@ -141,7 +141,7 @@ a, u {
     <p><b>Definition.</b> The <i>homotopy groups</i> of a spectrum \(X=\{X_i\}_{i \in \mathbb{Z}}\) is the colimit
     $$\pi_n(X) = \lim_n \pi_{n+i}(X_i)$$
     in the category of abelian groups, where the maps \(\pi_k(X_i) \rightarrow \pi_{k+1}(X_{i+1})\) are defined by factoring through:
-    <img src="img/brownrep3.png" class="centerpad" alt="commutative diagram of factoring">
+    <img src="../img/brownrep/brownrep3.png" class="centerpad" alt="commutative diagram of factoring">
     </p>
 
     <p>We will discuss a bit more about the general notions of spectra in the <a href="#catref" style="color:#C04000"><b>encore</b></a>. For now, when I say spectra I mean \(\Omega\)-spectra.</p>
@@ -171,7 +171,7 @@ a, u {
     </p>
     <p>
         We are almost ready to state the main theorem. Given a pair \((X,A)\), let \(Z(X,A)\) be \(X\) with an unreduced cone over \(A\), with basepoint \(p\) at the tip of the cone:
-        <img src="img/brownrep4.png" class="center" style="width:40%">
+        <img src="../img/brownrep/brownrep4.png" class="center" style="width:40%">
         Notice that \(Z(X,\varnothing) = X \sqcup \{p\}.\)
     </p>
     <p><b>Brown Representability Theorem.</b> A cohomology theory \(\{H^q, \partial\}\) corresponds to an \(\Omega\)-spectrum \(Y=\{Y_q\}\), unique up to homotopy, such that 
@@ -182,7 +182,7 @@ a, u {
     <p>Given an \(\Omega\)-spectrum \(Y = \{Y_q\}\), we want to show \([Z(-),Y_q]\) specify cohomology groups. 
         The boundary map \(\partial\) of the associated cohomology theory is defined as follows: take 
         $$d: Z(X,A) \rightarrow \Sigma Z(A,\varnothing)$$
-        <img src="img/brownrep5.jpg" class="center" alt="sending everything to a point">
+        <img src="../img/brownrep/brownrep5.jpeg" class="center" alt="sending everything to a point">
         to be the map collapsing \(X\) to the basepoint, which induces
         $$[\Sigma Z(A),Y_q] \xrightarrow{d_*} [Z(X,A), Y_q]$$
         which, by the suspension-loop adjunction, gives
@@ -206,13 +206,13 @@ a, u {
     <ul>
         <li><i>(homotopy)</i> this is clear since we're looking at homotopy classes of maps;</li>
         <li><i>(exactness)</i> check exactness at each map:
-        <img src="img/brownrep6.jpg" class="center2" style="padding-top:10px; padding-bottom: 15px;">
+        <img src="../img/brownrep/brownrep6.jpeg" class="center2" style="padding-top:10px; padding-bottom: 15px;">
             To show that \(\ker \partial = \text{im } H^q(j)\), first note that by suspension-loop we can rewrite 
             $$H^q(j): [\Sigma Z(X), Y_{q+1}] \rightarrow [\Sigma Z(A), Y_{q+1}]$$ then
             showing \(\text{im } H^q(j) \subset \ker \partial\) amounts to showing
             $$- \circ j \circ d: [\Sigma Z(X), Y_{q+1}] \rightarrow [Z(X,A), Y_{q+1}]$$
             is zero. But notice that the map \(j \circ d: Z(X,A) \rightarrow \Sigma Z(X)\) factors through the unreduced cone \(C(X)\)
-            <img src="img/brownrep7.jpg" class="center2" style="padding-top:10px; padding-bottom: 15px;">
+            <img src="../img/brownrep/brownrep7.jpg" class="center2" style="padding-top:10px; padding-bottom: 15px;">
             which is contractible, it follows that the image in \(Y_{q+1}\) must be contractible also, so the map \(- \circ j \circ d\) is indeed zero.
             Showing that \(\ker \partial \subset \text{im } H^q(j)\) amounts to showing that a map \(f \in [\Sigma Z(A), Y_{q+1}]\) which pulls back to 
             \(f \circ d \simeq \text{id} \in [Z(X,A), Y_{q+1}]\) can be extended to a map in \([\Sigma Z(X), Y_{q+1}]\) which restricts to \(f\) on \(\Sigma Z(A).\)
