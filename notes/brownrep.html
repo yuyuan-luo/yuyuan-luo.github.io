@@ -283,10 +283,10 @@ a, u {
     <p>At this point, we want to say the sentence "cohomology theories are representable functors."  Right now, we've shown that cohomology groups are represented by spaces which package
         into spectra. It would be nice to define a category of spectra and cohomology theories on them, such that the representing objects are actually spectra.
     </p>
-    <p>To get a category of spectra, we need a way of defining morphisms of spectra. Our first instinct is maybe level-wise maps of spaces (perhaps with a shift) which is compatible with structure maps.
+    <p>To get a category of spectra, we need a notion of morphisms between spectra. Our first instinct is maybe level-wise maps of spaces (perhaps with a shift) which is compatible with structure maps.
         Unfortunately, this definition is too rigid to be useful; it turns out one possible definition involves equivalence classes of maps from <i>cofinal subspectra</i>, and you can then define homotopy classes of maps using the <i>cylinder spectrum.</i>
         There are some details <a href="https://iwoat.github.io/2019/notes/Lecture-3.pdf" style="color: black; background-color: #80800080;"><i>here</i></a>. From there,
-        you can define the cohomology theory represented by the spectrum \(E\) as a contravariant functor to graded abelian groups 
+        we can define the cohomology theory represented by the spectrum \(E\) as a contravariant functor to graded abelian groups 
         $$E^*: \text{Spectra}^{\text{op}} \rightarrow \text{gr}\textbf{Ab}$$
         $$X \mapsto [X,E]$$
         where the grading is given by the degree shift of the map. In the case that \(X\) is a spectrum where the only nontrivial space is in degree \(0\),
