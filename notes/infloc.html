@@ -50,19 +50,31 @@ a, u {
     <h1 class="centertext">localizations of infinity categories</h1>
     
     <p class="centertext" style="font-family:'Courier New'"><b>date: 02.17.2025</b></p>
-    <p class="centertext" style="font-family:'Courier New'"><b>slogan: spectra represent cohomology theories.</b></p><br><br>
+    <p class="centertext" style="font-family:'Courier New'"><b>beta version 02.11, please check back in a week!</b></p><br><br>
     <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
-    I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book closely.</p>
+    I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book relatively closely.</p>
     <p class="centertext"> In the first half of this talk, I talk about localizations.</p>
 
     <h2>I. Localizations</h2>
-    <p>Just like for categories, to localize an \[\infty-\]category is to declare </p>
-    <p><b>Definition.</b> A functor \(f:\mathcal{C} \rightarrow \mathcal{D}\) of \(\infty\)-categories is a <i>Joyal equivalence</i> if it is an equivalence as a morphism in \(\text{Cat}_{\infty}\).</p>
+    <p><i>Notation: \(\mathcal{C}, \mathcal{D}\) are \(\infty-\)categories, \(S \subseteq \mathcal{C}_1\) a subset of morphisms of \(\mathcal{C}\). </i></p>
+    <p>Just like for \(1-\)categories, the idea of localization for an \(\infty-\)category is to declare certain morphisms equivalences by adding their inverses.
+        We define this via taking the universal object to the property of sending the desired morphisms to equivalences. To make this definition precise, take notation \(\text{Fun}^{S}(\mathcal{C},\mathcal{D})\) to mean the \(\infty\)-category of functors from \(\mathcal{C}\) to \(\mathcal{D}\) which
+        send morphisms in \(S\) to equivalences in \(\mathcal{D}.\)
+    </p>
+    <p><b>Definition.</b> A functor \(i: \mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) of \(\infty\)-categories is a <i>Dwyer-Kan localization</i> of \(\mathcal{C}\) along \(S\) if,
+    for any \(\mathcal{D}\), the functor $$i^*: \text{Fun}(\mathcal{C}[S^{-1}], \mathcal{D}) \rightarrow \text{Fun}(\mathcal{C},\mathcal{D})$$
+    factors through a <a href="#joyaleq" style="color:#C04000"><b>Joyal equivalence</b></a>
+    $$\text{Fun}(\mathcal{C}[S^{-1}], \mathcal{D}) \rightarrow \text{Fun}^S(\mathcal{C},{D}).$$</p>
+    <p id="joyaleq">Recall that a functor of \(\infty\)-categories is a <i>Joyal equivalence</i> if it is an equivalence as a morphism in \(\text{Cat}_{\infty}\);
+    last time, we've seen that a functor being a Joyal equivalence is the same thing as being fully faithful and essentially surjective.</p>
+    <p>As with all objects defined via universal properties, we must check existence and uniqueness. Uniqueness is easier, so we do this first.</p>
+    <h3>I.1 Uniqueness</h3> 
+    Suppose we have two localizations of \(\mathcal{C}\) along \(S\), \(i: \mathcal{C} \rightarrow A\) and \(j: \mathcal{C} \rightarrow B\).
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for many helpful discussions!
     <br><br>
     <div class="footnotes">
-        <p class="centertext" style="font-family:'Courier New'"><b>Last revised on 02.07.2025.</b></p>
+        <p class="centertext" style="font-family:'Courier New'"><b>Last revised on 02.11.2025.</b></p>
     </div>
 
 </body></html>
