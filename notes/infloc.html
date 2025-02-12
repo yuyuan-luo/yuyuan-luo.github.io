@@ -76,7 +76,7 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>date: 02.17.2025</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>beta version 02.11, please check back in a week!</b></p><br><br>
     <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
-    I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book relatively closely.</p>
+    I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book somewhat loosely.</p>
     <p class="centertext"> In the first half of this talk, I define localizations via a universal property, show that it is unique and construct it.</p>
 
     <h2>I. Localizations</h2>
@@ -94,11 +94,24 @@ a, u {
     <h3>I.1 Uniqueness</h3> 
     <p>Suppose we have two localizations of \(\mathcal{C}\) along \(S\), \(i: \mathcal{C} \rightarrow A\) and \(j: \mathcal{C} \rightarrow B\). We prove the following triangle
         <img src="../img/infloc/infloc1.png" class="center30"> 
-        exists and commutes, with \(F,G\) being Joyal equivalences. To get \(F\), consider the following diagram:</p>
+        exists and commutes, with \(F,G\) being Joyal equivalences. To get \(G\), consider the following diagram:</p>
         <img src="../img/infloc/infloc2.png" class="center60"> 
-        <p>Notice that here, \(i^*(\text{id}_A) = i\). Take \(f \in \text{Fun}^S(\mathcal{C}, \mathcal{A})\) to be \(f = \varphi(\text{id}_A)\). Now consider the diagram</p>
+        <p>Notice that here, \(i^*(\text{id}_A) = i\). Take \(g \in \text{Fun}^S(\mathcal{C}, \mathcal{A})\) to be \(g = \varphi(\text{id}_A)\). Now consider the diagram</p>
         <img src="../img/infloc/infloc3.png" class="center60"> 
-        <p>and now take \(F = \phi^{-1}\circ\varphi(\text{id}_A)\). We can construct \(G\) completely analogously. (Notice this construction also makes clear how the definition is in fact a <i>universal</i> property.)</p>
+        <p>and now take \(G = \phi^{-1}(g)\). The fact that \(Gj\simeq i\) follows from the fact that \(g\) is mapped to \(i\) in the first triangle and to \(Gj\) in the second.
+             We can construct \(F\) completely analogously. (Notice this construction also makes clear how the definition is in fact a <i>universal</i> property.)</p>
+        <p>Now it suffices to show that \(GF \simeq \text{id}_A\) and \(FG \simeq \text{id}_B\). Notice, in the first triangle, that \(i^*\) is the composition of two fully faithful functors, so it suffices show that the images of \(GF\) and \(\text{id}_A\)
+            under \(i^*\) are equivalent. And indeed they are:
+            $$GFi \simeq Gj \simeq i$$
+            and similarly 
+            $$FGj \simeq Fi \simeq j.$$
+        </p>
+
+    <h3>I.2 Construction</h3>
+    We construct a localization \(\mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) in three steps.
+    <ol>
+        <li>Show that </li>
+    </ol>
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for many helpful discussions!
     <br><br>
