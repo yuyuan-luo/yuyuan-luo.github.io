@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style>
-.center {
+.center20 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+.center30 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.center40 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.center60 {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 60%;
 }
-.center2 {
+.center70 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+.center80 {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -53,7 +77,7 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>beta version 02.11, please check back in a week!</b></p><br><br>
     <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
     I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book relatively closely.</p>
-    <p class="centertext"> In the first half of this talk, I talk about localizations.</p>
+    <p class="centertext"> In the first half of this talk, I define localizations via a universal property, show that it is unique and construct it.</p>
 
     <h2>I. Localizations</h2>
     <p><i>Notation: \(\mathcal{C}, \mathcal{D}\) are \(\infty-\)categories, \(S \subseteq \mathcal{C}_1\) a subset of morphisms of \(\mathcal{C}\). </i></p>
@@ -63,13 +87,18 @@ a, u {
     </p>
     <p><b>Definition.</b> A functor \(i: \mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) of \(\infty\)-categories is a <i>Dwyer-Kan localization</i> of \(\mathcal{C}\) along \(S\) if,
     for any \(\mathcal{D}\), the functor $$i^*: \text{Fun}(\mathcal{C}[S^{-1}], \mathcal{D}) \rightarrow \text{Fun}(\mathcal{C},\mathcal{D})$$
-    factors through a <a href="#joyaleq" style="color:#C04000"><b>Joyal equivalence</b></a>
-    $$\text{Fun}(\mathcal{C}[S^{-1}], \mathcal{D}) \rightarrow \text{Fun}^S(\mathcal{C},{D}).$$</p>
-    <p id="joyaleq">Recall that a functor of \(\infty\)-categories is a <i>Joyal equivalence</i> if it is an equivalence as a morphism in \(\text{Cat}_{\infty}\);
+    factors through a <a href="#joyaleq" style="color:#C04000"><b>Joyal equivalence</b></a> to \(\text{Fun}^S(\mathcal{C},\mathcal{D})\):</p>
+<br><img src="../img/infloc/infloc0.png" class="center70">     <p id="joyaleq">Recall that a functor of \(\infty\)-categories is a <i>Joyal equivalence</i> if it is an equivalence as a morphism in \(\text{Cat}_{\infty}\);
     last time, we've seen that a functor being a Joyal equivalence is the same thing as being fully faithful and essentially surjective.</p>
     <p>As with all objects defined via universal properties, we must check existence and uniqueness. Uniqueness is easier, so we do this first.</p>
     <h3>I.1 Uniqueness</h3> 
-    Suppose we have two localizations of \(\mathcal{C}\) along \(S\), \(i: \mathcal{C} \rightarrow A\) and \(j: \mathcal{C} \rightarrow B\).
+    <p>Suppose we have two localizations of \(\mathcal{C}\) along \(S\), \(i: \mathcal{C} \rightarrow A\) and \(j: \mathcal{C} \rightarrow B\). We prove the following triangle
+        <img src="../img/infloc/infloc1.png" class="center30"> 
+        exists and commutes, with \(F,G\) being Joyal equivalences. To get \(F\), consider the following diagram:</p>
+        <img src="../img/infloc/infloc2.png" class="center60"> 
+        <p>Notice that here, \(i^*(\text{id}_A) = i\). Take \(f \in \text{Fun}^S(\mathcal{C}, \mathcal{A})\) to be \(f = \varphi(\text{id}_A)\). Now consider the diagram</p>
+        <img src="../img/infloc/infloc3.png" class="center60"> 
+        <p>and now take \(F = \phi^{-1}\circ\varphi(\text{id}_A)\). We can construct \(G\) completely analogously.</p>
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for many helpful discussions!
     <br><br>
