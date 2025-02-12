@@ -74,7 +74,7 @@ a, u {
     <h1 class="centertext">localizations of infinity categories</h1>
     
     <p class="centertext" style="font-family:'Courier New'"><b>date: 02.17.2025</b></p>
-    <p class="centertext" style="font-family:'Courier New'"><b>beta version 02.11, please check back in a week!</b></p><br><br>
+    <p class="centertext" style="font-family:'Courier New'"><b>beta version 02.12, please check back in a week!</b></p><br><br>
     <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
     I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book somewhat loosely.</p>
     <p class="centertext"> In the first half of this talk, I define localizations via a universal property, show that it is unique and construct it.</p>
@@ -91,7 +91,7 @@ a, u {
 <br><img src="../img/infloc/infloc0.png" class="center70">     <p id="joyaleq">Recall that a functor of \(\infty\)-categories is a <i>Joyal equivalence</i> if it is an equivalence as a morphism in \(\text{Cat}_{\infty}\);
     last time, we've seen that a functor being a Joyal equivalence is the same thing as being fully faithful and essentially surjective.</p>
     <p>As with all objects defined via universal properties, we must check existence and uniqueness. Uniqueness is easier, so we do this first.</p>
-    <h3>I.1 Uniqueness</h3> 
+    <h3>I.a Uniqueness</h3> 
     <p>Suppose we have two localizations of \(\mathcal{C}\) along \(S\), \(i: \mathcal{C} \rightarrow A\) and \(j: \mathcal{C} \rightarrow B\). We prove the following triangle
         <img src="../img/infloc/infloc1.png" class="center30"> 
         exists and commutes, with \(F,G\) being Joyal equivalences. To get \(G\), consider the following diagram:</p>
@@ -107,16 +107,22 @@ a, u {
             $$FGj \simeq Fi \simeq j.$$
         </p>
 
-    <h3>I.2 Construction</h3>
+    <h3>I.b Construction</h3>
     We construct a localization \(\mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) in three steps.
     <ol>
-        <li>Show that </li>
+        <li>Show that, for \(J\) the \(\infty-\)groupoid with \(J_0=\{0,1\}\) and a unique morphism from \(0\) to \(1\), the map \(\Delta_1 \rightarrow J\) is a localization at the unique nontrivial morphism of \(\Delta_1\).</li>
+        <li>Construct the localization \(\mathcal{C} \rightarrow \mathcal{C}[\mathcal{C}_1^{-1}]\).</li>
+        <li>Construct the localization \(\mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) for general \(S\).</li>
     </ol>
+    <h5>(I.b.1) \(\Delta_1 \rightarrow J\)</h5>
+    Clearly we have the factorization
+    $$\text{Fun}(\Delta_1, \mathcal{D}) \rightarrow \text{Fun}^{(\Delta_1)_1}(\Delta_1, \mathcal{D}) \hookrightarrow \text{Fun}(J, \mathcal{D}).$$
+    We need to show that the first map is a Joyal equivalence. Last time, we noted that inner anodyne maps are Joyal equivalences, so we here show that the first map is inner anondyne.
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for many helpful discussions!
     <br><br>
     <div class="footnotes">
-        <p class="centertext" style="font-family:'Courier New'"><b>Last revised on 02.11.2025.</b></p>
+        <p class="centertext" style="font-family:'Courier New'"><b>Last revised on 02.12.2025.</b></p>
     </div>
 
 </body></html>
