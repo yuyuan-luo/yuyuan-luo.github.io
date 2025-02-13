@@ -60,7 +60,7 @@ a, u {
 </style>
 
 
-    <title>Localizations of Infinity Categories</title>
+    <title>On Localizations and Joyal Equivalences</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
@@ -71,13 +71,13 @@ a, u {
 
 <body>
     <div title="base point" style="display: block; margin-left: auto; margin-right: auto;width:5%"><a  href="../index.html" ><img src="../img/homeicon.png" style="display: block; margin-left: auto; margin-right: auto;"></a></div><br>
-    <h1 class="centertext">localizations of infinity categories</h1>
+    <h1 class="centertext">on localizations and Joyal equivalences</h1>
     
     <p class="centertext" style="font-family:'Courier New'"><b>date: 02.17.2025</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>beta version 02.12, please check back in a week!</b></p><br><br>
     <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
     I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book somewhat loosely.</p>
-    <p class="centertext"> In the first half of this talk, I define localizations via a universal property, show that it is unique and construct it.</p>
+    <p class="centertext"> In the first half of this talk, I define localizations via a universal property, show that it is unique, and construct it. I also give some key examples.</p>
 
     <h2>I. Localizations</h2>
     <p><i>Notation: \(\mathcal{C}, \mathcal{D}\) are \(\infty-\)categories, \(S \subseteq \mathcal{C}_1\) a subset of morphisms of \(\mathcal{C}\). </i></p>
@@ -111,13 +111,25 @@ a, u {
     We construct a localization \(\mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) in three steps.
     <ol>
         <li>Show that, for \(J\) the \(\infty-\)groupoid with \(J_0=\{0,1\}\) and a unique morphism from \(0\) to \(1\), the map \(\Delta_1 \rightarrow J\) is a localization at the unique nontrivial morphism of \(\Delta_1\).</li>
-        <li>Construct the localization \(\mathcal{C} \rightarrow \mathcal{C}[\mathcal{C}_1^{-1}]\).</li>
+        <li>Using 1, construct the localization \(\mathcal{C} \rightarrow \mathcal{C}[\mathcal{C}_1^{-1}]\).</li>
         <li>Construct the localization \(\mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) for general \(S\).</li>
     </ol>
-    <h5>(I.b.1) \(\Delta_1 \rightarrow J\)</h5>
-    Clearly we have the factorization
-    $$\text{Fun}(\Delta_1, \mathcal{D}) \rightarrow \text{Fun}^{(\Delta_1)_1}(\Delta_1, \mathcal{D}) \hookrightarrow \text{Fun}(J, \mathcal{D}).$$
-    We need to show that the first map is a Joyal equivalence. Last time, we noted that inner anodyne maps are Joyal equivalences, so we here show that the first map is inner anondyne.
+    <h5>(I.b.1) \(\Delta^1 \rightarrow J\)</h5>
+    <p>We have the factorization
+        $$\text{Fun}(J, \mathcal{D}) \rightarrow \text{Fun}^{(\Delta^1)_1}(\Delta^1, \mathcal{D}) \hookrightarrow \text{Fun}(\Delta^1, \mathcal{D}).$$
+        We need to show that the first map is a Joyal equivalence. Last time, we noted that inner anodyne maps are Joyal equivalences, and our map is clearly inner anodyne.</p>
+    <p>(In the book, the proof of Lemma 2.4.5 shows something <i>stronger</i>: it shows that this map is a trivial Kan fibration via giving a filtration of \(J\) and inducting.)</p>
+    <h5>(I.b.2) \(\mathcal{C} \rightarrow \mathcal{C}[\mathcal{C}^{-1}]\)</h5>
+    <p>Consider the pushout
+        <img src="../img/infloc/infloc4.png" class="center30"> 
+        and factor \(Y \rightarrow *\) as an inner anodyne map \(g: Y \rightarrow X\) followed by an inner fibration. Take \(gf: \mathcal{C} \rightarrow X\) to be the desired map; the proof that this is a localization is omited -- see Lemma 2.4.6 of the book.
+    </p>
+    <h5>(I.b.3) \(\mathcal{C} \rightarrow \mathcal{C}[\mathcal{S}^{-1}]\)</h5>
+    <p>Let \(\mathcal{C}_S\) be the smallest \(\infty-\)subcategory \(\mathcal{C}\) which contains 
+        <img src="../img/infloc/infloc4.png" class="center30"> 
+        and take \(f: \mathcal{C} \rightarrow Y\) to be the desired map; the proof that this is a localization is omited; see Lemma 2.4.6 of the book.
+    </p>
+    <h3>I.c Examples</h3>
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for many helpful discussions!
     <br><br>
