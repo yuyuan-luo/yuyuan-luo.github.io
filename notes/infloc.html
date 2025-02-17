@@ -84,7 +84,7 @@ a, u {
     <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
     I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book somewhat loosely,
     and priortize constructions over proofs.</p>
-    <p class="centertext">In the first part of this talk, I define localizations via a universal property, show that it is unique, and construct it. I also give some key examples. In the second part of the talk, I consider different, equivalent models for the mapping space between two objects in an \(\infty-\)category. Finally, I give the definition of the homotopy-coherent nerve.</p>
+    <p class="centertext">In the first part of this talk, I define localizations via a universal property, show that it is unique, and construct it. I also give some key examples. In the second part of the talk, I consider different, equivalent models for the mapping space between two objects in an \(\infty-\)category. Finally, I give the definition of the homotopy-coherent nerve. Each part is self-contained.</p>
 
     <h2>I. Localizations</h2>
     <p><i>Notation: \(\mathcal{C}, \mathcal{D}\) are \(\infty-\)categories, \(S \subseteq \mathcal{C}_1\) a subset of morphisms of \(\mathcal{C}\). </i></p>
@@ -177,6 +177,14 @@ a, u {
     <img src="../img/infloc/infloc10.png" class="center80">
     <p>comparing this with the pullback squares of the definition of the <a href="#leftright" style="color:#C04000"><b>left and right mapping spaces</b></a> using the Joyal equivalence map between slices and fat slices gives the desired equivalence. You can find more details in the book, in section 2.5.</p>
     <h2>III. Homotopy-Coherent Nerve</h2>
+    <p>I define this here because it is important and missed previously. The <i>homotopy-coherent nerve</i> (also known as the <i>simplicial nerve</i>) is a functor
+    $$N:\text{Cat}_{\Delta} \rightarrow \text{sSet}$$ on simplicially-enriched categories which agrees with the classical nerve on \(1-\)categories. The point of this is that the simplicially-enriched categories come with the information of homotopies, and we want to capture that in the nerve. (Recall that the classical nerve doesn't have this information since \(n-\)compositions are unique for \(1-\)categories.)</p>
+    <p>To define it, we need a simplicially-enriched version of \(\Delta^n\). If \(J\) is a linearly ordered set and \(i,j \in J\), let \(P_{i,j}\) be a poset consisting of subsets of \([i,j] \subset J\), partially ordered by inclusion.</p>
+    <p><b>Definition.</b> The simplicially-enriched category \(\mathfrak{C}[\Delta^J]\) has objects given by elements of \(J\) and 
+    $$\text{Hom}_{\mathfrak{C}[\Delta^J]} = \begin{cases} \varnothing & i > j  \\ N(P_{i,j}) & i \leq j.\end{cases}$$</p>
+    <p>Now, for any simplicially-enriched category \(\mathcal{C}\), define its homotopy-coherent nerve \(N(\mathcal{C})\) as the simplicial set where
+        $$N(\mathcal{C})_n = \text{Hom}_{\text{Cat}_{\Delta}}(\mathfrak{C}[\Delta^n], \mathcal{C}).$$</p>
+    <p>Details are in section 1.2 of the book.</p>
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for helping me prepare the talk!
     <br><br>
