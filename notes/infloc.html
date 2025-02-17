@@ -152,6 +152,14 @@ a, u {
     <img src="../img/infloc/infloc8.png" class="center40">
     We will show that in fact, all three definitions are homotopy equivalent. But first, we need to define slice categories.
     <h3>II.a Slices and Joins</h3>
+    <p>Last time, we saw the definition for joins of categories. Let's now define it for simplicial sets. For a linearly ordered set \(J\), a <i>cut</i> of \(J\) is a decomposition \(J = J_1 \coprod J_2\) such that \(j_1 < j_2\) for \(j_i \in J_i.\)</p>
+    <p><b>Definition.</b> The <i>join</i> \(X \star Y\) sends, for a finite linear ordered set \(J\),
+    $$(X \star Y)(J) = \coprod_{(J_1,J_2 \in \text{cut}(J))} X(J_1) \times Y(J_2).$$</p>
+    <p><b>Definition.</b> For \(p:S \rightarrow X\), the <i>slice category</i> \(X_{p/}\) as a simplicial set is 
+    $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(S \star \Delta^n, X)$$ and \(X_{/p}\) as a simplicial set is 
+    $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(\Delta^n \star S, X).$$</p>
+    <p><b>Note.</b> The functor $$(-)_{p/}: \text{sSet}_{S/} \rightarrow \text{sSet}$$
+    $$(p:S \rightarrow X) \mapsto X_{p/}$$ is the right adjoint to \(S \star -: \text{sSet} \rightarrow \text{sSet}_{S/}\), and \((-)_{/p}\) is right adjoint to \(- \star S\).</p>
     <h3>II.b Equivalence of Notions of Mapping Spaces</h3>
 
     <h2>III. Homotopy-Coherent Nerve</h2>
