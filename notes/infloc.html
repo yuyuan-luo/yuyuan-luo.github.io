@@ -84,7 +84,7 @@ a, u {
     <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
     I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book somewhat loosely,
     and priortize constructions over proofs.</p>
-    <p class="centertext">In the first part of this talk, I define localizations via a universal property, show that it is unique, and construct it. I also give some key examples. In the second part of the talk, I consider different, equivalent models for the mapping space between two objects in an \(\infty-\)-category. Finally, I give the definition of the homotopy-coherent nerve.</p>
+    <p class="centertext">In the first part of this talk, I define localizations via a universal property, show that it is unique, and construct it. I also give some key examples. In the second part of the talk, I consider different, equivalent models for the mapping space between two objects in an \(\infty-\)category. Finally, I give the definition of the homotopy-coherent nerve.</p>
 
     <h2>I. Localizations</h2>
     <p><i>Notation: \(\mathcal{C}, \mathcal{D}\) are \(\infty-\)categories, \(S \subseteq \mathcal{C}_1\) a subset of morphisms of \(\mathcal{C}\). </i></p>
@@ -144,7 +144,7 @@ a, u {
         source \(a\) and target \(b\). It is then reasonable to define the mapping space as the following pullback:
     </p>
     <img src="../img/infloc/infloc6.png" class="center50">
-    <p>(This diagram lives in \(\text{sSet}\); it is a theorem that the mapping space is actually a Kan complex and therefore a space.) This definition parameterizes the mapping space over both the source and the target. We may also define it in a way where it is parameterized over just the source, or just the target. To do this, we will need a notion of "all the maps to \(b\)", denoted \(\mathcal{C}_{/b}\), or a notion of all the maps from \(a\)", denoted \(\mathcal{C}_{/a}\).
+    <p id="leftright">(This diagram lives in \(\text{sSet}\); it is a theorem that the mapping space is actually a Kan complex and therefore a space.) This definition parameterizes the mapping space over both the source and the target. We may also define it in a way where it is parameterized over just the source, or just the target. To do this, we will need a notion of "all the maps to \(b\)", denoted \(\mathcal{C}_{/b}\), or a notion of all the maps from \(a\)", denoted \(\mathcal{C}_{/a}\).
         (These are called <i>slice categories</i> which we will define shortly.) Once we have these notions, we can define the <i>right mapping space</i> as the pullback
     </p>
     <img src="../img/infloc/infloc7.png" class="center40">
@@ -153,15 +153,29 @@ a, u {
     We will show that in fact, all three definitions are homotopy equivalent. But first, we need to define slice categories.
     <h3>II.a Slices and Joins</h3>
     <p>Last time, we saw the definition for joins of categories. Let's now define it for simplicial sets. For a linearly ordered set \(J\), a <i>cut</i> of \(J\) is a decomposition \(J = J_1 \coprod J_2\) such that \(j_1 < j_2\) for \(j_i \in J_i.\)</p>
-    <p><b>Definition.</b> The <i>join</i> \(X \star Y\) sends, for a finite linear ordered set \(J\),
+    <p id="join"><b>Definition.</b> The <i>join</i> \(X \star Y\) sends, for a finite linear ordered set \(J\),
     $$(X \star Y)(J) = \coprod_{(J_1,J_2 \in \text{cut}(J))} X(J_1) \times Y(J_2).$$</p>
-    <p><b>Definition.</b> For \(p:S \rightarrow X\), the <i>slice category</i> \(X_{p/}\) as a simplicial set is 
+    <p id="slice"><b>Definition.</b> For \(p:S \rightarrow X\), the <i>slice category</i> \(X_{p/}\) as a simplicial set is 
     $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(S \star \Delta^n, X)$$ and \(X_{/p}\) as a simplicial set is 
     $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(\Delta^n \star S, X).$$</p>
     <p><b>Note.</b> The functor $$(-)_{p/}: \text{sSet}_{S/} \rightarrow \text{sSet}$$
     $$(p:S \rightarrow X) \mapsto X_{p/}$$ is the right adjoint to \(S \star -: \text{sSet} \rightarrow \text{sSet}_{S/}\), and \((-)_{/p}\) is right adjoint to \(- \star S\).</p>
-    <h3>II.b Equivalence of Notions of Mapping Spaces</h3>
-
+    <h3>II.b Fat Slices and Fat Joins</h3>
+    <p>You may object that the definition of a <a href="#join" style="color:#C04000"><b>join</b></a> is too constructive, and instead use the following pushout as definition.</p>
+    <p><b>Definition.</b> The pushout \(X \diamond Y\) of the diagram</p>
+    <img src="../img/infloc/infloc9.png" class="center40">
+    <p>is the <i>fat join</i> of \(X\) and \(Y\).</p>
+    <p><b>Theorem.</b> The join \(X \star Y\) and the fat join \(X \diamond Y\) are Joyal equivalent.</p>
+    <p>The proof of this can be found in section 2.5 of the book.</p>
+    <p>We can also define <i>fat slices</i> using this definition of joins, by replacing each instance of a join in the definition of <a href="#slice" style="color:#C04000"><b>slice</b></a> by a fat join.</p>
+    <p><b>Definition.</b> For \(p:S \rightarrow X\), the <i>fat slice</i> \(X^{p/}\) is 
+        $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(S \diamond \Delta^n, X)$$ and \(X^{/p}\) is 
+        $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(\Delta^n \diamond S, X).$$</p>
+    <p><b>Note.</b> The slices \(X_{p/}, X_{/p}\) are respectively Joyal equivalent to fat slices \(X^{p/}, X^{/p}\), and similar to the adjunction between joins and slices, there is an adjunction between fat joins and fat slices.</p>
+    <h3>II.c Homotopy Equivalence of Mapping Spaces</h3>
+    <p>As it turns out, the mapping space \(\text{map}_{\mathcal{C}}(a,b)\) also arises as the following pullbacks:</p>
+    <img src="../img/infloc/infloc10.png" class="center80">
+    <p>comparing this with the pullback squares of the definition of the <a href="#leftright" style="color:#C04000"><b>left and right mapping spaces</b></a> using the Joyal equivalence map between slices and fat slices gives the desired equivalence. You can find more details in the book, in section 2.5.</p>
     <h2>III. Homotopy-Coherent Nerve</h2>
     <h4><i>acknowledgement</i></h4>
     Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for helping me prepare the talk!
