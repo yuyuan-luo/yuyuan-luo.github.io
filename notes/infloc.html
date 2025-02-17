@@ -18,6 +18,12 @@
     margin-right: auto;
     width: 40%;
 }
+.center50 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 .center60 {
     display: block;
     margin-left: auto;
@@ -60,7 +66,7 @@ a, u {
 </style>
 
 
-    <title>On Localizations and Joyal Equivalences</title>
+    <title>On Localizations, Mapping Spaces, and the Homotopy-Coherent Nerve</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
@@ -71,13 +77,14 @@ a, u {
 
 <body>
     <div title="base point" style="display: block; margin-left: auto; margin-right: auto;width:5%"><a  href="../index.html" ><img src="../img/homeicon.png" style="display: block; margin-left: auto; margin-right: auto;"></a></div><br>
-    <h1 class="centertext">on localizations and Joyal equivalences</h1>
+    <h1 class="centertext">on localizations, mapping spaces, and the homotopy-coherent nerve</h1>
     
-    <p class="centertext" style="font-family:'Courier New'"><b>date: 02.17.2025</b></p>
-    <p class="centertext" style="font-family:'Courier New'"><b>beta version 02.12, please check back in a week!</b></p><br><br>
+    <p class="centertext" style="font-family:'Courier New'"><b>date: 02.17.2025</b></p><br>
+    <img src="../img/infloc/cat.png" class="center60"><br>
     <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
-    I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book somewhat loosely.</p>
-    <p class="centertext"> In the first half of this talk, I define localizations via a universal property, show that it is unique, and construct it. I also give some key examples.</p>
+    I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book somewhat loosely,
+    and priortize constructions over proofs.</p>
+    <p class="centertext">In the first part of this talk, I define localizations via a universal property, show that it is unique, and construct it. I also give some key examples. In the second part of the talk, I consider different, equivalent models for the mapping space between two objects in an \(\infty-\)-category. Finally, I give the definition of the homotopy-coherent nerve.</p>
 
     <h2>I. Localizations</h2>
     <p><i>Notation: \(\mathcal{C}, \mathcal{D}\) are \(\infty-\)categories, \(S \subseteq \mathcal{C}_1\) a subset of morphisms of \(\mathcal{C}\). </i></p>
@@ -126,15 +133,33 @@ a, u {
     </p>
     <h5>(I.b.3) \(\mathcal{C} \rightarrow \mathcal{C}[\mathcal{S}^{-1}]\)</h5>
     <p>Let \(\mathcal{C}_S\) be the smallest \(\infty-\)subcategory \(\mathcal{C}\) which contains 
-        <img src="../img/infloc/infloc4.png" class="center30"> 
+        <img src="../img/infloc/infloc5.png" class="center30"> 
         and take \(f: \mathcal{C} \rightarrow Y\) to be the desired map; the proof that this is a localization is omited; see Lemma 2.4.6 of the book.
     </p>
     <h3>I.c Examples</h3>
+
+    <h2>II. Models of Mapping Spaces</h2>
+    <p><i>Notation: \(S, X, Y\) simplicial sets, \(\mathcal{C}\) an \(\infty\)-category, and \(a,b \in \text{Ob}(\mathcal{C}).\)</i></p>
+    <p>Previously, we've glossed over what a mapping space \(\text{map}_{\mathcal{C}}(a,b)\) is. As a set, it is the subset of \(\mathcal{C}\) which has
+        source \(a\) and target \(b\). It is then reasonable to define the mapping space as the following pullback:
+    </p>
+    <img src="../img/infloc/infloc6.png" class="center50">
+    <p>(This diagram lives in \(\text{sSet}\); it is a theorem that the mapping space is actually a Kan complex and therefore a space.) This definition parameterizes the mapping space over both the source and the target. We may also define it in a way where it is parameterized over just the source, or just the target. To do this, we will need a notion of "all the maps to \(b\)", denoted \(\mathcal{C}_{/b}\), or a notion of all the maps from \(a\)", denoted \(\mathcal{C}_{/a}\).
+        (These are called <i>slice categories</i> which we will define shortly.) Once we have these notions, we can define the <i>right mapping space</i> as the pullback
+    </p>
+    <img src="../img/infloc/infloc7.png" class="center40">
+    <p>and the <i>left mapping space</i> as the pullback</p>
+    <img src="../img/infloc/infloc8.png" class="center40">
+    We will show that in fact, all three definitions are homotopy equivalent. But first, we need to define slice categories.
+    <h3>II.a Slices and Joins</h3>
+    <h3>II.b Equivalence of Notions of Mapping Spaces</h3>
+
+    <h2>III. Homotopy-Coherent Nerve</h2>
     <h4><i>acknowledgement</i></h4>
-    Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for many helpful discussions!
+    Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for helping me prepare the talk!
     <br><br>
     <div class="footnotes">
-        <p class="centertext" style="font-family:'Courier New'"><b>Last revised on 02.12.2025.</b></p>
+        <p class="centertext" style="font-family:'Courier New'"><b>Last revised on 02.17.2025.</b></p>
     </div>
 
 </body></html>
