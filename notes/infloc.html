@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style>
+.center20 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+.center30 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.center40 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.center50 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.center60 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+.center70 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+.center80 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+.centerpad {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    padding-top:25px;
+    padding-bottom: 10px;
+}
+.centertext {
+    text-align: center;
+}
+:root {
+    --olive: #ff0000; 
+}
+body {
+    font-family: 'Spectral' !important;
+}
+a, u {
+  text-decoration: none;
+}
+
+</style>
+
+
+    <title>On Localizations, Mapping Spaces, and the Homotopy-Coherent Nerve</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+<meta name="google-site-verification" content="ZQ3T9byeXwrpmoRI93u8jHhLWr8mKufRe06xLfDOsIM" />
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div title="base point" style="display: block; margin-left: auto; margin-right: auto;width:5%"><a  href="../index.html" ><img src="../img/homeicon.png" style="display: block; margin-left: auto; margin-right: auto;"></a></div><br>
+    <h1 class="centertext">on localizations, mapping spaces, and the homotopy-coherent nerve</h1>
+    
+    <p class="centertext" style="font-family:'Courier New'"><b>date: 02.17.2025</b></p><br>
+    <figure>
+        <img src="../img/infloc/cat.png" class="center60">
+        <figcaption style="text-align:center">unfortunately not an \(\infty-\)cat. (dall-e)</figcaption>
+      </figure>
+    <br>
+    <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
+    I'm meant to cover sections 2.4:<i> Localizations</i> and 2.5:<i> Fat Joins, Fat Slices and Mapping Spaces</i>. These notes follow the book somewhat loosely,
+    and priortize constructions over proofs.</p>
+    <p class="centertext">In the first part of this talk, I define localizations via a universal property, show that it is unique, and construct it. I also give some key examples. In the second part of the talk, I consider different, equivalent models for the mapping space between two objects in an \(\infty-\)category. Thirdly, I give the definition of the homotopy-coherent nerve. Each part is self-contained.</p>
+
+    <h2>I. Localizations</h2>
+    <p><i>Notation: \(\mathcal{C}, \mathcal{D}\) are \(\infty-\)categories, \(S \subseteq \mathcal{C}_1\) a subset of morphisms of \(\mathcal{C}\). </i></p>
+    <p>Just like for \(1-\)categories, the idea of localization for an \(\infty-\)category is to declare certain morphisms equivalences by adding their inverses.
+        We define this via taking the universal object to the property of sending the desired morphisms to equivalences. To make this definition precise, take notation \(\text{Fun}^{S}(\mathcal{C},\mathcal{D})\) to mean the \(\infty\)-category of functors from \(\mathcal{C}\) to \(\mathcal{D}\) which
+        send morphisms in \(S\) to equivalences in \(\mathcal{D}.\)
+    </p>
+    <p><b>Definition.</b> A functor \(i: \mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) of \(\infty\)-categories is a <i>Dwyer-Kan localization</i> of \(\mathcal{C}\) along \(S\) if,
+    for any \(\mathcal{D}\), the functor $$i^*: \text{Fun}(\mathcal{C}[S^{-1}], \mathcal{D}) \rightarrow \text{Fun}(\mathcal{C},\mathcal{D})$$
+    factors through a <a href="#joyaleq" style="color:#C04000"><b>Joyal equivalence</b></a> to \(\text{Fun}^S(\mathcal{C},\mathcal{D})\):</p>
+<br><img src="../img/infloc/infloc0.png" class="center70">     <p id="joyaleq">Recall that a functor of \(\infty\)-categories is a <i>Joyal equivalence</i> if it is an equivalence as a morphism in \(\text{Cat}_{\infty}\);
+    last time, we've seen that a functor being a Joyal equivalence is the same thing as being fully faithful and essentially surjective.</p>
+    <p>As with all objects defined via universal properties, we must check existence and uniqueness. Uniqueness is easier, so we do this first.</p>
+    <h3>I.a Uniqueness</h3> 
+    <p>Suppose we have two localizations of \(\mathcal{C}\) along \(S\), \(i: \mathcal{C} \rightarrow A\) and \(j: \mathcal{C} \rightarrow B\). We prove the following triangle
+        <img src="../img/infloc/infloc1.png" class="center30"> 
+        exists and commutes, with \(F,G\) being Joyal equivalences. To get \(G\), consider the following diagram:</p>
+        <img src="../img/infloc/infloc2.png" class="center60"> 
+        <p>Notice that here, \(i^*(\text{id}_A) = i\). Take \(g \in \text{Fun}^S(\mathcal{C}, \mathcal{A})\) to be \(g = \varphi(\text{id}_A)\). Now consider the diagram</p>
+        <img src="../img/infloc/infloc3.png" class="center60"> 
+        <p>and now take \(G = \phi^{-1}(g)\). The fact that \(Gj\simeq i\) follows from the fact that \(g\) is mapped to \(i\) in the first triangle and to \(Gj\) in the second.
+             We can construct \(F\) completely analogously. (Notice this construction also makes clear how the definition is in fact a <i>universal</i> property.)</p>
+        <p>Now it suffices to show that \(GF \simeq \text{id}_A\) and \(FG \simeq \text{id}_B\). Notice, in the first triangle, that \(i^*\) is the composition of two fully faithful functors, so it suffices show that the images of \(GF\) and \(\text{id}_A\)
+            under \(i^*\) are equivalent. And indeed they are:
+            $$GFi \simeq Gj \simeq i$$
+            and similarly 
+            $$FGj \simeq Fi \simeq j.$$
+        </p>
+
+    <h3>I.b Construction</h3>
+    We construct a localization \(\mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) in three steps.
+    <ol>
+        <li>Show that, for \(J\) the \(\infty-\)groupoid with \(J_0=\{0,1\}\) and a unique morphism from \(0\) to \(1\), the map \(\Delta_1 \rightarrow J\) is a localization at the unique nontrivial morphism of \(\Delta_1\).</li>
+        <li>Using 1, construct the localization \(\mathcal{C} \rightarrow \mathcal{C}[\mathcal{C}_1^{-1}]\).</li>
+        <li>Construct the localization \(\mathcal{C} \rightarrow \mathcal{C}[S^{-1}]\) for general \(S\).</li>
+    </ol>
+    <h5>(I.b.1) \(\Delta^1 \rightarrow J\)</h5>
+    <p>We have the factorization
+        $$\text{Fun}(J, \mathcal{D}) \rightarrow \text{Fun}^{(\Delta^1)_1}(\Delta^1, \mathcal{D}) \hookrightarrow \text{Fun}(\Delta^1, \mathcal{D}).$$
+        We need to show that the first map is a Joyal equivalence. Last time, we noted that trivial Kan fibrations are Joyal equivalences. In the book, the proof of Lemma 2.4.5 shows that this map is a trivial Kan fibration via giving a filtration of \(J\).</p>
+    <h5>(I.b.2) \(\mathcal{C} \rightarrow \mathcal{C}[\mathcal{C}^{-1}]\)</h5>
+    <p>Consider the pushout
+        <img src="../img/infloc/infloc4.png" class="center30"> 
+        and factor \(Y \rightarrow *\) as an inner anodyne map \(g: Y \rightarrow X\) followed by an inner fibration. Take \(gf: \mathcal{C} \rightarrow X\) to be the desired map; for proof see Lemma 2.4.6 of the book.
+    </p>
+    <h5>(I.b.3) \(\mathcal{C} \rightarrow \mathcal{C}[\mathcal{S}^{-1}]\)</h5>
+    <p>Let \(\mathcal{C}_S\) be the smallest \(\infty-\)subcategory of \(\mathcal{C}\) which contains \(S\). Consider the following pushout
+        <img src="../img/infloc/infloc5.png" class="center30"> 
+
+        where \(C_S \rightarrow X\) is the localization defined in the previous step. Take \(f: \mathcal{C} \rightarrow W\) to be the desired map; for proof see Lemma 2.4.8 of the book.
+    </p>
+    <h3>I.c Examples</h3>
+    <p><ul>
+        <li>The maps \(\text{Cat}_{\infty}^1 \rightarrow \text{sSet} \rightarrow \text{Cat}_{\infty}\) induce equivalence of \(\infty-\)categories
+            $$\text{Cat}_{\infty}^1[\text{Joy}^{-1}] \simeq \text{sSet}[\text{Joy}^{-1}] \simeq \text{Cat}_{\infty}.$$
+        </li>
+        <li>
+            The maps  \(\text{Kan} \rightarrow \text{sSet} \rightarrow \text{Spc}\) induce equivalence of \(\infty-\)categories
+            $$\text{Kan}[\text{he}^{-1}] \simeq \text{sSet}[\text{we}^{-1}] \simeq \text{Spc}.$$
+        </li>
+    </ul></p>
+
+    <h2>II. Models of Mapping Spaces</h2>
+    <p><i>Notation: \(S, X, Y\) simplicial sets, \(\mathcal{C}\) an \(\infty\)-category, and \(a,b \in \text{Ob}(\mathcal{C}).\)</i></p>
+    <p>Previously, we've glossed over what a mapping space \(\text{map}_{\mathcal{C}}(a,b)\) is. As a set, it is the subset of \(\mathcal{C}\) which has
+        source \(a\) and target \(b\). It is then reasonable to define the mapping space as the following pullback:
+    </p>
+    <img src="../img/infloc/infloc6.png" class="center50">
+    <p id="leftright">(This diagram lives in \(\text{sSet}\); it is a theorem that the mapping space is actually a Kan complex and therefore a space.) This definition parameterizes the mapping space over both the source and the target. We may also define it in a way where it is parameterized over just the source, or just the target. To do this, we will need a notion of "all the maps to \(b\)", denoted \(\mathcal{C}_{/b}\), or a notion of all the maps from \(a\)", denoted \(\mathcal{C}_{/a}\).
+        (These are called <i>slice categories</i> which we will define shortly.) Once we have these notions, we can define the <i>right mapping space</i> as the pullback
+    </p>
+    <img src="../img/infloc/infloc7.png" class="center40">
+    <p>and the <i>left mapping space</i> as the pullback</p>
+    <img src="../img/infloc/infloc8.png" class="center40">
+    We will show that in fact, all three definitions are homotopy equivalent. But first, we need to define slice categories.
+    <h3>II.a Slices and Joins</h3>
+    <p>Last time, we saw the definition for joins of categories. Let's now define it for simplicial sets. For a linearly ordered set \(J\), a <i>cut</i> of \(J\) is a decomposition \(J = J_1 \coprod J_2\) such that \(j_1 < j_2\) for \(j_i \in J_i.\)</p>
+    <p id="join"><b>Definition.</b> The <i>join</i> \(X \star Y\) sends, for a finite linear ordered set \(J\),
+    $$(X \star Y)(J) = \coprod_{(J_1,J_2 \in \text{cut}(J))} X(J_1) \times Y(J_2).$$</p>
+    <p id="slice"><b>Definition.</b> For \(p:S \rightarrow X\), the <i>slice category</i> \(X_{p/}\) as a simplicial set is 
+    $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(S \star \Delta^n, X)$$ and \(X_{/p}\) as a simplicial set is 
+    $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(\Delta^n \star S, X).$$</p>
+    <p><b>Note.</b> The functor $$(-)_{p/}: \text{sSet}_{S/} \rightarrow \text{sSet}$$
+    $$(p:S \rightarrow X) \mapsto X_{p/}$$ is the right adjoint to \(S \star -: \text{sSet} \rightarrow \text{sSet}_{S/}\), and \((-)_{/p}\) is right adjoint to \(- \star S\).</p>
+    <h3>II.b Fat Slices and Fat Joins</h3>
+    <p>You may object that the definition of a <a href="#join" style="color:#C04000"><b>join</b></a> is too constructive, and instead use the following pushout as definition.</p>
+    <p><b>Definition.</b> The pushout \(X \diamond Y\) of the diagram</p>
+    <img src="../img/infloc/infloc9.png" class="center40">
+    <p>is the <i>fat join</i> of \(X\) and \(Y\).</p>
+    <p><b>Theorem.</b> The join \(X \star Y\) and the fat join \(X \diamond Y\) are Joyal equivalent.</p>
+    <p>The proof of this can be found in section 2.5 of the book.</p>
+    <p>We can also define <i>fat slices</i> using this definition of joins, by replacing each instance of a join in the definition of <a href="#slice" style="color:#C04000"><b>slice</b></a> by a fat join.</p>
+    <p><b>Definition.</b> For \(p:S \rightarrow X\), the <i>fat slice</i> \(X^{p/}\) is 
+        $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(S \diamond \Delta^n, X)$$ and \(X^{/p}\) is 
+        $$[n] \rightarrow \text{Hom}_{\text{sSet}_{S}}(\Delta^n \diamond S, X).$$</p>
+    <p><b>Note.</b> The slices \(X_{p/}, X_{/p}\) are respectively Joyal equivalent to fat slices \(X^{p/}, X^{/p}\), and similar to the adjunction between joins and slices, there is an adjunction between fat joins and fat slices.</p>
+    <h3>II.c Homotopy Equivalence of Mapping Spaces</h3>
+    <p>As it turns out, the mapping space \(\text{map}_{\mathcal{C}}(a,b)\) also arises as the following pullbacks:</p>
+    <img src="../img/infloc/infloc10.png" class="center80">
+    <p>comparing this with the pullback squares of the definition of the <a href="#leftright" style="color:#C04000"><b>left and right mapping spaces</b></a> using the Joyal equivalence map between slices and fat slices gives the desired equivalence. You can find more details in the book, in section 2.5.</p>
+    <h2>III. Homotopy-Coherent Nerve</h2>
+    <p>I define this here because it is important and missed previously. The <i>homotopy-coherent nerve</i> (also known as the <i>simplicial nerve</i>) is a functor
+    $$N:\text{Cat}_{\Delta} \rightarrow \text{sSet}$$ on simplicially-enriched categories which agrees with the classical nerve on \(1-\)categories. The point of this is that the simplicially-enriched categories come with the information of homotopies, and we want to capture that in the nerve. (Recall that the classical nerve doesn't have this information since \(n-\)compositions are unique for \(1-\)categories.)</p>
+    <p>To define it, we need a simplicially-enriched version of \(\Delta^n\). If \(J\) is a linearly ordered set and \(i,j \in J\), let \(P_{i,j}\) be a poset consisting of subsets of \([i,j] \subset J\), partially ordered by inclusion.</p>
+    <p><b>Definition.</b> The simplicially-enriched category \(\mathfrak{C}[\Delta^J]\) has objects given by elements of \(J\) and 
+    $$\text{Hom}_{\mathfrak{C}[\Delta^J]} = \begin{cases} \varnothing & i > j  \\ N(P_{i,j}) & i \leq j.\end{cases}$$</p>
+    <p>Now, for any simplicially-enriched category \(\mathcal{C}\), define its homotopy-coherent nerve \(N(\mathcal{C})\) as the simplicial set where
+        $$N(\mathcal{C})_n = \text{Hom}_{\text{Cat}_{\Delta}}(\mathfrak{C}[\Delta^n], \mathcal{C}).$$</p>
+    <p>Details are in section 1.2 of the book.</p>
+    <h4><i>acknowledgement</i></h4>
+    Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar and for helping me prepare the talk!
+    <br><br>
+    <div class="footnotes">
+        <p class="centertext" style="font-family:'Courier New'"><b>Last revised on 02.17.2025.</b></p>
+    </div>
+
+</body></html>
