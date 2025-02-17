@@ -194,7 +194,7 @@ a, u {
     $$N:\text{Cat}_{\Delta} \rightarrow \text{sSet}$$ on simplicially-enriched categories which agrees with the classical nerve on \(1-\)categories. The point of this is that the simplicially-enriched categories come with the information of homotopies, and we want to capture that in the nerve. (Recall that the classical nerve doesn't have this information since \(n-\)compositions are unique for \(1-\)categories.)</p>
     <p>To define it, we need a simplicially-enriched version of \(\Delta^n\). If \(J\) is a linearly ordered set and \(i,j \in J\), let \(P_{i,j}\) be a poset consisting of subsets of \([i,j] \subset J\), partially ordered by inclusion.</p>
     <p><b>Definition.</b> The simplicially-enriched category \(\mathfrak{C}[\Delta^J]\) has objects given by elements of \(J\) and 
-    $$\text{Hom}_{\mathfrak{C}[\Delta^J]} = \begin{cases} \varnothing & i > j  \\ N(P_{i,j}) & i \leq j.\end{cases}$$</p>
+    $$\text{Hom}_{\mathfrak{C}[\Delta^J]}(i,j) = \begin{cases} \varnothing & i > j  \\ N(P_{i,j}) & i \leq j.\end{cases}$$</p>
     <p>Now, for any simplicially-enriched category \(\mathcal{C}\), define its homotopy-coherent nerve \(N(\mathcal{C})\) as the simplicial set where
         $$N(\mathcal{C})_n = \text{Hom}_{\text{Cat}_{\Delta}}(\mathfrak{C}[\Delta^n], \mathcal{C}).$$</p>
     <p>Details are in section 1.2 of the book.</p>
