@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style>
+.center20 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+.center30 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.center40 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.center50 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.center60 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+.center70 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+.center80 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+.centerpad {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    padding-top:25px;
+    padding-bottom: 10px;
+}
+.centertext {
+    text-align: center;
+}
+:root {
+    --olive: #ff0000; 
+}
+body {
+    font-family: 'Spectral' !important;
+}
+a, u {
+  text-decoration: none;
+}
+
+</style>
+
+
+    <title>The \(\infty-\)categorical Yoneda Lemma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+<meta name="google-site-verification" content="ZQ3T9byeXwrpmoRI93u8jHhLWr8mKufRe06xLfDOsIM" />
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div title="base point" style="display: block; margin-left: auto; margin-right: auto;width:5%"><a  href="../index.html" ><img src="../img/homeicon.png" style="display: block; margin-left: auto; margin-right: auto;"></a></div><br>
+    <h1 class="centertext">the \(\infty-\)categorical Yoneda</h1>
+    
+    <p class="centertext" style="font-family:'Courier New'"><b>date: 03.10.2025</b></p><br>
+    
+    <br>
+    <p class="centertext"> I give this talk as part of a reading seminar on Markus Land's <a style = "background-color: #80800080; color:black" href="https://link.springer.com/book/10.1007/978-3-030-61524-6"><i>Introduction to Infinity-Categories.</i></a>
+    I'm meant to cover sections 4.1:<i> Terminal and Initial Objects</i> and 4.1:<i> the Yoneda Lemma for \(\infty\)-categories</i>. These notes prioritize intuitive understanding; the interested reader should refer to the book for full rigor.</p>
+    <p class="centertext">First, I give the notions of initial and terminal objects of \(\infty-\)categories. Following this, I construct the mapping space functor \(\text{map}_{\mathcal{C}}(-,-)\) for an \(\infty-\)category \(\mathcal{C}\) via the twisted arrow construction. Finally, I state and sketch the proof the the Yoneda lemma.</p>
+
+    <br><p class="centertext"><i>Notation: \(\mathcal{C}\) an \(\infty-\)category, \(x,y\) objects in \(\mathcal{C}\).</i></p>
+    <h2>I. Initial and Terminal Objects</h2>
+    <p><b>Definition.</b> The object \(x\) is <i>initial</i> if for any \(y\), the <a href="infloc.html#mappingspace" style="color: #c04000"><b>mapping space</b></a> \(\text{map}_{\mathcal{C}}(x,y)\) is contractible, and \(x\) is <i>terminal</i> if for any \(y\), \(\text{map}_{\mathcal{C}}(y,x)\) is contractible.</p>
+    <p>Notice that statements we make about initial objects will be true (maybe up to dual notions) for the terminal object in the opposite category.</p>
+    <p><b>Lemma.</b> The following are equivalent:
+    <ul>
+        <li>\(x\) is terminal,</li>
+        <li>the functor \(\mathcal{C}_{/x} \rightarrow \mathcal{C}\) is a trivial fibration,</li>
+        <li>the following lifting problem INSERT admits a solution.</li>
+    </ul></p>
+    <p>For \(1-\)categories, the initial and terminal objects are unique up to unique isomorphism. The \(\infty-\)categorical analogue is for them to be subcomplexes which are contractible Kan. We can easily see that this is true, by the lifting problem characterization of initial and terminal objects in the above lemma. </p>
+    <p><b>Proposition.</b> Let \(\mathcal{C}_{\text{term}}\) be the full subcategory spanned by all terminal objects. Then \(\mathcal{C}_{\text{term}}\) is either empty or a contractible Kan complex.</p>
+    
+    <h4><i>acknowledgement</i></h4>
+    Thanks <a href="https://alvarado-alvarez.github.io/" style="color:#C04000"><b>Carlos Andr&eacute;s Alvarado &Aacutelvarez</b></a> for organizing the seminar!
+    <br><br>
+    <div class="footnotes">
+        <p  style="font-family:'Courier New'"><b>Last revised on 03.09.2025.</b></p>
+    </div>
+
+</body></html>
