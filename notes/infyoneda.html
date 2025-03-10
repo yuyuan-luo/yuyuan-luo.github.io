@@ -94,14 +94,16 @@ a, u {
     <ul>
         <li>\(x\) is terminal,</li>
         <li>the functor \(\mathcal{C}_{/x} \rightarrow \mathcal{C}\) is a trivial fibration,</li>
-        <li>the following lifting problem INSERT admits a solution.</li>
+        <li>the following lifting problem 
+            <img src="../img/infyoneda/infyoneda1.png" class="center40"> admits a solution.</li>
     </ul></p>
     <p>For \(1-\)categories, the initial and terminal objects are unique up to unique isomorphism. The \(\infty-\)categorical analogue is for them to be subcomplexes which are contractible Kan. We can easily see that this is true, by the lifting problem characterization of initial and terminal objects in the above lemma. </p>
     <p><b>Proposition.</b> Let \(\mathcal{C}_{\text{term}}\) be the full subcategory spanned by all terminal objects. Then \(\mathcal{C}_{\text{term}}\) is either empty or a contractible Kan complex.</p>
     <p>The following proposition is another useful characterization of initial and terminal objects.</p>
     <p id="prop"><b>Proposition.</b> The object \(x\) is initial precisely when the map \(x:\Delta^0 \rightarrow \mathcal{C}\) is left-anondyne. Dually, \(x\) is terminal precisely when \(\Delta^0 \rightarrow \mathcal{C}\) is right-anondyne.</p>
-    <p>Instead of a proof I offer the following explanation. Notice that maps \(A \rightarrow B\) are left anodyne roughly when you can construct \(B\) by filling some left and inner horns of \(A\), up to replacement by some equivalent simplicial set with contractible things.
-        In our case, the only (nondegenerate) horns in \(\Delta^0\) are left and right \(1-\)horns. So the map is left anondyne precisely when \(\mathcal{C}\) is equivalent to something which looks like a star-shaped graph centered at \(x\), with edges pointing out. INSERT FIGURE Very easily we see \(x\) is initial. The discussion for final objects is exactly dual.
+            <img src="../img/infyoneda/infyoneda2.png" class="center30"> 
+            <p>Instead of a proof I offer the following explanation. Notice that maps \(A \rightarrow B\) are left anodyne roughly when you can construct \(B\) by filling some left and inner horns of \(A\), up to replacement by some equivalent simplicial set with contractible things. 
+        In our case, the only (nondegenerate) horns in \(\Delta^0\) are left and right \(1-\)horns. So the map is left anondyne precisely when \(\mathcal{C}\) is equivalent to something which looks like a star-shaped graph centered at \(x\), with edges pointing out. Very easily we see \(x\) is initial. The discussion for final objects is exactly dual.
     </p>
 
     <h2>II. the mapping space functor</h2>
@@ -109,6 +111,7 @@ a, u {
         $$(x,y) \mapsto \text{map}_{\mathcal{C}}(x,y).$$ On the level of \(1-\)morphisms, take a map \((x,y) \rightarrow (a,b)\) in \(\mathcal{C}^{\text{op}} \times \mathcal{C}\). This comes from the maps \(a \rightarrow x\) and \(y \rightarrow b\) in \(\mathcal{C}.\)
         This then induces a morphism of the mapping spaces:
         $$\text{map}_{\mathcal{C}}(x,y) \rightarrow \text{map}_{\mathcal{C}}(a,b)$$
+        <img src="../img/infyoneda/infyoneda3.png" class="center50"> 
         For higher simplices, since \(\textbf{Spc}\) is a trivial Kan complex, we can extend uniquely and coherently. This concludes the construction of the functor \(\text{map}_{\mathcal{C}}(-,-).\)
     </p>
     <p>For the purposes of discussing Yoneda, it would help if we can phrase this functor as a fibration over \(\mathcal{C}^{\text{op}} \times \mathcal{C}.\) We do this via the following construction.</p>
@@ -122,7 +125,7 @@ a, u {
         $$\text{Tw}(\mathcal{C}) \rightarrow \mathcal{C} \times \mathcal{C}^{\text{op}}$$
         is a right fibration. In particular, \(\text{Tw}(\mathcal{C})\) is an \(\infty-\)category.
     </p>
-    <p><i>Proof.</i> We check that right and inner horns can be filled: DIAGRAM
+    <p><i>Proof.</i> We check that right and inner horns can be filled: <img src="../img/infyoneda/infyoneda4.png" class="center30"> 
         Notice that \(\Lambda_k^n\) in \(\text{Tw}(\mathcal{C})\) are simply \(\Lambda_k^n \star \Lambda_{n-k}^n\) in \(\mathcal{C}\). Our task is to fill this to a full simplex in \(\mathcal{C}\). Notice first that the bottom map gives the faces of the horns on each end.
         So we are only missing 
         $$\{\text{the }k\text{-th face}\} \star \{\text{the }n-k\text{-th face}\}$$
@@ -138,7 +141,7 @@ a, u {
     <p><i>Proof.</i> Suppose \(F\) corresponds to the left fibration \(p: \mathcal{E} \rightarrow \mathcal{C}\) via straightening-unstraightening. Then we can rewrite the map as 
     $$\text{map}_{\text{Cat}_{\infty_{/\mathcal{C}}}}(\mathcal{C}_{x/}, \mathcal{E}) \rightarrow \mathcal{E}_x.$$</p>
     <p>Now define, for \(f: A \rightarrow B\) map of \(\infty-\)categories and \(\mathcal{C} \rightarrow B\) a fibration, \(\text{Fun}_f(A,B)\) as the following pullback
-        DIAGRAM . Letting \(q\) denote the forgetful map \(\mathcal{C}_{x/} \rightarrow \mathcal{C}\) and rewrite the map as 
+        <img src="../img/infyoneda/infyoneda5.png" class="center30">  Letting \(q\) denote the forgetful map \(\mathcal{C}_{x/} \rightarrow \mathcal{C}\) and rewrite the map as 
         $$\text{Fun}_q(\mathcal{C}_{x/}, \mathcal{E}) \rightarrow \text{Fun}_{\text{id}_x}(\Delta^0, \mathcal{E}).$$ (This rewriting is somewhat nuanced; check book for details. The right hand side is by definition of the fibre.) This map is induced by \(x:\Delta^0 \rightarrow \mathcal{C}_{x/}\), which identifies the initial object. Recall <a href="#prop" style="color:#C04000"><b>proposition</b></a> states that this map is left anodyne. Then a lemma in a book about cocartesian fibrations (which \(q\) and \(p\) both are, since they are left fibrations) gives that the above map is an equivalence, as desired.</p>
     
     <h4><i>acknowledgement</i></h4>
