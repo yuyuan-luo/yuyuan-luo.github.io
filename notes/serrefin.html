@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+.center2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+.centerpad {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    padding-top:25px;
+    padding-bottom: 10px;
+}
+.centertext {
+    text-align: center;
+}
+:root {
+    --olive: #ff0000; 
+}
+body {
+    font-family: 'Spectral' !important;
+}
+a, u {
+  text-decoration: none;
+}
+
+</style>
+
+
+    <title>the Serre finiteness theorem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+<meta name="google-site-verification" content="ZQ3T9byeXwrpmoRI93u8jHhLWr8mKufRe06xLfDOsIM" />
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div title="base point" style="display: block; margin-left: auto; margin-right: auto;width:5%"><a  href="../index.html" ><img src="../img/homeicon.png" style="display: block; margin-left: auto; margin-right: auto;"></a></div><br>
+    <h1 class="centertext">the serre finiteness theorem</h1>
+    
+    <p class="centertext" style="font-family:'Courier New'"><b>date: 03.21.2025</b></p>
+    <p class="centertext" style="font-family:'Courier New'; color:#c04000"><b>TO BE FINISHED BY THE END OF THE DAY</b></p>
+    <p class="centertext" style="font-family:'Courier New'"><b>homotopy groups of spheres are ALL FINITE except for \(\pi_n(S^n)\) and \(\pi_{4k-1}(S^{2k})\), both of which also include a copy of \(\mathbb{Z}\).</b></p><br><br>
+    <p class="centertext"> Serre's original 1953 paper is entitled <a style = "background-color: #80800080; color:black" href="https://www.jstor.org/stable/1969789?seq=1"><i>Groupes D'Homotopie Et Classes De Groupes Ab&eacuteliens.</i></a> I do not know a freely accessible English version. You can also read about this theorem in 
+        Hatcher's <a href="https://pi.math.cornell.edu/~hatcher/AT/ATch5.pdf" style="color:black; background-color:#80800080"><i>Spectral Sequences</i></a> chapter, under the subsection <i>Rational Homotopy Groups</i>.</p>
+    <p class="centertext"> In this talk, I first compute the rational homotopy groups of spheres to be zero except, in the appropriate degrees, \(\mathbb{Q}\). After, I conclude finite generation of the torsion part using Serre's theory of classes of abelian groups. I assume that you know about the Serre spectral sequence, and in these notes I draw the relevant ones and work out all the details carefully. </p>
+
+    <h2 id="strat">general strategy</h2>
+    <p>For an \((k-1)-\)connected space \(X\), consider the fibration
+        $$F \hookrightarrow X \rightarrow K(\pi_k(X),k).$$
+        Notice that by the long exact sequence of homotopy groups, \(F\) is \(k-\)connected and has higher homotopy groups agreeing with those of \(X\). (By definition, \(F\) is the next stage of the Whitehead tower.) 
+    </p>
+    <p>To find \(\pi_{k+1}(X),\) it then suffices to find \(\pi_{k+1}(F)\); since \(F\) is \(k-\)connected, this is the same, by Hurewicz, as \(H_{k-1}(X)\). But this is computable: we can use the Serre spectral sequence to compute it if we know the cohomology of \(X\) and of \(K(\pi_k(X),k).\)</p>
+
+    <p>Our goal is to compute the rational homotopy groups of \(X=S^n\), whose cohomology we already know, and we also know that \(\pi_n(S^n) = \mathbb{Z}\). Let us now compute the rational cohomology of \(K(\mathbb{Z},n)\).</p>
+
+    <h2>rational cohomology of \(K(\mathbb{Z},n)\)</h2>
+    <p>We will prove the following:
+        $$H^*(K(\mathbb{Z},n); \mathbb{Q}) = \begin{cases}
+            \mathbb{Q}[\iota_n] & n \text{ even} \\
+            \mathbb{Q}[\iota_n]/(\iota_n^2) & n \text{ odd.}
+        \end{cases}$$
+        by inducting on \(n\). (The generator is in degree \(n\) for both cases.)
+    </p>
+    <p><b>Sanity checks.</b> <ul>
+        <li>When \(n=1\), we have \(K(\mathbb{Z},1) = S^1\), and \(H^*(S^1; \mathbb{Q}) = \mathbb{Q}[\iota_1]/(\iota_1^2)\).</li>
+        <li>When \(n=2\), we know that \(K(\mathbb{Z},2) = \mathbb{C}P^{\infty}\), and \(H^*(\mathbb{C}P^{\infty}; \mathbb{Q}) = \mathbb{Q}[\iota_2]\).</li>
+    </ul></p>
+
+    <p>The induction will use the path-loop fibration for \(K(\mathbb{Z},k)\):
+        $$ K(\mathbb{Z},n-1) = \Omega K(\mathbb{Z},n) \hookrightarrow PK(\mathbb{Z},n) \rightarrow K(\mathbb{Z},n)$$
+        to which we apply the Serre spectral sequence. The path space \(PK(\mathbb{Z},n)\) is contractible, so the \(E_{\infty}\)-page should be \(0\) everywhere for positive degree.
+    </p>
+
+    <h4>The Case of Odd \(n\)</h4>
+    <p>Inductively, we know that for the fiber, \(H^*(K(\mathbb{Z},n-1); \mathbb{Q}) = \mathbb{Q}[\iota_{n-1}],\) so on the \(E_2\)-page, we know the \(0\)-th column and also that it has to be \(0\) except rows whose degrees are multiples of \(n-1\).
+    </p>
+    <img src="../img/serrefin/serrefin1.jpg" class="center2">
+
+    <p>In the \(E_\infty\)-page, the generator \(\iota_{n-1}\) must be killed. The only differential that could kill it is \(d_n\), so there must be a generator in the base in degree \(n\) which \(d_n\) maps to.</p>
+    <img src="../img/serrefin/serrefin2.jpg" class="center2">
+    <p>This new generator causes there to be \(\iota_{n-1}^k\iota_n\) terms. Fortunately, by the Leibniz rule, inductively we have \(d_n(\iota_{n-1}^{k+1}) = k \cdot \iota^{k}_{n-1} \iota_n\). Since \(k\) is invertible in \(\mathbb{Q}\), this kills \(\iota_{n-1}^{k+1}\). 
+        Further, notice that \(\iota_n^2=0\), since \(d_n \circ d_n(\iota_{n-1}^2) = d_n(\iota_{n-1}\iota_n) = \iota_n^2\) but \(d_n \circ d_n = 0.\) So \(\iota_{n-1}^k\iota_n\) is also killed.
+
+    </p>
+    <img src="../img/serrefin/serrefin3.jpg" class="center2">
+    <p>There should be no generators elsewhere, since if so, they must survive since the generators that could possibly kill them all die on an earlier page.</p>
+    <img src="../img/serrefin/serrefin4.jpg" class="center2">
+    <p>Hence, when \(n\) is odd, the base \(K(\mathbb{Z},n)\) has cohomology \(\mathbb{Q}[\iota_n]/(\iota_n^2)\).</p>
+
+    <h4>The Case of Even \(n\)</h4>
+    <p>Inductively, we know that for the fiber, \(H^*(K(\mathbb{Z},n-1); \mathbb{Q}) = \mathbb{Q}[\iota_{n-1}]/(\iota_{n-1}^2),\) so on the \(E_2\)-page, we know the \(0\)-th column and also that it has to be \(0\) except the \(0\)-th and the \((n-1)\)-th rows.
+    </p>
+    <img src="../img/serrefin/serrefin5.jpg" class="center2">
+    <p>In the \(E_\infty\)-page, the generator \(\iota_{n-1}\) must be killed. The only differential that could kill it is \(d_n\), so there must be a generator in the base in degree \(n\) which \(d_n\) maps to.</p>
+    <img src="../img/serrefin/serrefin6.jpg" class="center2">
+    <p>This new generator causes there to be an \(\iota_{n-1}\iota_n\) term. But by Leibniz we have \(d_n(\iota_{n-1}\iota_n) = \iota_n^2.\) Inductively we have a \(\iota_{n-1}\iota_n^k\) term, and fortunately Leibniz always gives \(d_n(\iota_{n-1}\iota_n^k) = \iota_{n}^{k+1}.\) So all these terms are killed in the \(E_{\infty}\) page.</p>
+    <img src="../img/serrefin/serrefin7.jpg" class="center2">
+    <p>There are no generators elsewhere for degree reasons.</p>
+    <img src="../img/serrefin/serrefin8.jpg" class="center2">
+    <p>Hence, when \(n\) is even, the base \(K(\mathbb{Z},n)\) has cohomology \(\mathbb{Q}[\iota_n]\).</p>
+
+    <h2>rational homotopy of \(S^n\)</h2>
+    <p>Following the <a href="#strat" style="color:#c04000"><b>general strategy</b></a>, we first apply the Serre spectral sequence to the fibration $$W_{\geq n+1}S^n \hookrightarrow S^n \rightarrow K(\mathbb{Z},n)$$
+        to find the cohomology of \(W_{\geq n+1}S^n\). This is the same rank as the homology by universal coefficients, and then we apply Hurewicz.</p>
+
+    <h4>The Case of Odd \(n\)</h4>
+    <p>Notice that the map \(S^n \rightarrow K(\mathbb{Z},n)\) is the Hurewicz map which pulls back the generator of \(K(\mathbb{Z},n\)) in the cohomology, so in particular
+        the generator of \(K(\mathbb{Z},n)\) should survive to the \(E_{\infty}\)-page.
+    </p>
+    <img src="../img/serrefin/serrefin9.jpg" class="center2">
+    <p>This means that there can't be anything in the cohomology of the fiber \(W_{\geq n+1}S^n\), because there is nothing on the bottom row to kill it. Hence, all of its higher rational homology groups are zero, so all of its higher rational homotopy groups are zero by Hurewicz. But 
+        $$\pi_i(W_{\geq n+1}S^n) \otimes \mathbb{Q} = \pi_i(S^n) \otimes \mathbb{Q}$$
+        for \(i > n\), then it follows that $$\pi_i(S^n) \otimes \mathbb{Q} = 0$$ as desired.</p>
+
+    <h4>The Case of Even \(n\)</h4>
+    Again, notice that the map \(S^n \rightarrow K(\mathbb{Z},n)\) is the Hurewicz map which pulls back the generator of \(K(\mathbb{Z},n\)) in the cohomology, so in particular
+        the generator of \(K(\mathbb{Z},n)\) should be the only thing surviving to the \(E_{\infty}\)-page.
+    <img src="../img/serrefin/serrefin10.jpg" class="center2">
+    We do want to kill the \(\iota\)
+    <img src="../img/serrefin/serrefin11.jpg" class="center2">
+    <img src="../img/serrefin/serrefin12.jpg" class="center2">
+    <img src="../img/serrefin/serrefin13.jpg" class="center2">
+
+    
+    <h2>finiteness via serre classes</h2>
+    <p>Now that we've proven that the only free part of \(\pi_i(S^n)\) is in degree \(n\) and in degree \(2n-1\) for even \(n\), we must show that the torsion part is finitely generated. The intuition: if we repeated the whole process with \(\mathbb{Z}\) coefficients, we shouldn't be adding too many generators at each step:
+        if we know finite generation of the fiber and the base, or of the base and the total space, then we should get finite genration for the total space, or for the fiber, respectively. 
+    </p>
+    <p>This <i>two-out-of-three</i> idea is formalized by <b>Serre classes</b> of abelian groups. This is also sometimes called \(\text{mod } \mathcal{C}\) theory.</p>
+    <p><b>Definition.</b> A <i>Serre class</i> \(\mathcal{C}\) is a class of abelian groups closed under taking subgroups, quotients, and extensions. Equivalently, for a short exact sequence
+    $$ 0 \rightarrow A \rightarrow B \rightarrow C \rightarrow 0$$ of abelian groups, if two of \(\{A,B,C\}\) are in \(\mathcal{C}\), then so is the third.</p>
+    <p><b>Examples. </b> <ul>
+        <li>the class of finitely-generated abelian groups (\(\mathbb{Z}\) is Noetherian),</li>
+        <li>the class of torsion abelian groups.</li>
+    </ul></p>
+    <p><b>Proposition.</b> Suppose, in addition, that \(\mathcal{C}\) is a Serre class with \(A \otimes B\) and \(\text{Tor}(A,B) \in \mathcal{C}\) if \(A,B \in \mathcal{C}.\) Take a Serre fibration
+    $$F \hookrightarrow E \rightarrow B$$ with path-connected \(B\) and suppose \(\pi_1(B)\) acts trivially on \(H_*(F; \mathbb{Z})\), then if two of
+    $$\tilde{H^*}(F; \mathbb{Z}), \quad \tilde{H^*}(E; \mathbb{Z}), \quad \tilde{H^*}(B; \mathbb{Z})$$
+    are in \(\mathcal{C}\) then so is the third.</p>
+    <p><i>Proof.</i> Suppose \(\tilde{H^*}(F; \mathbb{Z})\) and \(\tilde{H^*}(B; \mathbb{Z})\) are both in \(\mathcal{C}\). Since \(\mathcal{C}\) is closed under extensions
+    it suffices to show that \(E_{\infty}\)-page is in \(\mathcal{C}\), and since \(\mathcal{C}\) is closed under subsets and quotients, it suffices that \(E_2\)-page is in \(\mathcal{C}\).
+    The Universal Coefficients Theorem gives
+    $$0 \rightarrow H^p(B; \mathbb{Z}) \otimes H^q(F; \mathbb{Z}) \rightarrow H^p(B; H^q(F; \mathbb{Z})) \rightarrow \text{Tor}(H^{p-1}(B; \mathbb{Z}), H^q(F; \mathbb{Z})) \rightarrow 0$$
+    and since \(\mathcal{C}\) is closed under tensor products and \(\text{Tor}\) the \(E_{2}\)-page is in \(\mathcal{C}\).</p>
+    <p>The other two cases go similarly: find the appropriate exact sequence and inductively find that everything is in \(\mathcal{C}\).</p>
+
+    <p>Hence, </p>
+    <br><br>
+    <div class="footnotes">
+        <p  style="font-family:'Courier New'"><b>Last revised on 03.20.2024.</b></p>
+    </div>
+
+
+</body></html>
