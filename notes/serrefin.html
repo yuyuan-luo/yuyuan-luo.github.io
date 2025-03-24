@@ -50,18 +50,36 @@ a, u {
     <h1 class="centertext">the serre finiteness theorem</h1>
     
     <p class="centertext" style="font-family:'Courier New'"><b>date: 03.21.2025</b></p>
-    <p class="centertext" style="font-family:'Courier New'; color:#c04000"><b>TO BE FINISHED BY THE END OF THE DAY</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>homotopy groups of spheres are ALL FINITE except for \(\pi_n(S^n)\) and \(\pi_{4k-1}(S^{2k})\), both of which also include a copy of \(\mathbb{Z}\).</b></p><br><br>
     <p class="centertext"> Serre's original 1953 paper is entitled <a style = "background-color: #80800080; color:black" href="https://www.jstor.org/stable/1969789?seq=1"><i>Groupes D'Homotopie Et Classes De Groupes Ab&eacuteliens.</i></a> I do not know a freely accessible English version. You can also read about this theorem in 
         Hatcher's <a href="https://pi.math.cornell.edu/~hatcher/AT/ATch5.pdf" style="color:black; background-color:#80800080"><i>Spectral Sequences</i></a> chapter, under the subsection <i>Rational Homotopy Groups</i>.</p>
     <p class="centertext"> In this talk, I first compute the rational homotopy groups of spheres to be zero except, in the appropriate degrees, \(\mathbb{Q}\). After, I conclude finite generation of the torsion part using Serre's theory of classes of abelian groups. I assume that you know about the Serre spectral sequence, and in these notes I draw the relevant ones and work out all the details carefully. </p>
 
+
     <h2 id="strat">general strategy</h2>
+    <i>The case of \(S^1\) is clear. For the entire discussion, we will assume simply-connectedness.</i>
     <p>For an \((k-1)-\)connected space \(X\), consider the fibration
         $$F \hookrightarrow X \rightarrow K(\pi_k(X),k).$$
         Notice that by the long exact sequence of homotopy groups, \(F\) is \(k-\)connected and has higher homotopy groups agreeing with those of \(X\). (By definition, \(F\) is the next stage of the Whitehead tower.) 
     </p>
     <p>To find \(\pi_{k+1}(X),\) it then suffices to find \(\pi_{k+1}(F)\); since \(F\) is \(k-\)connected, this is the same, by Hurewicz, as \(H_{k-1}(X)\). But this is computable: we can use the Serre spectral sequence to compute it if we know the cohomology of \(X\) and of \(K(\pi_k(X),k).\)</p>
+
+    <p>One caveat: Hurewicz only works for integer coefficients. But we can get around this relatively easily:</p>
+
+    <p><b>Proposition.</b> If \(\pi_i(X) \otimes \mathbb{Q} = 0\) for \(i < k\), then \(\pi_k(X) \otimes \mathbb{Q} = H_i(X;\mathbb{Q})\).</p>
+    <div class="proof">
+        We induct on \(k.\) Notice that
+        $$\pi_k(X) \otimes \mathbb{Q} = \pi_{k-1}(\Omega X) \otimes \mathbb{Q} = H_{k-1} (\Omega X; \mathbb{Q}) = H_k(X; \mathbb{Q})$$
+        where the second equality comes from induction and the third comes from the following spectral sequence argument. Consider the path-loop fibration
+        $$\Omega X \hookrightarrow PX \rightarrow X$$
+        and consider its homology spectral sequence.
+        <img src="../img/serrefin/serrefin0.jpeg" class="center2">
+
+        Everything in positive degree must die by the \(E^{\infty}\)-page, so the differential forces the desired isomorphism. 
+
+        The base case for the induction comes from $$\pi_2(X) = \pi_1(\Omega X) = \pi_1(\Omega X)^{\text{ab}} = H_1(\Omega X; \mathbb{Z})$$
+        since a \(\pi_2\) is already abelian, and then applying universal coefficients.
+    </div>
 
     <p>Our goal is to compute the rational homotopy groups of \(X=S^n\), whose cohomology we already know, and we also know that \(\pi_n(S^n) = \mathbb{Z}\). Let us now compute the rational cohomology of \(K(\mathbb{Z},n)\).</p>
 
@@ -128,10 +146,23 @@ a, u {
     Again, notice that the map \(S^n \rightarrow K(\mathbb{Z},n)\) is the Hurewicz map which pulls back the generator of \(K(\mathbb{Z},n\)) in the cohomology, so in particular
         the generator of \(K(\mathbb{Z},n)\) should be the only thing surviving to the \(E_{\infty}\)-page.
     <img src="../img/serrefin/serrefin10.jpg" class="center2">
-    We do want to kill the \(\iota\)
+    We do want to kill the \(\iota\), so we know that there is a generator in degree \(2n-1\) in the fiber.
     <img src="../img/serrefin/serrefin11.jpg" class="center2">
+    This creates \(\iota_{2n-1}\iota_n^k\), to which we can apply Leibniz to see that \(d_{2n}(\iota_{2n-1}\iota_n^k) = \iota_n^{k+2}.\)
     <img src="../img/serrefin/serrefin12.jpg" class="center2">
+    There can't be any other generators for degree reasons.
     <img src="../img/serrefin/serrefin13.jpg" class="center2">
+    Hence, the cohomology of \(W_{\geq n+1}S^n\) has no generators until degree \(2n-2\). In particular, by general strategy, \(\pi_i(S^n) \otimes \mathbb{Q} = 0\) for \(n< i <2n-1\), since \(\pi_i(W_{\geq n+1}S^n) \otimes \mathbb{Q} = 0\) for \(i < 2n-1\). 
+    Also, we know that
+    $$\pi_{2n-1}(W_{\geq n+1}S^n) \otimes \mathbb{Q} = \mathbb{Q}$$
+    which means that there is a copy of \(\mathbb{Z}\) in \(H^{2n-1}(W_{\geq n+1}S^n)\). In particular this means there is a map 
+    $$ W_{\geq n+1}S^n \rightarrow K(\mathbb{Z},2n-1)$$
+    which pulls back the generator in cohomology.
+    Now consider the following fibration:
+    $$ F \hookrightarrow W_{\geq n+1}S^n \rightarrow K(2n-1).$$
+    Now we can proceed with the exact same argument for the case of odd \(n\) to conclude that the higher homotopy groups are zero. Hence we've shown that 
+    $$\pi_i(S^n) \otimes \mathbb{Q} = \mathbb{Q}$$
+    for \(i = n, 2n-1\) and zero elsewhere.
 
     
     <h2>finiteness via serre classes</h2>
@@ -142,24 +173,28 @@ a, u {
     <p><b>Definition.</b> A <i>Serre class</i> \(\mathcal{C}\) is a class of abelian groups closed under taking subgroups, quotients, and extensions. Equivalently, for a short exact sequence
     $$ 0 \rightarrow A \rightarrow B \rightarrow C \rightarrow 0$$ of abelian groups, if two of \(\{A,B,C\}\) are in \(\mathcal{C}\), then so is the third.</p>
     <p><b>Examples. </b> <ul>
-        <li>the class of finitely-generated abelian groups (\(\mathbb{Z}\) is Noetherian),</li>
+        <li>the class of finitely-generated abelian groups,</li>
         <li>the class of torsion abelian groups.</li>
     </ul></p>
     <p><b>Proposition.</b> Suppose, in addition, that \(\mathcal{C}\) is a Serre class with \(A \otimes B\) and \(\text{Tor}(A,B) \in \mathcal{C}\) if \(A,B \in \mathcal{C}.\) Take a Serre fibration
     $$F \hookrightarrow E \rightarrow B$$ with path-connected \(B\) and suppose \(\pi_1(B)\) acts trivially on \(H_*(F; \mathbb{Z})\), then if two of
     $$\tilde{H^*}(F; \mathbb{Z}), \quad \tilde{H^*}(E; \mathbb{Z}), \quad \tilde{H^*}(B; \mathbb{Z})$$
     are in \(\mathcal{C}\) then so is the third.</p>
-    <p><i>Proof.</i> Suppose \(\tilde{H^*}(F; \mathbb{Z})\) and \(\tilde{H^*}(B; \mathbb{Z})\) are both in \(\mathcal{C}\). Since \(\mathcal{C}\) is closed under extensions
+    <div class="proof">Suppose \(\tilde{H^*}(F; \mathbb{Z})\) and \(\tilde{H^*}(B; \mathbb{Z})\) are both in \(\mathcal{C}\). Since \(\mathcal{C}\) is closed under extensions
     it suffices to show that \(E_{\infty}\)-page is in \(\mathcal{C}\), and since \(\mathcal{C}\) is closed under subsets and quotients, it suffices that \(E_2\)-page is in \(\mathcal{C}\).
     The Universal Coefficients Theorem gives
     $$0 \rightarrow H^p(B; \mathbb{Z}) \otimes H^q(F; \mathbb{Z}) \rightarrow H^p(B; H^q(F; \mathbb{Z})) \rightarrow \text{Tor}(H^{p-1}(B; \mathbb{Z}), H^q(F; \mathbb{Z})) \rightarrow 0$$
-    and since \(\mathcal{C}\) is closed under tensor products and \(\text{Tor}\) the \(E_{2}\)-page is in \(\mathcal{C}\).</p>
-    <p>The other two cases go similarly: find the appropriate exact sequence and inductively find that everything is in \(\mathcal{C}\).</p>
+    and since \(\mathcal{C}\) is closed under tensor products and \(\text{Tor}\) the \(E_{2}\)-page is in \(\mathcal{C}\). The other two cases go similarly: find the appropriate exact sequence on each page and induct down from the \(E_{\ell}\)-page (for \(\ell >> 0\)) to find that everything is in \(\mathcal{C}\).
+    </div>
+    <p>One immediate application of this proposition is that the integral cohomology of \(K(\mathbb{Z}/m,n)\) is finitely-generated, inductively from the Lens spaces. Once we have this,
+        we can do this again with the fibrations coming from the Whitehead tower of \(S^n\) and inductively see that all the homotopy groups should be finitely generated.
+    </p>
 
-    <p>Hence, </p>
+    <h4>acknowledgement</h4>
+    Thanks Evan Huang for showing me the simpler version of the \(\text{mod } \mathbb{Q}\) Hurewicz!
     <br><br>
     <div class="footnotes">
-        <p  style="font-family:'Courier New'"><b>Last revised on 03.20.2024.</b></p>
+        <p  style="font-family:'Courier New'"><b>Last revised on 03.24.2024.</b></p>
     </div>
 
 
