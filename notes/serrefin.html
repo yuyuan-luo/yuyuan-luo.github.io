@@ -62,7 +62,7 @@ a, u {
         $$F \hookrightarrow X \rightarrow K(\pi_k(X),k).$$
         Notice that by the long exact sequence of homotopy groups, \(F\) is \(k-\)connected and has higher homotopy groups agreeing with those of \(X\). (By definition, \(F\) is the next stage of the Whitehead tower.) 
     </p>
-    <p>To find \(\pi_{k+1}(X),\) it then suffices to find \(\pi_{k+1}(F)\); since \(F\) is \(k-\)connected, this is the same, by Hurewicz, as \(H_{k-1}(X)\). But this is computable: we can use the Serre spectral sequence to compute it if we know the cohomology of \(X\) and of \(K(\pi_k(X),k).\)</p>
+    <p>To find \(\pi_{k+1}(X),\) it then suffices to find \(\pi_{k+1}(F)\); since \(F\) is \(k-\)connected, this is the same, by Hurewicz, as \(H_{k+1}(X)\). But this is computable: we can use the Serre spectral sequence to compute it if we know the cohomology of \(X\) and of \(K(\pi_k(X),k).\)</p>
 
     <p>One caveat: Hurewicz only works for integer coefficients. But we can get around this relatively easily:</p>
 
@@ -181,12 +181,12 @@ a, u {
     $$\tilde{H^*}(F; \mathbb{Z}), \quad \tilde{H^*}(E; \mathbb{Z}), \quad \tilde{H^*}(B; \mathbb{Z})$$
     are in \(\mathcal{C}\) then so is the third.</p>
     <div class="proof">Suppose \(\tilde{H^*}(F; \mathbb{Z})\) and \(\tilde{H^*}(B; \mathbb{Z})\) are both in \(\mathcal{C}\). Since \(\mathcal{C}\) is closed under extensions
-    it suffices to show that \(E_{\infty}\)-page is in \(\mathcal{C}\), and since \(\mathcal{C}\) is closed under subsets and quotients, it suffices that \(E_2\)-page is in \(\mathcal{C}\).
-    The Universal Coefficients Theorem gives
+    it suffices to show that \(E_{\infty}\)-page is in \(\mathcal{C}\), and since \(\mathcal{C}\) is closed under subgroups and quotients, it suffices that \(E_2\)-page is in \(\mathcal{C}\).
+    Then universal coefficients gives the exact sequence
     $$0 \rightarrow H^p(B; \mathbb{Z}) \otimes H^q(F; \mathbb{Z}) \rightarrow H^p(B; H^q(F; \mathbb{Z})) \rightarrow \text{Tor}(H^{p-1}(B; \mathbb{Z}), H^q(F; \mathbb{Z})) \rightarrow 0$$
-    and since \(\mathcal{C}\) is closed under tensor products and \(\text{Tor}\) the \(E_{2}\)-page is in \(\mathcal{C}\). The other two cases go similarly: find the appropriate exact sequence on each page and induct down from the \(E_{\ell}\)-page (for \(\ell >> 0\)) to find that everything is in \(\mathcal{C}\).
-    </div>
-    <p>One immediate application of this proposition is that the integral cohomology of \(K(\mathbb{Z}/m,n)\) is finitely-generated, inductively from the Lens spaces. Once we have this,
+    and since \(\mathcal{C}\) is closed under tensor products and \(\text{Tor}\), the \(E_{2}\)-page is in \(\mathcal{C}\). <p>The other two cases go similarly: find the appropriate exact sequence on each page and induct down from the \(E_{\ell}\)-page (for \(\ell >> 0\)) to find that everything is in \(\mathcal{C}\).
+    </p></div>
+    <p>One immediate application of this proposition is that the integral cohomology of \(K(\mathbb{Z}/m,n)\) is finitely-generated, inductively from the Lens spaces, using the path-loop fibration. Once we have this,
         we can do this again with the fibrations coming from the Whitehead tower of \(S^n\) and inductively see that all the homotopy groups should be finitely generated.
     </p>
 
