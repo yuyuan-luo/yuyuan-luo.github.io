@@ -18,6 +18,19 @@ body {
 a, u {
   text-decoration: none;
 }
+div:has(> blockquote) {
+  background-color: #f0f0f0;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+
+blockquote + p {
+  text-align: right;
+}
+
 </style>
 
 
@@ -45,37 +58,50 @@ a, u {
  
     <br>
     <p class="centertext" style="font-family:'Courier New'"><b><em>lastname</em> dot <em>firstname</em> at princeton dot edu</b></p><br>
+ 
     <p class="centertext">Hi! I'm a first year student of mathematics at Princeton. I am broadly interested in topology and algebraic geometry. I like drawing pictures. </p>
     
     
     <br>
 
     <p class="centertext">Previously, I was an undergrad at <a href="https://www.mit.edu/~lyuyuan/" style="color:#C04000;">MIT</a>. </p><p class="centertext"><i>(Get in touch if you're looking for my writing from before grad school!)</i></p>
+    <br>
+    <div>
+        <div>
+            <blockquote>
+              <p><i>
+                Quand tu veux construire un bateau, ne commence pas par rassembler du bois, couper des planches et distribuer du travail, mais reveille au sein des hommes le desir de la mer grande et large.
+            </i></p>
+            </blockquote>
+            <p> Antoine de Saint-Exup&eacutery, <cite>Le Petit Prince</cite></p>
+          </div>
     
-    <br>  
+    </div>
     <br> 
+        
+    <div><h2><img src="img/writingicon.png" style="width:5%; display:inline-block"> learning / talk notes</h2>
+        <ul>
+            <table border=1 frame=void rules=rows style="font-size:80%">
+                <tr>
+                    <td><b>03.21.2025</b></td>
+                    <td><a href="notes/serrefin.html" style = "color:#C04000"><b>Notes</b></a> on <b>Serre finiteness</b> for the <a href="https://web.math.princeton.edu/~gn4470/spring2025/topology_party.html" style = "color:olive"><i>Top Secret Topology Party.</i></a> </td>
+                </tr>
+                <tr>
+                    <td><b>03.10.2025</b></td>
+                    <td><a href="notes/infyoneda.html" style = "color:#C04000"><b>Notes</b></a> on <b>\(\infty\)-categorical Yoneda</b> for the <a href="https://alvarado-alvarez.github.io/infinity.html" style = "color:olive"><i>Infinity Categories Learning Seminar.</i></a> </td>
+                </tr>
+                <tr>
+                    <td><b>02.17.2025</b></td>
+                    <td><a href="notes/infloc.html" style = "color:#C04000"><b>Notes</b></a> on<b> localizations and other constructions</b> for the <a href="https://alvarado-alvarez.github.io/infinity.html" style = "color:olive"><i>Infinity Categories Learning Seminar.</i></a> </td>
+                </tr>
+                <tr>
+                    <td><b>11.19.2024</b></td>
+                    <td><a href="notes/brownrep.html" style = "color:#C04000"><b>Notes</b></a> on <b>Brown representability</b> for the <a href="https://web.math.princeton.edu/~gn4470/fall2024/topology_party.html" style = "color:olive"><i>Top Secret Topology Party.</i></a> </td>
+                </tr>
+            </table>
+        </ul></div>
 
-    <h2><img src="img/writingicon.png" style="width:5%; display:inline-block"> learning / talk notes</h2>
-    <ul>
-        <table border=1 frame=void rules=rows style="font-size:80%">
-            <tr>
-                <td><b>03.21.2025</b></td>
-                <td><a href="notes/serrefin.html" style = "color:#C04000"><b>Notes</b></a> on <b>Serre finiteness</b> for the <a href="https://web.math.princeton.edu/~gn4470/spring2025/topology_party.html" style = "color:olive"><i>Top Secret Topology Party.</i></a> </td>
-            </tr>
-            <tr>
-                <td><b>03.10.2025</b></td>
-                <td><a href="notes/infyoneda.html" style = "color:#C04000"><b>Notes</b></a> on <b>\(\infty\)-categorical Yoneda</b> for the <a href="https://alvarado-alvarez.github.io/infinity.html" style = "color:olive"><i>Infinity Categories Learning Seminar.</i></a> </td>
-            </tr>
-            <tr>
-                <td><b>02.17.2025</b></td>
-                <td><a href="notes/infloc.html" style = "color:#C04000"><b>Notes</b></a> on<b> localizations and other constructions</b> for the <a href="https://alvarado-alvarez.github.io/infinity.html" style = "color:olive"><i>Infinity Categories Learning Seminar.</i></a> </td>
-            </tr>
-            <tr>
-                <td><b>11.19.2024</b></td>
-                <td><a href="notes/brownrep.html" style = "color:#C04000"><b>Notes</b></a> on <b>Brown representability</b> for the <a href="https://web.math.princeton.edu/~gn4470/fall2024/topology_party.html" style = "color:olive"><i>Top Secret Topology Party.</i></a> </td>
-            </tr>
-        </table>
-    </ul>
+    
 
     <h2><img src="img/staricon.png" style="width:5%; display:inline-block"> fun things</h2>
     <ul>
@@ -87,7 +113,7 @@ a, u {
 
     <br><br><br>
     <div class="footnotes">
-        <p style="font-family:'Courier New'"><b>Last revised on 03.21.2024.</b></p>
+        <p style="font-family:'Courier New'"><b>Last revised on 03.30.2025.</b></p>
     </div>
 
 
