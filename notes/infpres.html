@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style>
+.center20 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+.center30 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.center40 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.center50 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.center60 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+.center70 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+.center80 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+.centerpad {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    padding-top:25px;
+    padding-bottom: 10px;
+}
+.centertext {
+    text-align: center;
+}
+:root {
+    --olive: #ff0000; 
+}
+body {
+    font-family: 'Spectral' !important;
+}
+a, u {
+  text-decoration: none;
+}
+
+</style>
+
+
+    <title>Presheaves, Sheaves, and Adjunctions in \(\infty\)-Categories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+<meta name="google-site-verification" content="ZQ3T9byeXwrpmoRI93u8jHhLWr8mKufRe06xLfDOsIM" />
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div title="base point" style="display: block; margin-left: auto; margin-right: auto;width:5%"><a  href="../index.html" ><img src="../img/homeicon.png" style="display: block; margin-left: auto; margin-right: auto;"></a></div><br>
+    <h1 class="centertext">presheaves, sheaves, and adjunctions in \(\infty\)-categories</h1>
+    
+    <p class="centertext" style="font-family:'Courier New'"><b>date: 05.12.2025</b></p><br>
+    
+    <br>
+    <p class="centertext"> I give this talk at a <i><a style="color:black; background-color: #80800080;" href="https://hiroleetanaka.com/workshop-2025/index.php">workshop</a></i> on moduli spaces of pseudoholomorphic curves. This is the first talk on \(\infty\)-categories and is based more or less on HTT, Kerodon, and nLab. My job is to lay down some definitions and assert some facts. </p>
+
+
+    <h2>I. Presheaves & Yoneda</h2>
+    <p>For a \(1\)-category \(\mathcal{C}\), Yoneda's lemma states that the Yoneda embedding
+        $$j: \mathcal{C} \rightarrow \text{Set}^{\mathcal{C}^{\text{op}}}$$
+        $$ C \mapsto \text{Hom}_{\mathcal{C}}(-,C)$$
+        is fully faithful, where \(\text{Set}^{\mathcal{C}^{\text{op}}}\) is the category of set-valued presheaves over \(\mathcal{C}\). In the case of \(\infty\)-categories, the mapping spaces are Kan complexes, so we consider space-valued presheaves.
+        </p>
+    <p><b>Definition.</b> Take \(S\) a simplicial set, define \(\mathcal{P}(S)\) the simplicial set \(\text{Fun}(S^{\text{op}}, \textbf{Spc})\) where \(\textbf{Spc} := N(\text{Kan}).\) This is the <i>\(\infty\)-category of presheaves on \(S\)</i>.</p>
+    <p>Functor categories are sometimes opaque; luckily, via straightening-unstraightening, representable functors in \(\text{Fun}(S^{\text{op}}, \textbf{Spc})\) correspond to <i>right fibrations</i>. 
+    
+    <p><b>Definition.</b> A morphism \(f:X \rightarrow S\) of simplicial sets is a <i>right fibration</i> if \(f\) has the right lifting property with respect to all inner and right horn inclusions
+    $$\begin{CD}
+        \Lambda_k^n @>>> X \\
+        @VVV            @VVfV \\
+        \Delta^n @>>> S
+    \end{CD}$$
+    for \(0 < k \leq n.\)</p>
+
+    <p>The vibe for going between presheaves and right fibrations: given a functor to \(\textbf{Spc}\), construct fibration by collecting into "fibers" the target of the functor, and the homotopical information upstairs is given by the homotopical information in the target of the functor. The condition of being a right fibration ensures we land in \(\textbf{Spc}\) and not just \(\text{Cat}_{\infty}.\) Lots of details to check here, you can read more about the straightening-unstraightening equivalence in <b><a style="color:#808000; font-family: 'Courier New';" href="https://alvarado-alvarez.github.io/PDFs/Rafah-seminar-notes.pdf">[these lovely notes]</a></b> by Rafah Hajjar. (Everything is phrased in terms of cocartesian/left fibrations there, so just take the dual notions.)</p>
+    <p><b>Remark.</b>The presheaf category \(\mathcal{P}(S)\) admits small limits and colimits. One explanation of this is that this is true of \(\textbf{Spc}.\)
+            
+    </p>
+    <p><b>Yoneda.</b> Let \(S\) be a simplicial set. Then the Yoneda embedding $$j: S \rightarrow \mathcal{P}(S)$$ is fully faithful.</p>
+    <p>Look <b><a style="color:#808000; font-family: 'Courier New';" href="./infyoneda.html">[here]</a></b> to see how the proof goes.</p>
+
+    <h2>II. Adjunctions & Kan Extensions</h2>
+    <p>Often, we want to restrict from a bigger category to a smaller one while keeping track of the relevant structure. Classically we do this via adjunctions, with the one adjoint playing the role of the "free" functor and the other playing the role of the "forgetful" one,
+        and we define it via checking the hom-sets. To define adjunctions \(\infty\)-categorically we want also control over coherence information, and the easiest way to do this is to define it via unit and counit maps.</p>
+    <p><b>Definition.</b> For functors of \(\infty\)-categories
+    $$F: \mathcal{C} \leftrightarrows \mathcal{D} : G$$
+    the pair of natural transformations (i.e. \(2\)-simplices) \(\eta: \text{id}_{\mathcal{C}} \Rightarrow G \circ F\) and \(\epsilon: F \circ G \Rightarrow \text{id}_{\mathcal{D}}\) are <i>compatible up to homotopy</i> if in \(\text{Fun}(\mathcal{C}, \mathcal{D})\) there exists the \(2\)-simplex</p>
+    <br><img src="../img/infpres/infpres1.png" class="center50"><br>
+    <p>and in \(\text{Fun}(\mathcal{D}, \mathcal{C})\) there exists the \(2\)-simplex</p>
+    <br><img src="../img/infpres/infpres2.png" class="center50"><br>
+
+    <p>In this situation we say that \(\eta\) is the <i>unit</i> of an adjunction and \(\epsilon\) is the <i>counit</i>. The data of the adjunction between \(F\) and \(G\) is a choice of unit and counit.</p>
+
+    <p><b>Fact.</b> A functor is a left adjoint if and only if it preserves small colimits; a right adjoint if and only if it preserves small limits. (Just think about where cones/cocones get mapped!)</p>
+
+    <p><b>Fact.</b> Adjoints are unique up to contractible choice: let \(\text{Fun}^L(\mathcal{C}, \mathcal{D})\), \(\text{Fun}^R(\mathcal{C}, \mathcal{D})\subset \text{Fun}(\mathcal{C}, \mathcal{D})\) denote that sub \(\infty\)-categories of left and right adjoints respectively.
+    Then there is a canonical equivalence of \(\infty\)-categories 
+    $$\text{Fun}^L(\mathcal{C}, \mathcal{D}) \xrightarrow{\sim} \text{Fun}^R(\mathcal{D}, \mathcal{C})^{\text{op}}$$ which takes a left adjoint to its corresponding right adjoint.</p>
+
+    <p>Uniquness lets us define things in terms of adjunctions; one example is the notion of <i>Kan extensions</i>. Essentially, a left Kan extension fills a left \(2\)-horn in \(\text{Cat}_{\infty}\) and a right Kan extension fills a right \(2\)-horn in \(\text{Cat}_{\infty}\). Note that \(\text{Cat}_{\infty}\) is a Kan complex so that horn fillings always exist. The Kan extension is one such filling which is universal in some sense. </p>
+    <p><b>Definition.</b> Fix \(p: \mathcal{C} \rightarrow \mathcal{C'}\); this induces 
+    $$p^*: \text{Fun}(\mathcal{C}, \mathcal{D}) \rightarrow \text{Fun}(\mathcal{C'}, \mathcal{D}).$$
+    Its left adjoint, if exists, is the  <i>left Kan extension.</i> Similarly, its right adjoint, if exists, is the <i>right Kan fibration.</i></p>
+    <p>They exist barring size issues. Left Kan extensions preserve colimits and right Kan extensions preserve limits.
+
+    <h2>III. Reflective Subcategories, Sheaves & Sheafification</h2>
+    <p>We might want to consider subcategories which "capture their own structures entirely" in the bigger category. These are the <i>reflective subcategories.</i></p>
+    <p><b>Definition.</b> A <i>reflective subcategory</i> is a subcategory for which the inclusion functor has a left adjoint.</p>
+    <p>Suppose we are given an adjunction $$F: \mathcal{C} \leftrightarrows \mathcal{D} : G$$
+        and \(\mathcal{A}\), \(\mathcal{B}\) reflective subcategories of \(\mathcal{C},\mathcal{D}\) respectively. If \(F(\mathcal{A})\subseteq \mathcal{B}\) and \(G(\mathcal{B})\subseteq \mathcal{A}\), then \(F,G\) restrict to an adjunction on \(\mathcal{A},\mathcal{B}.\)
+    </p>
+
+    <p>One example of a reflective subcategory: the category of <i>sheaves over \(S\),</i> \(\mathcal{Sh}(S)\), inside \(\mathcal{P}(S)\). We first define sheaves over topological spaces.</p>
+    <p><b>Definition.</b> A <i>sheaf</i> \(\mathcal{F}\) over a topological space \(X\) is a presheaf 
+    $$\mathcal{F}: \text{Open}(X)^{\text{op}} \rightarrow \textbf{Spc}$$
+    such that for any open cover \(\{U_i\}\) of \(U\), the following 
+    $$\mathcal{F}(U) \rightarrow {} \rightrightarrows$$</p>
+    <p>(The definition of a sheaf only required a sense of covering out of the topology. We can generalize the notion of a sheaf to be over anything with a reasonable notion of covering, i.e. <i>Grothendieck topology.</i>)</p>
+    <p><b>Definition.</b> The <i>sheafification</i> functor is the left adjoint to the inclusion functor \(\mathcal{Sh}(S) \hookrightarrow \mathcal{P}(S).\)</p>
+    The <i>pushforward-pullback adjunction</i> of presheaves gives one example of passing adjunctions to a reflective subcategory.
+    <p><b>Definition.</b> Given a map of topological spaces \(f: X \rightarrow Y,\) the <i>pushforward</i> functor 
+    $$f_*: \mathcal{Sh}(X) \rightarrow \mathcal{Sh}(Y)$$ is defined by
+    $$(f_*F)(U) := F(f^{-1}(U))$$
+    which sends sheaves to sheaves. Its left adjoint, the <i>pullback</i> functor, 
+    $$f^*: \mathcal{Sh}(Y) \rightarrow \mathcal{Sh}(X)$$
+    can be constructed as presheaf pullback \(U \mapsto \text{colim}_{f(U) \subset V} \mathcal{F}(V)\) composed with sheafification.</p>
+    <p>Notice that the discussion in this section could've been done over presheaves and sheaves valued in arbitrary \(\infty\)-categories and not just in \(\textbf{Spc}.\) </p>
+
+
+    <h2>IV. Universal Property of Presheaf Category</h2>
+</body></html>
