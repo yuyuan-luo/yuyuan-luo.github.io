@@ -111,7 +111,7 @@ a, u {
 
     <h2>II. Adjunctions & Kan Extensions</h2>
     <p>Often, we want to restrict from a bigger category to a smaller one while keeping track of the relevant structure. Classically we do this via adjunctions, with the left adjoint playing the role of the "free" functor and the right adjoint playing the role of the "forgetful" one,
-        and we define it via checking the hom-sets. To define adjunctions \(\infty\)-categorically we want also control over homotopy information, and the easiest way to do this is to define it via unit and counit maps.</p>
+        and we define it via checking the hom-sets. To define adjunctions \(\infty\)-categorically we want also control over coherence information, and the easiest way to do this is to define it via unit and counit maps.</p>
     <p><b>Definition.</b> For functors of \(\infty\)-categories
     $$F: \mathcal{C} \leftrightarrows \mathcal{D} : G$$
     the pair of natural transformations (i.e. \(2\)-simplices) \(\eta: \text{id}_{\mathcal{C}} \Rightarrow G \circ F\) and \(\epsilon: F \circ G \Rightarrow \text{id}_{\mathcal{D}}\) are <i>compatible up to homotopy</i> if in \(\text{Fun}(\mathcal{C}, \mathcal{D})\) there exists the \(2\)-simplex</p>
@@ -151,7 +151,7 @@ a, u {
     The <i>pushforward-pullback adjunction</i> of presheaves gives one example of passing adjunctions to a reflective subcategory.
     <p><b>Definition.</b> Given a map of topological spaces \(f: X \rightarrow Y,\) the <i>pushforward</i> functor 
     $$f_*: \mathcal{Sh}(X) \rightarrow \mathcal{Sh}(Y)$$ is defined by
-    $$(f_*F)(U) := F(f^{-1}(U))$$
+    $$(f_*\mathcal{F})(U) := \mathcal{F}(f^{-1}(U))$$
     which sends sheaves to sheaves. Its left adjoint, the <i>pullback</i> functor, 
     $$f^*: \mathcal{Sh}(Y) \rightarrow \mathcal{Sh}(X)$$
     can be constructed as presheaf pullback \(U \mapsto \text{colim}_{f(U) \subset V} \mathcal{F}(V)\) composed with sheafification.</p>
