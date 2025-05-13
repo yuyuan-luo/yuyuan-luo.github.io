@@ -121,7 +121,7 @@ a, u {
 
     <p>In this situation we say that \(\eta\) is the <i>unit</i> of an adjunction and \(\epsilon\) is the <i>counit</i>. The data of the adjunction between \(F\) and \(G\) is a choice of unit and counit.</p>
 
-    <p><b>Fact.</b> A functor is a left adjoint if and only if it preserves small colimits; a right adjoint if and only if it preserves small limits. (Just think about where cones/cocones get mapped!)</p>
+    <p><b>Fact.</b> A left adjoint preserves small colimits; a right adjoint preserves small limits. (Just think about where cones/cocones get mapped!) The converse is true with size restrictions on the categories.</p>
 
     <p><b>Fact.</b> Adjoints are unique up to contractible choice: let \(\text{Fun}^L(\mathcal{C}, \mathcal{D})\), \(\text{Fun}^R(\mathcal{C}, \mathcal{D})\subset \text{Fun}(\mathcal{C}, \mathcal{D})\) denote that sub \(\infty\)-categories of left and right adjoints respectively.
     Then there is a canonical equivalence of \(\infty\)-categories 
@@ -137,15 +137,14 @@ a, u {
     <p>We might want to consider subcategories which "capture their own structures entirely" in the bigger category. These are the <i>reflective subcategories.</i></p>
     <p><b>Definition.</b> A <i>reflective subcategory</i> is a subcategory for which the inclusion functor has a left adjoint.</p>
     <p>Suppose we are given an adjunction $$F: \mathcal{C} \leftrightarrows \mathcal{D} : G$$
-        and \(\mathcal{A}\), \(\mathcal{B}\) reflective subcategories of \(\mathcal{C},\mathcal{D}\) respectively. If \(F(\mathcal{A})\subseteq \mathcal{B}\) and \(G(\mathcal{B})\subseteq \mathcal{A}\), then \(F,G\) restrict to an adjunction on \(\mathcal{A},\mathcal{B}.\)
+        and \(\mathcal{A}\), \(\mathcal{B}\) reflective subcategories of \(\mathcal{C},\mathcal{D}\) respectively. If \(F(\mathcal{A})\subseteq \mathcal{B}\) or \(G(\mathcal{B})\subseteq \mathcal{A}\), then \(F,G\) restrict to an adjunction on \(\mathcal{A},\mathcal{B}.\)
     </p>
 
     <p>One example of a reflective subcategory: the category of <i>sheaves over \(S\),</i> \(\mathcal{Sh}(S)\), inside \(\mathcal{P}(S)\). We first define sheaves over topological spaces.</p>
     <p><b>Definition.</b> A <i>sheaf</i> \(\mathcal{F}\) over a topological space \(X\) is a presheaf 
     $$\mathcal{F}: \text{Open}(X)^{\text{op}} \rightarrow \textbf{Spc}$$
-    such that for any open cover \(\{U_i\}\) of \(U\), the following 
-    $$\mathcal{F}(U) \rightarrow \prod_i \mathcal{F}(U_i) \rightrightarrows \prod_{i,j} \mathcal{F}(U_i \cap U_j) $$
-    is an equilizer.</p>
+    such that for any open cover \(\{U_i\}\) of \(U\), we have 
+    $$\mathcal{F}(U) \rightarrow \prod_i \mathcal{F}(U_i) \rightrightarrows \prod_{i,j} \mathcal{F}(U_i \cap U_j) \substack{\rightarrow\\[-2em] \rightarrow \\[-2em] \rightarrow} \cdots$$</p>
     <p>(The definition of a sheaf only required a sense of covering, to make sense of gluing. We can generalize the notion of a sheaf to be over any categories with a reasonable notion of covering, not just categories of open sets, i.e. <i>Grothendieck topology.</i>)</p>
     <p><b>Definition.</b> The <i>sheafification</i> functor is the left adjoint to the inclusion functor \(\mathcal{Sh}(S) \hookrightarrow \mathcal{P}(S).\)</p>
     The <i>pushforward-pullback adjunction</i> of presheaves gives one example of passing adjunctions to a reflective subcategory.
