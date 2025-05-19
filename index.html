@@ -31,6 +31,40 @@ blockquote + p {
   text-align: right;
 }
 
+.hover-highlight {
+  position: relative;
+  display: inline-block;
+  color: black;
+  font-style: normal;
+  text-decoration: none;
+  transition: color 0.3s ease, font-style 0.3s ease;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.hover-highlight::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: #80800080; /* translucent olive */
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.hover-highlight:hover {
+  color: black;
+  font-style: italic;
+}
+
+.hover-highlight:hover::before {
+  transform: scaleX(1);
+}
+
 </style>
 
 
@@ -73,7 +107,9 @@ blockquote + p {
                 When you want to build a ship, do not begin by gathering wood, cutting planks, and distributing labor; instead, awaken in people the yearning for the vast and endless sea.
             </i></p>
             </blockquote>
-            <p> "Antoine de Saint-Exup&eacutery"</p>
+            <div style="text-align: right;">
+                <a href="https://quoteinvestigator.com/2015/08/25/sea/" class="hover-highlight">"Antoine de Saint-Exup&eacutery"</a>
+              </div>
           </div>
     
     </div>
@@ -117,7 +153,7 @@ blockquote + p {
 
     <br><br><br>
     <div class="footnotes">
-        <p style="font-family:'Courier New'"><b>Last revised on 05.12.2025.</b></p>
+        <p style="font-family:'Courier New'"><b>Last revised on 05.19.2025.</b></p>
     </div>
 
 
