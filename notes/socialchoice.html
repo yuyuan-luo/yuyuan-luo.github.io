@@ -52,10 +52,29 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>date: 10.23.2025</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>what kinds of decisions can be made fairly?</b></p><br><br>
     <p class="centertext"> A <i>social choice model</i> is a framework which aggregates individual preferences into a collective decision. It is often reasonable to model the possible preferences one could have as a topological space \(X\), and the social choice model as a continuous map \(X^n \rightarrow X\). We ask the question: for which space X does there exist such an aggregator map which is fair (anonymity) and faithful (unanimity)? There are very few, and in this talk, I tell you what they are.</p>
-    <p class="centertext"> This talk is accessible to a general mathematical audience. The main reference is Shmuel Weinberger's 2004 paper, <i><a style="color:black; background-color: #80800080;" href="https://www.sciencedirect.com/science/article/abs/pii/S0022053103002576">On the topological social choice model.</a></i></p>
+    <p class="centertext"> This talk is accessible to a general audience. The main references are Beno Eckmann's <i><a style="color:black; background-color: #80800080;" href="https://www.sciencedirect.com/science/article/pii/S0723086904800161">Social choice and topology: a case of pure and applied mathematics</a></i> (2004 rephrasing for economists of work done in 1954) and Shmuel Weinberger's <i><a style="color:black; background-color: #80800080;" href="https://www.sciencedirect.com/science/article/abs/pii/S0022053103002576">On the topological social choice model</a></i> (2004).</p>
 
-    <h2>I. some motivating examples</h2>
+    <h2>I. a motivating example</h2>
+    <p>Suppose you are meeting your friends Alice and Bob at a park. You are deciding where to meet up before walking around together. You live near the north-west corner, so you suggest that. Alice will be getting coffee beforehand from her favorite coffee shop near the north-east corner, so she suggests that. Bob similarly suggests the south-east corner. How should you decide where to meet?</p>
+    <p>This is a totally uninteresting park, and you are going on a totally uninteresting walk, so there are no other factors other than your individual preferences. To be fair to everyone, you decide to meet somewhere in the middle -- together the three of you decide that for any uninteresting walk, the fair thing to do is to take the average of each of your preferred positions.</p>
+    <p>A few years later, you decide that you want to take an uninteresting walk with Alice and Bob again. Interestingly, you discover that the three of you are now equidistant on the equator. Where should you meet?</p>
+    <p>As you've decided earlier, the fair thing to do is to go to the "average" of your positions. But what does this mean on a sphere?</p>
 
+    <h2>II. some other examples of social choice</h2>
+    <p><b>Example ii.1.</b> You are cooking with your \(n-1\) friends and deciding how much of each spice to put in, and each friend has a preference level for each spice. You could all decide on some spice choice function together:
+    $$ (\text{spice space})^n \rightarrow \text{spice space}$$
+    and it would be a fair decision if it is invariant under the action of the symmetric group by permuting the friends. In other words, if any two friends swapped preferences, the end decision should be the same. 
+    We want it to actually track our preferences. It'd be silly if all of us want \(3\) salts in our food but the final decision is to put in only \(2\) salts. So we require that if we have a unanimous opinion, the final decision should reflect that.</p>
+    <p>We could, for instance, decide to take the average preference for each spice. We could also decide to take the minimum value for chili powder, and the maximum value for salt. </p>
+    <p>There are clearly many possible spice choice functions which satisfy our "fairness" and "faithfulness" criteria on our spice space which is a contractible subset of \(\mathbb{R}^n\).</p>
+
+    <p><b>Example ii.2.</b> The teacher projects on the screen the footage from a remote-controlled telescope that could be turned \(360^{\circ}\), and each student has a preference for the angle of the sky-space to monitor.
+    The teacher, being a dictator, chooses the angle that maximizes teaching goals. Then the map
+    $$ (S_1)^n \rightarrow S_1=\text{sky space}$$
+    is a projection to the teacher component. Notice that this breaks our "fairness" criterion, though it doesn't break our "faithfulness" criterion. If the remote-control is broken and the telescope stucks in the same position, it'll break our "faithfulness" criterion but not our "fairness" one. </p>
+
+    <h2>III. formalization of the problem</h2>
+    
     <div class="footnotes">
         <p  style="font-family:'Courier New'"><b>Last revised on 10.21.2025.</b></p>
     </div>
