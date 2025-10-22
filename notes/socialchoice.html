@@ -83,9 +83,27 @@ a, u {
         <li><b>Anonymity:</b> that \(f\) is equivariant under \(S_n\) action by permuting the agents. This is the notion of "fairness".</li>
     </ul>
     <p><b>Question.</b> Which spaces \(X\) admit social choice functions, and for which \(n\)?</p>
-    <p>This remark is unimportant for the rest of the talk, but we can also phrase the question follows: unanimity forces the value of \(f\) on the diagonal, so we're actually just interested in the extension problem of extending the map
+    <p>This comment is unimportant for the rest of the talk, but we can also phrase the question follows: unanimity forces the value of \(f\) on the diagonal, so we're actually just interested in the extension problem of extending
         $$(X^n/S_n)|_{\Delta} \rightarrow X$$
-        to the whole of \(X^n/S_n\). 
+        along inclusion into \(X^n/S_n\). </p>
+    </p>
+
+    <h2>means on groups</h2>
+    <p>Let \(G\) be a group, an <i>\(\)n-mean</i> is a map $$\phi: G^n \rightarrow G$$ which is invariant under \(S_n\) action and \(f(x, \ldots, x) = x\) for all \(x\). Notice that by functoriality of the fundamental group functor \(\pi_1(-)\), the social choice function
+    \(f:X^n \rightarrow X\) induces $$f_*:  \pi_1(X^n) = \pi_1(X)^n \rightarrow \pi_1(X)$$ which is an \(n\)-mean on \(\pi_1(X)\). A similar thing happens for all \(\pi_k(X)\). Then if we get conditions on the existence of a group \(n\)-mean, this gives conditions on the existence of a social choice function.</p>
+
+    <p><b>Proposition.</b> If \(G\) admits an \(n\)-mean for some \(n\geq2\), then \(G\) is abelian and multiplication by \(n\) is an automorphism on \(G\).</p>
+    <div class="proof"> First define \(g:G \rightarrow G\) as
+    $$g(x) = f(x,0,\ldots,0) = \ldots = f(0,\ldots,0,x)$$ and notice 
+    $$g(x) + g(y) = f(x,0,\ldots,0) + f(0,y,\ldots,0) $$ $$ = f(x,y,\ldots,0) = f(y,x,\ldots,0) = g(y)+g(x).$$
+    Also notice
+    $$ng(x) = g(nx) = f(x,\ldots,x) = x$$
+    so multiplication by \(n\) is the inverse of \(g\) so both are automorphisms. Then, since \(g(x+y) = g(y+x)\) we also get \(x+y=y+x\), as desired. </div>
+    <p>Now let's see what group means could possibly look like. Write \(g=n^{-1}\). We have
+        $$nf(x_1,\ldots, x_n) = ng(x_1+\ldots+x_n) = x_1+\ldots+x_n$$
+        which means
+        $$f(x_1,\ldots,x_n) = n^{-1}(x_1+\ldots+x_n).$$
+        So the \(n\)-mean is unique if it exists, and is precisely the "arithmetic mean". Then, if \(G\) is finitely generated and admits an \(n\)-mean, all elements of \(G\) must be coprime to \(n\), and in particular the arder cannot be infinite. If \(G\) is finitely generated and admits an \(n\)-mean for every \(n\) then \(G=0.\)</p>
     </p>
 
     <div class="footnotes">
