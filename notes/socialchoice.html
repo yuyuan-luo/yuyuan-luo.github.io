@@ -52,13 +52,17 @@ a, u {
     <p class="centertext" style="font-family:'Courier New'"><b>date: 10.23.2025</b></p>
     <p class="centertext" style="font-family:'Courier New'"><b>what kinds of decisions can be made fairly?</b></p><br><br>
     <p class="centertext"> A <i>social choice model</i> is a framework which aggregates individual preferences into a collective decision. It is often reasonable to model the possible preferences one could have as a topological space \(X\), and the social choice model as a continuous map \(X^n \rightarrow X\). We ask the question: for which space X does there exist such an aggregator map which is fair (anonymity) and faithful (unanimity)? There are very few, and in this talk, I tell you what they are.</p>
-    <p class="centertext"> This talk is accessible to a general audience. The main references are Beno Eckmann's <i><a style="color:black; background-color: #80800080;" href="https://www.sciencedirect.com/science/article/pii/S0723086904800161">Social choice and topology: a case of pure and applied mathematics</a></i> (2004 rephrasing for economists of work done in 1954) and Shmuel Weinberger's <i><a style="color:black; background-color: #80800080;" href="https://www.sciencedirect.com/science/article/abs/pii/S0022053103002576">On the topological social choice model</a></i> (2004).</p>
+    <p class="centertext"> This is a 40 minute lunch talk and is accessible to a general audience. The main references are Beno Eckmann's <i><a style="color:black; background-color: #80800080;" href="https://www.sciencedirect.com/science/article/pii/S0723086904800161">Social choice and topology: a case of pure and applied mathematics</a></i> (2004 rephrasing of work done in 1954) and Shmuel Weinberger's <i><a style="color:black; background-color: #80800080;" href="https://www.sciencedirect.com/science/article/abs/pii/S0022053103002576">On the topological social choice model</a></i> (2004).</p>
 
     <h2>a motivating example</h2>
     <p>Suppose you are meeting your friends Alice and Bob at a park. You are deciding where to meet up before walking around together. You live near the north-west corner, so you suggest that. Alice will be getting coffee beforehand from her favorite coffee shop near the north-east corner, so she suggests that. Bob similarly suggests the south-east corner. How should you decide where to meet?</p>
+    <img class="center2" src="../img/socialchoice/socialchoice1.png" alt="social choice example 1">
     <p>This is a totally uninteresting park, and you are going on a totally uninteresting walk, so there are no other factors other than your individual preferences. To be fair to everyone, you decide to meet somewhere in the middle -- together the three of you decide that for any uninteresting walk, the fair thing to do is to take the average of each of your preferred positions.</p>
-    <p>A few years later, you decide that you want to take an uninteresting walk with Alice and Bob again. Interestingly, you discover that the three of you are now equidistant on the equator. Where should you meet?</p>
-    <p>As you've decided earlier, the fair thing to do is to go to the "average" of your positions. But what does this mean on a sphere?</p>
+    <img class="center2" src="../img/socialchoice/socialchoice2.png" alt="social choice example 2">
+    <p>A few years later, you decide that you want to take an uninteresting walk with Alice and Bob again, this time around a circular lake. The averaging thing doesn't work so well anymore, but you come up with a different approach: you decide to meet at the point that minimizes the total distance traveled by all three of you.</p>
+    <img class="center" src="../img/socialchoice/socialchoice3.png" alt="social choice example 3">
+    <p>Unfortunately, you discover that you are equidistant on the lake's edge. Now you have three possible aggregate points. To make matters worse, you realize that if you move half an inch in Alice's direction, you'd make everyone to go towards Alice, and if you move half an inch in Bob's direction, you'd make everyone go towards Bob.</p>
+    <p>This is horrible, it gives everyone too much power. This discontinuity is disconcerting. Ideally, we'd come up with a fair plan where if each person changes their decision a tiny bit, the collective decision should also only change by a tiny bit. But is it possible to do this in this situation?</p>
 
     <h2>some other examples of social choice</h2>
     <p><b>Example ii.1.</b> You are cooking with your \(n-1\) friends and deciding how much of each spice to put in, and each friend has a preference level for each spice. You could all decide on some spice choice function together:
@@ -82,8 +86,8 @@ a, u {
         <li><b>Unanimity:</b> if all agents have the same preference \(x\), then the collective decision should be \(f(x, \ldots, x) = x\). This ensures the function tracks the preferences;</li>
         <li><b>Anonymity:</b> that \(f\) is equivariant under \(S_n\) action by permuting the agents. This is the notion of "fairness".</li>
     </ul>
-    <p><b>Question.</b> Which spaces \(X\) admit social choice functions, and for which \(n\)?</p>
-    <p>This comment is unimportant for the rest of the talk, but we can also phrase the question follows: unanimity forces the value of \(f\) on the diagonal, so we're actually just interested in the extension problem of extending
+    <p><b>Question.</b> Which spaces \(X\) admit social choice functions?</p>
+    <p>We can also phrase the question follows: unanimity forces the value of \(f\) on the diagonal, so we're actually just interested in the extension problem of extending
         $$(X^n/S_n)|_{\Delta} \rightarrow X$$
         along inclusion into \(X^n/S_n\). </p>
     </p>
@@ -103,11 +107,44 @@ a, u {
         $$nf(x_1,\ldots, x_n) = ng(x_1+\ldots+x_n) = x_1+\ldots+x_n$$
         which means
         $$f(x_1,\ldots,x_n) = n^{-1}(x_1+\ldots+x_n).$$
-        So the \(n\)-mean is unique if it exists, and is precisely the "arithmetic mean". Then, if \(G\) is finitely generated and admits an \(n\)-mean, all elements of \(G\) must be coprime to \(n\), and in particular the arder cannot be infinite. If \(G\) is finitely generated and admits an \(n\)-mean for every \(n\) then \(G=0.\)</p>
+        So the \(n\)-mean is unique if it exists, and is precisely the "arithmetic mean". Then, if \(G\) is finitely generated and admits an \(n\)-mean, all elements of \(G\) must be coprime to \(n\), and in particular \(G\) cannot have free part. If \(G\) is finitely generated and admits an \(n\)-mean for every \(n\) then \(G=0.\)</p>
     </p>
 
+    <h2>topological consequences</h2>
+    <p><b>Corollary.</b> The sphere \(S^k\) does not admit social choice functions for \(n\) agents with \(n \geq 2\).</p>
+    <div class="proof">We have \(\pi_k(S^k) = \mathbb{Z}\), so there's no \(n\)-mean for \(\pi_k(S^k)\).</div>
+    <p><b>Theorem.</b> If a connected space \(X\) with finitely generated homology admits social choice functions for any number of agents, then \(X\) is contractible.</p>
+    <p>The proof is simple: we inductively learn that each homotopy group is finitely generated, so admitting all the \(n\)-means implies that it is zero, so all the homotopy groups end up being zero.</p>
+    <p>What if we drop the finite generation hypothesis? Let's start simple: let's start with spaces with only one nontrivial homotopy group.</p>
+    <p><b>Definition.</b> An <i>Eilenberg-Maclane space</i> \(X = K(G,k)\) is a space whose homotopy is concentrated in a single degree, i.e.
+    $$
+    \pi_i(X) \cong \begin{cases}
+    G & i=k \\
+    0 & i \neq k
+    \end{cases}
+    $$
+    </p>
+    <p>Homotopy classes of maps \(K(G_1,k) \rightarrow K(G_2, k)\) correspond to group homomorphisms \(G_1 \rightarrow G_2\).</p>
+    <p>For any \(n\), the arithmetic mean  
+        $$\mathbb{Q}^n \rightarrow \mathbb{Q}$$
+        corresponds to a map 
+        $$K(\mathbb{Q}^n, k)= K(\mathbb{Q}, k)^n \rightarrow K(\mathbb{Q}, k)$$
+        and we have to check that this does correspond to a social choice function. Phrased as an extension problem of lifting the diagonal, this turns out to be true by a lemma of Grothendieck on cohomology with rational coefficients. 
+    </p>
+    <p><b>Theorem.</b> The space \(K(\mathbb{Q}, k)\) admits social choice functions for any number of agents.</p>
+    <p>It turns out these are all the possibilities, by some techniques of Hopf and Serre. Here's the complete classification.</p>
+    <p><b>Theorem.</b> If \(X\) is a connected CW complex admitting social choice functions for any \(n\), then it is either
+    <ol>
+        <li>contractible if the homology is finitely generated, or</li>
+        <li>a product of Eilenberg-Maclane spaces, \(\prod_i K(G_i, k_i).\)</li>
+    </ol></p>
+
+    <h3><i>concluding remark</i></h3>
+    <p>I would recommend reading Eckmann's <i><a style="color:black; background-color: #80800080;" href="https://www.sciencedirect.com/science/article/pii/S0723086904800161">note</a></i>, it is rather lucid and frankly quite an entertaining historical account.</p><br><br>
+
+
     <div class="footnotes">
-        <p  style="font-family:'Courier New'"><b>Last revised on 10.21.2025.</b></p>
+        <p  style="font-family:'Courier New'"><b>Last revised on 10.23.2025.</b></p>
     </div>
 
 </body></html>
